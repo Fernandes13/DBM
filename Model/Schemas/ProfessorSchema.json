@@ -1,0 +1,33 @@
+{
+    "title": "Professor",
+    "type": "object",
+    "properties": {
+        "firstName": {
+            "type": "string"
+        },
+        "lastName": {
+            "type": "string"
+        },
+        "age": {
+            "type": "integer",
+            "description": "Age in years",
+            "minimum": 0
+        },
+        "initials":{
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+        }
+    },
+    "required": ["firstName", "lastName"],
+
+    "references":[
+        {
+            "model": "Turma",
+            "relation": "M-M"
+        },
+        {
+          "model": "Aluno",
+          "relation": "1-1"
+        }
+    ]
+}

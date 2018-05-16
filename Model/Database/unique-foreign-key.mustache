@@ -1,0 +1,2 @@
+ALTER TABLE {{tableName}}s ADD COLUMN {{columnName}}_id INTEGER DEFAULT -1 REFERENCES {{parentInfo}}_id);
+CREATE UNIQUE INDEX {{tableName}}s_index ON {{tableName}}s({{columnName}}_id);

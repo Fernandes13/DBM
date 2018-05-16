@@ -1,0 +1,15 @@
+{
+    "title": "Turma",
+    "type": "object",
+    "properties": {
+        "initials": {
+            "type": "string"
+        }
+    },
+    "required": ["initials", "professor"],
+
+    "references":[{
+        "model": "Professor",
+        "relation": "M-M"
+    }]
+}

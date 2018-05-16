@@ -1,0 +1,15 @@
+{
+    "port": "8080",
+    "dbname": "labs.db",
+    "models": [
+        {"name": "Aluno",
+        "path": "./Model/Schemas/AlunosSchema.json"
+        },
+        {"name": "Professor",
+            "path": "./Model/Schemas/ProfessorSchema.json"
+        },
+        {"name": "Turma",
+            "path": "./Model/Schemas/TurmaSchema.json"
+        }],
+    "modules": { "express": "true"}
+}

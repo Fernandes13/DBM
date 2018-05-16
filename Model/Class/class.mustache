@@ -1,0 +1,28 @@
+function {{classTitle}} ({{classProperties}}) {
+{{{classConstructor}}}
+}
+
+var database = require('./sqlite.js')('{{dbname}}');
+
+{{classTitle}}.all = function (callback) {
+    database.all("SELECT * FROM {{classTitle}}", {{classTitle}}, callback);
+}
+
+{{classTitle}}.get = function (id, callback) {
+    //fazer a chamada à função get do database
+}
+
+{{classTitle}}.prototype.save = function (callback) {
+    if(this.{{primaryKey.name}}) { //Se existir valor no id será para update
+        //fazer a chamada à função run do database para atualizar o registo
+    } else { //caso contrário para insert
+        //fazer a chamada à função run do database para inserir o registo
+    }
+}
+
+{{classTitle}}.mappingDBtoObject = {
+    {{{mappingDBtoObject}}}
+}
+
+module.exports = {{classTitle}};
+
