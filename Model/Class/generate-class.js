@@ -1,5 +1,4 @@
 const dbpath = 'labs.db';
-//var sqlite = require('../sqlite.js')(dbpath);
 var mustache = require("mustache");
 var fs = require('fs');
 
@@ -56,7 +55,6 @@ function createClass(schema){
 
   fs.writeFile(name, output);
 }  
-//console.log(schema);
-//console.log(view);
+
 
 module.exports.createClass = createClass;

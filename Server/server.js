@@ -19,6 +19,12 @@ function createIndex(){
     childProcess.fork('./Publish/index.js', [], {execArgv: ['--debug=8080']});
 }
 
+function copyStaticFiles(){
+    configs.staticFiles.forEach(file =>{
+        fs.createReadStream(file.originalPath).pipe(fs.createWriteStream(file.destinationPath));
+    });
+}
+
 function createDatabase(){
     var schemas = [];
 
@@ -28,6 +34,8 @@ function createDatabase(){
 
     database_generator.generate(configs.dbname,schemas);
     setTimeout(() =>{database_generator.addForeignKey(configs.dbname,schemas)},2000);
+    setTimeout(() =>{copyStaticFiles()},2000);
+
    
 }
 

@@ -11,5 +11,10 @@
         {"name": "Turma",
             "path": "./Model/Schemas/TurmaSchema.json"
         }],
-    "modules": { "express": "true"}
+    "modules": { "express": "true"},
+    "staticFiles":[
+        {   "originalPath": "./Model/Database/sqlite.js", 
+            "destinationPath": "./Publish/Database/sqlite.js"
+        }
+    ]
 }

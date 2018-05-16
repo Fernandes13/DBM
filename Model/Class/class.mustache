@@ -6,7 +6,7 @@ function {{title}} ({{propertiesJoin}}) {
         Object.defineProperty(this,'{{primaryKey.name}}',{ enumerable:false});
 }
 
-var database = require('./sqlite.js')('{{dbname}}');
+var database = require('./Model/Database/sqlite.js')('{{dbname}}');
 
 {{title}}.all = function (callback) {
     database.all("SELECT * FROM {{table}}", {{title}}, callback);
@@ -22,6 +22,10 @@ var database = require('./sqlite.js')('{{dbname}}');
     } else { //caso contrário para insert
         database.run("INSERT INTO {{table}} ({{propertiesJoin}}) VALUES ({{propertiesValuesParams}})", [{{propertiesJoinThis}}],callback);
     }
+}
+
+{{title}}.delete = function(id, callback){
+    database.run("DELETE FROM {{table}} WHERE {{primaryKey.columnName}} = ?",[id],callback);  
 }
 
 {{title}}.mappingDBtoObject = {
