@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
+{{#models}}
 var {{title}} = require({{path}});
+{{/models}}
 
 /**
 * Método que faz o mapeamento entre um objeto retornado pelo módulo sqlite num objeto de uma classe
@@ -19,6 +20,7 @@ function mapping(object, type) {
     return obj;
 }
 
+{{#models}}
 router.post('/{{title}}', function(req,res){
     mapping(req.body,{{title}}).save(); //converte o objeto retornado no corpo do pedido num objeto do tipo {{title}}
 });
@@ -54,6 +56,6 @@ router.delete('/{{title}}/:id'function(req,res){
         });
     });
 });
-
+{{/models}}
 
 module.exports = router;
