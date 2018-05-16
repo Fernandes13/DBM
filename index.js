@@ -12,11 +12,11 @@ app.get("/", function (req, res) {
 });
 
 app.post("/generate", function (req, res) {
-    //serverModule.clearFolders();
     
-    //serverModule.createClass(schema);
-    serverModule.createDatabase(schema.title, schema);
-    
+    serverModule.clearFolders();
+    setTimeout(() =>{serverModule.createClass(schema)},1000);
+    setTimeout(() =>{serverModule.createDatabase(schema.title, schema)},2000);
+
     res.sendStatus(200);
 });
 

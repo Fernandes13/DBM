@@ -1,28 +1,31 @@
-function {{classTitle}} ({{classProperties}}) {
-{{{classConstructor}}}
+function {{title}} ({{propertiesJoin}}) {
+    {{#properties}}
+        this.{{name}} = {{name}};
+        {{^required}}Object.defineProperty(this,'{{name}}',{ enumerable:false});{{/required}}         
+    {{/properties}}
+        Object.defineProperty(this,'{{primaryKey.name}}',{ enumerable:false});
 }
 
 var database = require('./sqlite.js')('{{dbname}}');
 
-{{classTitle}}.all = function (callback) {
-    database.all("SELECT * FROM {{classTitle}}", {{classTitle}}, callback);
+{{title}}.all = function (callback) {
+    database.all("SELECT * FROM {{table}}", {{title}}, callback);
 }
 
-{{classTitle}}.get = function (id, callback) {
-    //fazer a chamada à função get do database
+{{title}}.get = function (id, callback) {
+    database.get("SELECT * FROM {{table}} WHERE {{primaryKey.columnName}} = ?", [id],{{title}},callback);
 }
 
-{{classTitle}}.prototype.save = function (callback) {
-    if(this.{{primaryKey.name}}) { //Se existir valor no id será para update
-        //fazer a chamada à função run do database para atualizar o registo
+{{title}}.prototype.save = function (callback) {
+    if(this.{{primaryKey.name}}) { //Se existir valor no id será para UPDATE
+       database.run("UPDATE {{table}} SET {{{propertiesSetValues}}} WHERE {{primaryKey.columnName}} = ?",[{{propertiesJoinThis}},this.{{primaryKey.name}}],callback);
     } else { //caso contrário para insert
-        //fazer a chamada à função run do database para inserir o registo
+        database.run("INSERT INTO {{table}} ({{propertiesJoin}}) VALUES ({{propertiesValuesParams}})", [{{propertiesJoinThis}}],callback);
     }
 }
 
-{{classTitle}}.mappingDBtoObject = {
+{{title}}.mappingDBtoObject = {
     {{{mappingDBtoObject}}}
 }
 
-module.exports = {{classTitle}};
-
+module.exports = {{title}};

@@ -26,8 +26,8 @@ function createDatabase(){
         schemas.push(JSON.parse(fs.readFileSync(model.path)));
     });
 
-   //database_generator.generate(configs.dbname,schemas);
-   database_generator.addForeignKey(configs.dbname,schemas);
+    database_generator.generate(configs.dbname,schemas);
+    setTimeout(() =>{database_generator.addForeignKey(configs.dbname,schemas)},2000);
    
 }
 
