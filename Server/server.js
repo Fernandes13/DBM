@@ -5,6 +5,7 @@ var mustache = require('mustache');
 var childProcess = require('child_process');
 var class_generator = require("../Model/Class/generate-class.js");
 var database_generator = require("../Model/Database/generate-database.js");
+var api_generator = require("../Model/Controllers/generate-controllers.js");
 var configs = JSON.parse(fs.readFileSync('./Server/config.json'));
 
 
@@ -43,6 +44,17 @@ function createClass(schema){
     class_generator.createClass(schema);
 }
 
+function generateApi(){
+
+    var schemas = [];
+
+    configs.models.forEach(model =>{
+        schemas.push(JSON.parse(fs.readFileSync(model.path)));
+    });
+
+    api_generator.generateApi(configs,schemas);
+}
+
 function createFolders(callback){
     mkdirp('./Publish/Controllers');
     mkdirp('./Publish/Models');
@@ -69,3 +81,4 @@ module.exports.clearFolders = clearFolders;
 module.exports.createFolders = createFolders;
 module.exports.createClass = createClass;
 module.exports.createDatabase = createDatabase;
+module.exports.generateApi = generateApi;

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 {{#models}}
-var {{title}} = require({{path}});
+var {{title}} = require('{{{path}}}');
 {{/models}}
 
 /**
@@ -49,7 +49,7 @@ router.put('/{{title}}/:id',function(req,res){ //o id tanto poderia ir no corpo 
     });
 });
 
-router.delete('/{{title}}/:id'function(req,res){
+router.delete('/{{title}}/:id',function(req,res){
     {{title}}.delete(req.params.id, function(err){
         res.json({
             sucess: !err

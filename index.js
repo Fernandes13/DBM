@@ -16,6 +16,7 @@ app.post("/generate", function (req, res) {
     serverModule.clearFolders();
     setTimeout(() =>{serverModule.createClass(schema)},1000);
     setTimeout(() =>{serverModule.createDatabase()},2000);
+    setTimeout(() =>{serverModule.generateApi()},3000);
 
     res.sendStatus(200);
 });

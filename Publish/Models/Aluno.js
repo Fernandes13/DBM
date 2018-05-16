@@ -28,6 +28,10 @@ Aluno.prototype.save = function (callback) {
     }
 }
 
+Aluno.delete = function(id, callback){
+    database.run("DELETE FROM alunos WHERE aluno_id = ?",[id],callback);  
+}
+
 Aluno.mappingDBtoObject = {
     numero:'numero',nome:'nome',morada:'morada',nota:'nota',aluno_id:'id'
 }
