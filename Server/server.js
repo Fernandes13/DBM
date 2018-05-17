@@ -34,25 +34,22 @@ function createDatabase(){
     });
 
     database_generator.generate(configs.dbname,schemas);
-    setTimeout(() =>{database_generator.addForeignKey(configs.dbname,schemas)},2000);
-    setTimeout(() =>{copyStaticFiles()},2000);
-
-   
+    setTimeout(() =>{database_generator.addForeignKey(configs.dbname,schemas)},1000);
+    setTimeout(() =>{copyStaticFiles()},1000);
 }
 
-function createClass(schema){
-    class_generator.createClass(schema);
-}
-
-function generateApi(){
-
+function createClass(){
     var schemas = [];
 
     configs.models.forEach(model =>{
         schemas.push(JSON.parse(fs.readFileSync(model.path)));
     });
 
-    api_generator.generateApi(configs,schemas);
+    class_generator.createClass(configs.dbname,schemas);
+}
+
+function generateApi(){
+    api_generator.generateApi(configs);
 }
 
 function createFolders(callback){
