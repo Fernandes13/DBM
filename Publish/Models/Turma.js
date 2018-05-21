@@ -4,7 +4,7 @@ function Turma (initials) {
         Object.defineProperty(this,'id',{ enumerable:false});
 }
 
-var database = require('./Model/Database/sqlite.js')('');
+var database = require('../Database/sqlite.js')('');
 
 Turma.all = function (callback) {
     database.all("SELECT * FROM turmas", Turma, callback);

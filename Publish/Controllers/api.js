@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var Aluno = require('./Model/Schemas/AlunosSchema.json');
-var Professor = require('./Model/Schemas/ProfessorSchema.json');
-var Turma = require('./Model/Schemas/TurmaSchema.json');
+var Aluno = require('../Models/Aluno');
+var Professor = require('../Models/Professor');
+var Turma = require('../Models/Turma');
 
 /**
 * Método que faz o mapeamento entre um objeto retornado pelo módulo sqlite num objeto de uma classe

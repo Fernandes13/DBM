@@ -17,6 +17,9 @@ app.post("/generate", function (req, res) {
     setTimeout(() =>{serverModule.createClass(schema)},1000);
     setTimeout(() =>{serverModule.createDatabase()},2000);
     setTimeout(() =>{serverModule.generateApi()},3000);
+    setTimeout(() =>{serverModule.generateFrontOffice()},4000);
+    setTimeout(() =>{serverModule.generateBackOffice()},5000);
+    setTimeout(() =>{serverModule.createIndex()},6000);
 
     res.sendStatus(200);
 });

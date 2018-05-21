@@ -7,7 +7,6 @@ function generateApi(configs) {
       return configs.models.map(model => {
         return {
           title: model.name,
-          path: model.path
         };
       });
     }

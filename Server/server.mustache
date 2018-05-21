@@ -1,15 +1,14 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var routes = require('./Controllers/api');
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/api','./Controllers/api.js');
 
-app.get("/", function (req, res) {
-    res.send("Hello World");
-});
+app.use("/api", routes);
+app.use("/","./Controllers/frontoffice.js");
+app.use("/backoffice","./Controllers/backoffice.js");
 
 var server = app.listen({{port}}, function () {
 
-    console.log("Example app listening at port{{port}}");
+    console.log("Example app listening at port {{port}}");
 });

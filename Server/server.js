@@ -17,7 +17,7 @@ function createIndex(){
 
     fs.writeFile('./Publish/index.js', output);
 
-    childProcess.fork('./Publish/index.js', [], {execArgv: ['--debug=8080']});
+    childProcess.fork('./Publish/index.js', [], {execArgv: ['--debug=8082']});
 }
 
 function copyStaticFiles(){
@@ -52,14 +52,41 @@ function generateApi(){
     api_generator.generateApi(configs);
 }
 
-function createFolders(callback){
+function generateFrontOffice(){
+    console.log("entrou front");
+    var template = fs.readFileSync("./Server/frontOffice.mustache").toString();
+    var output = mustache.render(template);
+    var name = "./Publish/Controllers/frontOffice.js";
+
+    fs.writeFile(name, output);
+}
+  
+function generateBackOffice(){
+    var view = {
+        models: function() {
+          return configs.models.map(model => {
+            return {
+              title: model.name,
+            };
+          });
+        }
+    };
+
+    var template = fs.readFileSync("./Server/backOffice.mustache").toString();
+    var output = mustache.render(template,view);
+    var name = "./Publish/Controllers/backOffice.js";
+
+    fs.writeFile(name, output);
+}
+
+function createFolders(){
     mkdirp('./Publish/Controllers');
     mkdirp('./Publish/Models');
     mkdirp('./Publish/Views');
     mkdirp('./Publish/Database');
 
     mkdirp('./Publish/Public', function (err) {
-        callback();
+        
         if (err) console.log("Erro pasta public");
 
         mkdirp('./Publish/Public/Css');
@@ -71,11 +98,14 @@ function createFolders(callback){
 }
 
 function clearFolders() {
-    del(['./Publish/']).then(paths => createFolders(createIndex));
+    del(['./Publish/']).then(paths => createFolders());
 }
 
 module.exports.clearFolders = clearFolders;
 module.exports.createFolders = createFolders;
 module.exports.createClass = createClass;
 module.exports.createDatabase = createDatabase;
+module.exports.createIndex = createIndex;
 module.exports.generateApi = generateApi;
+module.exports.generateFrontOffice = generateFrontOffice;
+module.exports.generateBackOffice = generateBackOffice;

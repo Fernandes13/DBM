@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 {{#models}}
-var {{title}} = require('{{{path}}}');
+var {{title}} = require('../Models/{{title}}');
 {{/models}}
 
 /**

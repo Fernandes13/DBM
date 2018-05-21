@@ -6,7 +6,7 @@ function {{title}} ({{propertiesJoin}}) {
         Object.defineProperty(this,'{{primaryKey.name}}',{ enumerable:false});
 }
 
-var database = require('./Model/Database/sqlite.js')('{{dbname}}');
+var database = require('../Database/sqlite.js')('{{dbname}}');
 
 {{title}}.all = function (callback) {
     database.all("SELECT * FROM {{table}}", {{title}}, callback);
