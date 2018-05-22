@@ -4,7 +4,7 @@ function Turma (initials) {
         Object.defineProperty(this,'id',{ enumerable:false});
 }
 
-var database = require('../Database/sqlite.js')('');
+var database = require('../Database/sqlite.js')('./Publish/Database/labs.db');
 
 Turma.all = function (callback) {
     database.all("SELECT * FROM turmas", Turma, callback);
@@ -15,6 +15,7 @@ Turma.get = function (id, callback) {
 }
 
 Turma.prototype.save = function (callback) {
+    console.log(this.id + " ID");
     if(this.id) { //Se existir valor no id será para UPDATE
        database.run("UPDATE turmas SET initials = ? WHERE turma_id = ?",[this.initials,this.id],callback);
     } else { //caso contrário para insert

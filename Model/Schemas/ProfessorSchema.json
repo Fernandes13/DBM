@@ -8,10 +8,10 @@
         "lastName": {
             "type": "string"
         },
-        "age": {
-            "type": "integer",
-            "description": "Age in years",
-            "minimum": 0
+        "age": {                                     
+            "type": "integer",                       
+            "description": "Age in years",           
+            "minimum": 0                             
         },
         "initials":{
             "type": "string",
@@ -20,9 +20,9 @@
     },
     "required": ["firstName", "lastName"],
 
-    "references":[
-        {
-            "model": "Turma",
+    "references":[                                  
+        {                                           
+            "model": "Turma",                       
             "relation": "M-M"
         },
         {

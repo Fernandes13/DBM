@@ -1,10 +1,11 @@
 var mustache = require("mustache");
 var fs = require("fs");
 
-function createClass(name,schemas) {
+function createClass(dbname,schemas) {
   schemas.forEach(schema => {
+    console.log("dentro:" + dbname);
     var view = {
-      dbname: name,
+      dbname: dbname,
       title: schema.title,
       table: schema.title.charAt(0).toLowerCase() + schema.title.slice(1) + "s",
       primaryKey: {
@@ -66,6 +67,7 @@ function createClass(name,schemas) {
       }
     };
 
+    console.log("aindamais:" + view.dbname);
     var template = fs.readFileSync("./Model/Class/class.mustache").toString();
     var output = mustache.render(template, view);
     var name = "./Publish/Models/" + view.title + ".js";

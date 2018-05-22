@@ -39,7 +39,7 @@ router.get('/{{title}}/:id', function(req,res){
 
 router.put('/{{title}}/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
-    var obj = mapping(res.body,{{title}});
+    var obj = mapping(req.body,{{title}});
     obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
 
     obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro

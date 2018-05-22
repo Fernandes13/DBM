@@ -10,7 +10,7 @@ function Aluno (numero,nome,morada,nota) {
         Object.defineProperty(this,'id',{ enumerable:false});
 }
 
-var database = require('../Database/sqlite.js')('');
+var database = require('../Database/sqlite.js')('./Publish/Database/labs.db');
 
 Aluno.all = function (callback) {
     database.all("SELECT * FROM alunos", Aluno, callback);

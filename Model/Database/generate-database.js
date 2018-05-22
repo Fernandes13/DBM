@@ -61,7 +61,7 @@ function generate(nome, schemas) {
 }
 
 function addForeignKey(nome, schemas) {
-  var db = new sqlite3.Database("./Publish/Database/" + nome)
+  var db = new sqlite3.Database("./Publish/Database/" + nome);
   schemas.forEach(schema => {
     if (schema.references != void(0)) {
       schema.references.forEach(foreignkey => {

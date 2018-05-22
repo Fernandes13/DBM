@@ -1,5 +1,7 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+var bodyParser = require("body-parser");
+var frontofficeRoutes = require("./Controllers/frontoffice.js");
+var backofficeRoutes = require("./Controllers/backoffice.js");
 var routes = require('./Controllers/api');
 var app = express();
 
@@ -7,8 +9,8 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.use("/api", routes);
-app.use("/","./Controllers/frontoffice.js");
-app.use("/backoffice","./Controllers/backoffice.js");
+app.use("/", frontofficeRoutes);
+app.use("/backoffice", backofficeRoutes);
 
 var server = app.listen(8082, function () {
 

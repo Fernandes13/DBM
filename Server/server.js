@@ -45,6 +45,8 @@ function createClass(){
         schemas.push(JSON.parse(fs.readFileSync(model.path)));
     });
 
+    console.log("nome bd: " + configs.dbname)
+
     class_generator.createClass(configs.dbname,schemas);
 }
 
