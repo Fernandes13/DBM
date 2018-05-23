@@ -24,6 +24,12 @@ app.post("/generate", function (req, res) {
     res.sendStatus(200);
 });
 
+var processar = function () {
+    var title = document.getElementById("title").value;
+    var description = document.getElementById("description").value;
+    var propriety = document.getElementById("propriety").value
+};
+
 var server = app.listen(8081, function () {
     var host = server.address().address
     var port = server.address().port

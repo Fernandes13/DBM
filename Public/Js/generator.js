@@ -3,3 +3,4 @@ function generatePublish() {
     xhr.open("POST", "/generate", true);
     xhr.send();
 }
+
