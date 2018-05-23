@@ -1,18 +1,26 @@
 function addReference() {
     var input = document.createElement("input");
     input.setAttribute("type", "text");
-    input.setAttribute("value", "Enter reference");
+    input.setAttribute("placeholder", "Enter reference");
 
     var selectModel = document.createElement("select");
     var optionModel = document.createElement("option");
-    optionModel.textContent = "Model";
+    var optionModel2 = document.createElement("option");
+    var optionModel3 = document.createElement("option");
+    optionModel.textContent = "Select a Model";
+    optionModel.selected = true;
+    optionModel.disabled = true;
+    optionModel2.textContent = "Model";
+    optionModel3.textContent = "Model2";
 
     var selectRelation = document.createElement("select");
     var optionRelation = document.createElement("option");
     var optionRelation1 = document.createElement("option");
     var optionRelation2 = document.createElement("option");
     var optionRelation3 = document.createElement("option");
-    optionRelation.textContent = "Relation Type";
+    optionRelation.textContent = "Select a Relation Type";
+    optionRelation.disabled = true;
+    optionRelation.selected = true;
     optionRelation1.textContent = "Relation 1-1";
     optionRelation2.textContent = "Relation 1-M";
     optionRelation3.textContent = "Relation M-M";
@@ -48,12 +56,18 @@ function addReference() {
 function addPropriety() {
     var input = document.createElement("input");
     input.setAttribute("type", "text");
-    input.setAttribute("value", "Enter propriety");
+    input.setAttribute("placeholder", "Enter propriety");
 
     var selectPropriety = document.createElement("select");
     var optionPropriety = document.createElement("option");
-    optionPropriety.textContent = "Propriety Type";
+    var optionPropriety2 = document.createElement("option");
+    
+    optionPropriety.textContent = "Select a Property Type";
+    optionPropriety.disabled = true;
+    optionPropriety.selected = true;
+    optionPropriety2.textContent = "Propriety Type";
     selectPropriety.appendChild(optionPropriety);
+    selectPropriety.appendChild(optionPropriety2);
 
     var checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
@@ -71,7 +85,7 @@ function addPropriety() {
     label2.innerHTML += "Required";
 
     input.className += "form-control";
-    selectPropriety.className += "form-control";
+    selectPropriety.className += "form-control marginInput";
 
     var element = document.getElementById("propriety");
     element.appendChild(document.createElement("br"));
