@@ -52,8 +52,14 @@ function addPropriety() {
 
     var selectPropriety = document.createElement("select");
     var optionPropriety = document.createElement("option");
-    optionPropriety.textContent = "Propriety Type";
+    var optionPropriety2 = document.createElement("option");
+    
+    optionPropriety.textContent = "Select your a property type";
+    optionPropriety.disabled = true;
+    optionPropriety.selected = true;
+    optionPropriety2.textContent = "Propriety Type";
     selectPropriety.appendChild(optionPropriety);
+    selectPropriety.appendChild(optionPropriety2);
 
     var checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
@@ -71,7 +77,7 @@ function addPropriety() {
     label2.innerHTML += "Required";
 
     input.className += "form-control";
-    selectPropriety.className += "form-control";
+    selectPropriety.className += "form-control marginInput";
 
     var element = document.getElementById("propriety");
     element.appendChild(document.createElement("br"));

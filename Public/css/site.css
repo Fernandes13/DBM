@@ -164,8 +164,6 @@ input[type="text"],
 input[type="checkbox"],
 select {
   width: 20%;
-  margin: 1%;
-  margin-left: 0 ;
 }
 
 label{
