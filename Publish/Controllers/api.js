@@ -13,7 +13,6 @@ criada
 */
 function mapping(object, type) {
     var obj = new type();
-    console.log("valorOB: " + object);
     Object.keys(object).forEach(function (value) {
         if (obj.hasOwnProperty(value)) //Se o objeto possuir o atributo que se está a verificar então recebe o valor retornado da query da base de dados
             obj[value] = object[value];
@@ -22,7 +21,7 @@ function mapping(object, type) {
 }
 
 router.post('/Aluno', function(req,res){
-    mapping(req.body,Aluno).save();//converte o objeto retornado no corpo do pedido num objeto do tipo Aluno
+    mapping(req.body,Aluno).save(); //converte o objeto retornado no corpo do pedido num objeto do tipo Aluno
 });
 
 router.get('/Aluno', function(req,res){
@@ -41,7 +40,7 @@ router.put('/Aluno/:id',function(req,res){ //o id tanto poderia ir no corpo da m
 
     var obj = mapping(req.body,Aluno);
     obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
-    console.log("ID " + req.params.id);
+
     obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
         res.json({
             sucess: !err

@@ -7,7 +7,7 @@ function Aluno (numero,nome,morada,nota) {
         Object.defineProperty(this,'morada',{ enumerable:false});         
         this.nota = nota;
                  
-        Object.defineProperty(this,'id',{ enumerable:false});
+        Object.defineProperty(this,'id',{ enumerable:false,writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/labs.db');

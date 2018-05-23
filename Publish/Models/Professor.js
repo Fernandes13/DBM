@@ -7,7 +7,7 @@ function Professor (firstName,lastName,age,initials) {
         Object.defineProperty(this,'age',{ enumerable:false});         
         this.initials = initials;
         Object.defineProperty(this,'initials',{ enumerable:false});         
-        Object.defineProperty(this,'id',{ enumerable:false});
+        Object.defineProperty(this,'id',{ enumerable:false,writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/labs.db');
