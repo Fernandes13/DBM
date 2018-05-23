@@ -166,8 +166,8 @@ select {
   width: 20%;
 }
 
-label{
-    margin-left: 0%;
+label > input[type=checkbox]{
+    margin-left: 1%;
 }
 
 .form-control input[type=text]{
