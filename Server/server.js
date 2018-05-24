@@ -45,8 +45,6 @@ function createClass(){
         schemas.push(JSON.parse(fs.readFileSync(model.path)));
     });
 
-    console.log("nome bd: " + configs.dbname)
-
     class_generator.createClass(configs.dbname,schemas);
 }
 
@@ -55,7 +53,6 @@ function generateApi(){
 }
 
 function generateFrontOffice(){
-    console.log("entrou front");
     var template = fs.readFileSync("./Server/frontOffice.mustache").toString();
     var output = mustache.render(template);
     var name = "./Publish/Controllers/frontOffice.js";

@@ -52,7 +52,7 @@ module.exports = function (dbpath) {
             var db = new sqlite.Database(dbpath);
             db.run(statement, params, function (err) {
                 if (callback)
-                    callback(err !== undefined);
+                    callback(err == undefined);
             });
             db.close();
         }

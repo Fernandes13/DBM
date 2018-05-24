@@ -4,10 +4,12 @@ function Aluno (numero,nome,morada,nota) {
         this.nome = nome;
                  
         this.morada = morada;
-        Object.defineProperty(this,'morada',{ enumerable:false});         
+        Object.defineProperty(this,'morada',{ enumerable:false, writable:true});         
         this.nota = nota;
                  
-        Object.defineProperty(this,'id',{ enumerable:false,writable:true});
+        Object.defineProperty(this,'id',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'turmaId',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'professorId',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/labs.db');

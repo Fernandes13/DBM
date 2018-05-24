@@ -22,7 +22,11 @@ function mapping(object, type) {
 
 {{#models}}
 router.post('/{{title}}', function(req,res){
-    mapping(req.body,{{title}}).save(); //converte o objeto retornado no corpo do pedido num objeto do tipo {{title}}
+    mapping(req.body,{{title}}).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo {{title}}
+        res.json({
+            sucess: !err
+        });
+    }); 
 });
 
 router.get('/{{title}}', function(req,res){

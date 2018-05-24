@@ -1,7 +1,8 @@
 function Turma (initials) {
         this.initials = initials;
                  
-        Object.defineProperty(this,'id',{ enumerable:false,writable:true});
+        Object.defineProperty(this,'id',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'professorId',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/labs.db');

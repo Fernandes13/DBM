@@ -12,7 +12,8 @@ function generateApi(configs) {
     }
   };
 
-  var template = fs.readFileSync("./Model/Controllers/api.mustache").toString();
+
+  var template = fs.readFileSync("./Server/api.mustache").toString();
   var output = mustache.render(template, view);
   var name = "./Publish/Controllers/api.js";
 

@@ -3,7 +3,7 @@ var fs = require("fs");
 
 function createClass(dbname,schemas) {
   schemas.forEach(schema => {
-    console.log("dentro:" + dbname);
+
     var view = {
       dbname: dbname,
       title: schema.title,
@@ -21,6 +21,13 @@ function createClass(dbname,schemas) {
           schema.properties[key].required = schema.required.indexOf(key) !== -1; //acrescento a propriedade required que terá true ou false caso esteja no array required do schema
           schema.properties[key].columnName = key; //será o nome utilizado para a coluna que terá na tabela da base de dados
           return schema.properties[key];
+        });
+      },
+      references : function (){
+        return Object.keys(schema.references).map(elem =>{
+
+          schema.references[elem].name = schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "Id";
+          return schema.references[elem];
         });
       },
       get propertiesJoin() {
@@ -67,7 +74,7 @@ function createClass(dbname,schemas) {
       }
     };
 
-    console.log("aindamais:" + view.dbname);
+
     var template = fs.readFileSync("./Model/Class/class.mustache").toString();
     var output = mustache.render(template, view);
     var name = "./Publish/Models/" + view.title + ".js";

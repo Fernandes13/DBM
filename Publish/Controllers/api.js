@@ -21,7 +21,11 @@ function mapping(object, type) {
 }
 
 router.post('/Aluno', function(req,res){
-    mapping(req.body,Aluno).save(); //converte o objeto retornado no corpo do pedido num objeto do tipo Aluno
+    mapping(req.body,Aluno).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Aluno
+        res.json({
+            sucess: !err
+        });
+    }); 
 });
 
 router.get('/Aluno', function(req,res){
@@ -56,7 +60,11 @@ router.delete('/Aluno/:id',function(req,res){
     });
 });
 router.post('/Professor', function(req,res){
-    mapping(req.body,Professor).save(); //converte o objeto retornado no corpo do pedido num objeto do tipo Professor
+    mapping(req.body,Professor).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Professor
+        res.json({
+            sucess: !err
+        });
+    }); 
 });
 
 router.get('/Professor', function(req,res){
@@ -91,7 +99,11 @@ router.delete('/Professor/:id',function(req,res){
     });
 });
 router.post('/Turma', function(req,res){
-    mapping(req.body,Turma).save(); //converte o objeto retornado no corpo do pedido num objeto do tipo Turma
+    mapping(req.body,Turma).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Turma
+        res.json({
+            sucess: !err
+        });
+    }); 
 });
 
 router.get('/Turma', function(req,res){

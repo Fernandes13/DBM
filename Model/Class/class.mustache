@@ -1,9 +1,12 @@
 function {{title}} ({{propertiesJoin}}) {
     {{#properties}}
         this.{{name}} = {{name}};
-        {{^required}}Object.defineProperty(this,'{{name}}',{ enumerable:false});{{/required}}         
+        {{^required}}Object.defineProperty(this,'{{name}}',{ enumerable:false, writable:true});{{/required}}         
     {{/properties}}
-        Object.defineProperty(this,'{{primaryKey.name}}',{ enumerable:false,writable:true});
+        Object.defineProperty(this,'{{primaryKey.name}}',{ enumerable:false, writable:true});
+    {{#references}}
+        Object.defineProperty(this,'{{name}}',{ enumerable:false, writable:true});
+    {{/references}}    
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/{{{dbname}}}');
