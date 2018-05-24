@@ -58,29 +58,29 @@
                     <form>
                         <div class="form-group">
                             <label>Title:</label>
-                            <input type="text" class="form-control" placeholder="Enter title">
+                            <input id="title" name="title" type="text" class="form-control" placeholder="Enter title">
                         </div>
                         <div class="form-group">
                             <label>Description:</label>
-                            <input type="text" class="form-control" placeholder="Enter description">
+                            <input id="description" name="description" type="text" class="form-control" placeholder="Enter description">
                         </div>
                     </form>
                     <label>Proprieties</label>
-                    <a onclick="addPropriety()">
+                    <a onclick="addProperty()">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                     <form class="form-inline">
-                        <div class="form-group" id="propriety">
-                            <input class="form-control" type="text" placeholder="Enter propriety">
+                        <div class="form-group" id="property">
+                            <input class="form-control" type="text" placeholder="Enter Property">
                             <select class="form-control" >
-                                <option value="" disabled selected>Select your a property type</option>
-                                <option value="">Propriety Type</option>
-                                <option value="">Propriety Type</option>
+                                <option value="" disabled selected>Select a Property Type</option>
+                                <option value="">Property Type</option>
+                                <option value="">Property Type</option>
                             </select>
                             <label class="checkbox-inline">
-                                <input type="checkbox" value=""> Unique</label>
+                                <input type="checkbox" value="true">Unique</label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" value=""> Required</label>
+                                <input type="checkbox" value="true">Required</label>
                         </div>
                     </form>
                     <br>
@@ -90,25 +90,22 @@
                     </a>
                     <form class="form-inline">
                         <div class="form-group" id="reference">
-                            <input class="form-control" type="text" placeholder="Enter reference">
                             <select class="form-control">
-                                <option value="" disabled selected>Select your a Model</option>
+                                <option value="" disabled selected>Select a Model</option>
                                 <option value="">Model1</option>
                                 <option value="">Model2</option>
                             </select>
                             <select class="form-control">
-                                    <option value="" disabled selected>Select your a Relation</option>
+                                <option value="" disabled selected>Select a Relation</option>
                                 <option value="1-1">Relation 1-1</option>
                                 <option value="1-M">Relation 1-M</option>
                                 <option value="M-M">Relation M-M</option>
                             </select>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" value=""> Parent</label>
                         </div>
                     </form>
                     <br>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button onclick="generateSchema();" type="button" class="btn btn-default">Submit</button>
                     </div>
                 </div>
             </div>

@@ -48,7 +48,7 @@
         }
       },
 
-      "require": ["id", "nome", "ano"]
+      "required": ["id", "nome", "ano"]
     }
   },
 
