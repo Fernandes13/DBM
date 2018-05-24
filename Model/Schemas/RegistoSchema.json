@@ -1,0 +1,35 @@
+{
+    "title": "Registo",
+    "description": "Registo de um utilizador da NetFunlix",
+    "type": "object",
+  
+    "properties": {
+      "Email": {
+        "description": "Email do utilizador",
+        "type": "text",
+        "pattern": "",
+        "unique": 1
+      },
+      "Username": {
+        "description": "Username do utilizador",
+        "type": "text",
+        "pattern": "^[A-Z][a0-z9]{2,}$"
+
+      },
+      "Password": {
+        "description": "Password do utilizador",
+        "type": "text",
+        "pattern": ""
+      }
+    },
+  
+    "required": ["Email","Username","Password"],
+  
+    "references": [
+      {
+        "model": "Utilizador",
+        "relation": "1-1"
+      }
+    ]
+  }
+  

@@ -1,0 +1,31 @@
+{
+    "title": "Distribuidora",
+    "description": "Distribuidora de produtos da NetFunlix",
+    "type": "object",
+  
+    "properties": {
+      "Nome": {
+        "description": "Nome da distribuidora",
+        "type": "text",
+        "pattern": "^[A-Z][a-z]{2,}$",
+        "unique": 1
+      },
+  
+      "Valor": {
+        "description": "Valor monetário da distribuidora",
+        "type": "real",
+        "minimum": 0.1
+      }
+    },
+  
+    "required": ["Nome", "Valor"],
+  
+    "references": [
+      {
+        "model": "Produto",
+        "relation": "1-M"
+      }
+      
+    ]
+  }
+  

@@ -1,8 +1,0 @@
-INSERT INTO alunos (numero,nome,morada,nota,turma_id,professor_id) values(150221016,'Ndfs','Morada1',20,1,1);
-INSERT INTO professors (firstName,lastName,age,initials,aluno_id) values ('prof1','ult',25,'PROF',null);
-INSERT INTO turmas (initials) values ('TUM');
-update professors set aluno_id = 1 
-update alunos set professor_id = 1 
-select * from alunos
-select * from professors
-select * from turmas

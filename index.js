@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var fs = require("fs");
 var serverModule = require("./Server/server");
-var schema = JSON.parse(fs.readFileSync("./Model/Schemas/alunosSchema.json"));
+
 
 app.use(express.static('public'));
 
@@ -13,14 +13,12 @@ app.get("/", function (req, res) {
 
 app.post("/newSchema", function (req, res) {
     res.sendStatus(200);
-    console.log("CCCCCCCCCCCCCCCCCCCCC");
-    console.log(req.body);
 });
 
 app.post("/generate", function (req, res) {
 
     serverModule.clearFolders();
-    setTimeout(() => { serverModule.createClass(schema) }, 1000);
+    setTimeout(() => { serverModule.createClass() }, 1000);
     setTimeout(() => { serverModule.createDatabase() }, 2000);
     setTimeout(() => { serverModule.generateApi() }, 3000);
     setTimeout(() => { serverModule.generateFrontOffice() }, 4000);

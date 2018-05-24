@@ -1,8 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var Aluno = require('../Models/Aluno');
-var Professor = require('../Models/Professor');
-var Turma = require('../Models/Turma');
+var Categoria = require('../Models/Categoria');
+var Classificacao = require('../Models/Classificacao');
+var Distribuidora = require('../Models/Distribuidora');
+var Fatura = require('../Models/Fatura');
+var Produto = require('../Models/Produto');
+var Registo = require('../Models/Registo');
+var Utilizador = require('../Models/Utilizador');
+var Venda = require('../Models/Venda');
 
 /**
 * Método que faz o mapeamento entre um objeto retornado pelo módulo sqlite num objeto de uma classe
@@ -20,29 +25,29 @@ function mapping(object, type) {
     return obj;
 }
 
-router.post('/Aluno', function(req,res){
-    mapping(req.body,Aluno).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Aluno
+router.post('/Categoria', function(req,res){
+    mapping(req.body,Categoria).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Categoria
         res.json({
             sucess: !err
         });
     }); 
 });
 
-router.get('/Aluno', function(req,res){
-    Aluno.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+router.get('/Categoria', function(req,res){
+    Categoria.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
         res.json(rows);
     });
 });
 
-router.get('/Aluno/:id', function(req,res){
-    Aluno.get(req.params.id, function(rows){
+router.get('/Categoria/:id', function(req,res){
+    Categoria.get(req.params.id, function(rows){
         res.json(rows);
     });
 });
 
-router.put('/Aluno/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+router.put('/Categoria/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
-    var obj = mapping(req.body,Aluno);
+    var obj = mapping(req.body,Categoria);
     obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
 
     obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
@@ -52,36 +57,36 @@ router.put('/Aluno/:id',function(req,res){ //o id tanto poderia ir no corpo da m
     });
 });
 
-router.delete('/Aluno/:id',function(req,res){
-    Aluno.delete(req.params.id, function(err){
+router.delete('/Categoria/:id',function(req,res){
+    Categoria.delete(req.params.id, function(err){
         res.json({
             sucess: !err
         });
     });
 });
-router.post('/Professor', function(req,res){
-    mapping(req.body,Professor).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Professor
+router.post('/Classificacao', function(req,res){
+    mapping(req.body,Classificacao).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Classificacao
         res.json({
             sucess: !err
         });
     }); 
 });
 
-router.get('/Professor', function(req,res){
-    Professor.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+router.get('/Classificacao', function(req,res){
+    Classificacao.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
         res.json(rows);
     });
 });
 
-router.get('/Professor/:id', function(req,res){
-    Professor.get(req.params.id, function(rows){
+router.get('/Classificacao/:id', function(req,res){
+    Classificacao.get(req.params.id, function(rows){
         res.json(rows);
     });
 });
 
-router.put('/Professor/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+router.put('/Classificacao/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
-    var obj = mapping(req.body,Professor);
+    var obj = mapping(req.body,Classificacao);
     obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
 
     obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
@@ -91,36 +96,36 @@ router.put('/Professor/:id',function(req,res){ //o id tanto poderia ir no corpo 
     });
 });
 
-router.delete('/Professor/:id',function(req,res){
-    Professor.delete(req.params.id, function(err){
+router.delete('/Classificacao/:id',function(req,res){
+    Classificacao.delete(req.params.id, function(err){
         res.json({
             sucess: !err
         });
     });
 });
-router.post('/Turma', function(req,res){
-    mapping(req.body,Turma).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Turma
+router.post('/Distribuidora', function(req,res){
+    mapping(req.body,Distribuidora).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Distribuidora
         res.json({
             sucess: !err
         });
     }); 
 });
 
-router.get('/Turma', function(req,res){
-    Turma.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+router.get('/Distribuidora', function(req,res){
+    Distribuidora.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
         res.json(rows);
     });
 });
 
-router.get('/Turma/:id', function(req,res){
-    Turma.get(req.params.id, function(rows){
+router.get('/Distribuidora/:id', function(req,res){
+    Distribuidora.get(req.params.id, function(rows){
         res.json(rows);
     });
 });
 
-router.put('/Turma/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+router.put('/Distribuidora/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
-    var obj = mapping(req.body,Turma);
+    var obj = mapping(req.body,Distribuidora);
     obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
 
     obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
@@ -130,8 +135,203 @@ router.put('/Turma/:id',function(req,res){ //o id tanto poderia ir no corpo da m
     });
 });
 
-router.delete('/Turma/:id',function(req,res){
-    Turma.delete(req.params.id, function(err){
+router.delete('/Distribuidora/:id',function(req,res){
+    Distribuidora.delete(req.params.id, function(err){
+        res.json({
+            sucess: !err
+        });
+    });
+});
+router.post('/Fatura', function(req,res){
+    mapping(req.body,Fatura).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Fatura
+        res.json({
+            sucess: !err
+        });
+    }); 
+});
+
+router.get('/Fatura', function(req,res){
+    Fatura.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+        res.json(rows);
+    });
+});
+
+router.get('/Fatura/:id', function(req,res){
+    Fatura.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.put('/Fatura/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+
+    var obj = mapping(req.body,Fatura);
+    obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
+
+    obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
+        res.json({
+            sucess: !err
+        });
+    });
+});
+
+router.delete('/Fatura/:id',function(req,res){
+    Fatura.delete(req.params.id, function(err){
+        res.json({
+            sucess: !err
+        });
+    });
+});
+router.post('/Produto', function(req,res){
+    mapping(req.body,Produto).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Produto
+        res.json({
+            sucess: !err
+        });
+    }); 
+});
+
+router.get('/Produto', function(req,res){
+    Produto.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+        res.json(rows);
+    });
+});
+
+router.get('/Produto/:id', function(req,res){
+    Produto.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.put('/Produto/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+
+    var obj = mapping(req.body,Produto);
+    obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
+
+    obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
+        res.json({
+            sucess: !err
+        });
+    });
+});
+
+router.delete('/Produto/:id',function(req,res){
+    Produto.delete(req.params.id, function(err){
+        res.json({
+            sucess: !err
+        });
+    });
+});
+router.post('/Registo', function(req,res){
+    mapping(req.body,Registo).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Registo
+        res.json({
+            sucess: !err
+        });
+    }); 
+});
+
+router.get('/Registo', function(req,res){
+    Registo.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+        res.json(rows);
+    });
+});
+
+router.get('/Registo/:id', function(req,res){
+    Registo.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.put('/Registo/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+
+    var obj = mapping(req.body,Registo);
+    obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
+
+    obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
+        res.json({
+            sucess: !err
+        });
+    });
+});
+
+router.delete('/Registo/:id',function(req,res){
+    Registo.delete(req.params.id, function(err){
+        res.json({
+            sucess: !err
+        });
+    });
+});
+router.post('/Utilizador', function(req,res){
+    mapping(req.body,Utilizador).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Utilizador
+        res.json({
+            sucess: !err
+        });
+    }); 
+});
+
+router.get('/Utilizador', function(req,res){
+    Utilizador.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+        res.json(rows);
+    });
+});
+
+router.get('/Utilizador/:id', function(req,res){
+    Utilizador.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.put('/Utilizador/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+
+    var obj = mapping(req.body,Utilizador);
+    obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
+
+    obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
+        res.json({
+            sucess: !err
+        });
+    });
+});
+
+router.delete('/Utilizador/:id',function(req,res){
+    Utilizador.delete(req.params.id, function(err){
+        res.json({
+            sucess: !err
+        });
+    });
+});
+router.post('/Venda', function(req,res){
+    mapping(req.body,Venda).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Venda
+        res.json({
+            sucess: !err
+        });
+    }); 
+});
+
+router.get('/Venda', function(req,res){
+    Venda.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
+        res.json(rows);
+    });
+});
+
+router.get('/Venda/:id', function(req,res){
+    Venda.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.put('/Venda/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
+
+    var obj = mapping(req.body,Venda);
+    obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
+
+    obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
+        res.json({
+            sucess: !err
+        });
+    });
+});
+
+router.delete('/Venda/:id',function(req,res){
+    Venda.delete(req.params.id, function(err){
         res.json({
             sucess: !err
         });

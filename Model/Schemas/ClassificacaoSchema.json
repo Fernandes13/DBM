@@ -1,0 +1,24 @@
+{
+    "title": "Classificacao",
+    "description": "Classificacao de produtos da NetFunlix",
+    "type": "object",
+  
+    "properties": {
+      "Valor": {
+        "description": "Valor da classificação do produto",
+        "type": "real",
+        "minimum": 0.1,
+        "maximum": 5.0
+      }
+    },
+  
+    "required": ["Valor"],
+  
+    "references": [
+      {
+        "model": "Produto",
+        "relation": "1-M"
+      }
+    ]
+  }
+  

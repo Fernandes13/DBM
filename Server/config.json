@@ -1,16 +1,39 @@
 {
     "port": "8082",
-    "dbname": "labs.db",
+    "dbname": "NetFunlix.db",
     "models": [
-        {"name": "Aluno",
-        "path": "./Model/Schemas/AlunosSchema.json"
+        {   "name": "Categoria",
+            "path": "./Model/Schemas/CategoriaSchema.json"
         },
-        {"name": "Professor",
-            "path": "./Model/Schemas/ProfessorSchema.json"
+        {   
+            "name": "Classificacao",
+            "path": "./Model/Schemas/ClassificacaoSchema.json"
         },
-        {"name": "Turma",
-            "path": "./Model/Schemas/TurmaSchema.json"
-        }],
+        {   
+            "name": "Distribuidora",
+            "path": "./Model/Schemas/DistribuidoraSchema.json"
+        },
+        {
+            "name": "Fatura",
+            "path": "./Model/Schemas/FaturaSchema.json"
+        },
+        {
+            "name": "Produto",
+            "path": "./Model/Schemas/ProdutoSchema.json"
+        },
+        {
+            "name": "Registo",
+            "path": "./Model/Schemas/RegistoSchema.json"
+        },
+        {
+            "name": "Utilizador",
+            "path": "./Model/Schemas/UtilizadorSchema.json"
+        },
+        {
+            "name": "Venda",
+            "path": "./Model/Schemas/VendaSchema.json"
+        }
+    ],
     "modules": { "express": "true"},
     "staticFiles":[
         {   "originalPath": "./Model/Database/sqlite.js", 

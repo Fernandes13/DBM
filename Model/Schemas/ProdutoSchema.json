@@ -1,0 +1,48 @@
+{
+    "title": "Produto",
+    "description": "Produto comercializado pela NetFunlix",
+    "type": "object",
+  
+    "properties": {
+      "Nome": {
+        "description": "Nome do produto",
+        "type": "text",
+        "pattern": "^[A-Z][a-z]{2,}$"
+      },
+  
+      "Duracao": {
+        "description": "Duração do produto em horas",
+        "type": "real",
+        "minimum": 0.1
+      },
+  
+      "DataLancamento": {
+        "description": "Data de lançamento do produto",
+        "type": "text",
+        "pattern": "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)/d/d$"
+      }
+  
+    },
+  
+    "required": ["Nome", "Duracao", "DataLancamento"],
+  
+    "references": [
+      {
+        "model": "Categoria",
+        "relation": "1-M"
+      },
+      {
+        "model": "Classificacao",
+        "relation": "1-M"
+      },
+      {
+        "model": "Distribuidora",
+        "relation": "1-M"
+      },
+      {
+        "model": "Venda",
+        "relation": "1-M"
+      }
+    ]
+  }
+  

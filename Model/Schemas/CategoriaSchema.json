@@ -1,0 +1,22 @@
+{
+    "title": "Categoria",
+    "description": "Categoria de produtos",
+    "type": "object",
+  
+    "properties": {
+      "Designacao": {
+        "description": "Designacao da categoria",
+        "type": "text"
+      }
+    },
+  
+    "required": ["Designacao"],
+  
+    "references": [
+      {
+        "model": "Produto",
+        "relation": "1-M"
+      }
+    ]
+  }
+  
