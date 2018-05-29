@@ -88,11 +88,11 @@ function createFolders(){
         
         if (err) console.log("Erro pasta public");
 
-        mkdirp('./Publish/Public/Css');
+        mkdirp('./Publish/Public/css');
 
-        mkdirp('./Publish/Public/Images');
+        mkdirp('./Publish/Public/images');
 
-        mkdirp('./Publish/Public/Js');
+        mkdirp('./Publish/Public/js');
     });
 }
 
