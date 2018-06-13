@@ -2,17 +2,20 @@ var fieldsNumber = 0;
 var fieldsNumberP = 0;
 
 function addReference() {
-    var className = "reference" + fieldsNumber;
+    var idNameRelation = "relation" + fieldsNumber;
+    var idNameModel = "model" + fieldsNumber;
 
     var selectModel = document.createElement("select");
     var optionModel = document.createElement("option");
+    var optionModel1 = document.createElement("option");
     var optionModel2 = document.createElement("option");
-    var optionModel3 = document.createElement("option");
     optionModel.textContent = "Select a Model";
     optionModel.selected = true;
     optionModel.disabled = true;
-    optionModel2.textContent = "Model";
-    optionModel3.textContent = "Model2";
+    optionModel1.textContent = "Model1";
+    optionModel1.value = "Model1";
+    optionModel2.textContent = "Model2";
+    optionModel2.value = "Model2";
 
     var selectRelation = document.createElement("select");
     var optionRelation = document.createElement("option");
@@ -32,10 +35,14 @@ function addReference() {
     optionRelation4.textContent = "None";
     optionRelation4.value = "";
 
-    selectModel.className += "form-control marginInput " + className;
-    selectRelation.className += "form-control marginInput " + className;
+    selectModel.id = idNameModel;
+    selectModel.className += "form-group form-control";
+    selectRelation.id = idNameRelation;
+    selectRelation.className += "form-group form-control";
 
     selectModel.appendChild(optionModel);
+    selectModel.appendChild(optionModel1);
+    selectModel.appendChild(optionModel2);
     selectRelation.appendChild(optionRelation);
     selectRelation.appendChild(optionRelation1);
     selectRelation.appendChild(optionRelation2);
@@ -51,6 +58,7 @@ function addReference() {
 
 function addProperty() {
     var className = "property" + fieldsNumberP;
+
     var input = document.createElement("input");
     input.setAttribute("type", "text");
     input.setAttribute("placeholder", "Enter property");
@@ -112,7 +120,7 @@ function processar() {
     object.properties = {};
     object.required = [];
     object.references = [];
-    for (i = 0; i < properties; i++) {
+    for (i = 0; i < properties.length; i++) {
         var propertiesRow = properties[i];
         object.properties[propertiesRow[0].textContent]["type"] = propertiesRow[1].value;
         object.properties[propertiesRow[0].textContent]["unique"] = propertiesRow[2].checked;
@@ -121,17 +129,22 @@ function processar() {
         }
     }
     var references = referenceElements();
-    for (i = 0; i < references; i++) {
-        var referencesRow = references[i];
-        if (referencesRow[0].value !== "" && referencesRow[1].value !== "") {
-            object.references.push({ "model": referencesRow[0].value, "relation": referencesRow[1].value });
+
+    console.log("0: " + references[0].value);
+    console.log("1: " + references[1].value);
+    var i;
+    for (i = 0; i < references.length; i++) {
+        if (references[i].value !== "") {
+            object.references.push({ "model": references[i].value, "relation": references[++i].value });
         }
     }
+    console.log(object);
     return object;
 };
 
 function propertyElements() {
     var result = [];
+    var i;
     for (i = 1; i < fieldsNumberP; i++) {
         result.push(document.getElementsByClassName("property" + i));
     }
@@ -140,8 +153,12 @@ function propertyElements() {
 
 function referenceElements() {
     var result = [];
-    for (i = 1; i < fieldsNumber; i++) {
-        result.push(document.getElementsByClassName("reference" + i));
+    result.push(document.getElementById("model"));
+    result.push(document.getElementById("relation"));
+    var i;
+    for (i = 0; i < fieldsNumber; i++) {
+        result.push(document.getElementById("model" + i));
+        result.push(document.getElementById("relation" + i));
     }
     return result;
 };
