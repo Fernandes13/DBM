@@ -59,7 +59,28 @@ function generateFrontOffice(){
 
     fs.writeFile(name, output);
 }
-  
+
+/*function generateBackOffice(){
+    var schemas = [];
+
+    configs.models.forEach(model =>{
+        schemas.push(JSON.parse(fs.readFileSync(model.path)));
+    });
+    
+    schemas.forEach(schema => {
+        var view = {
+
+        };
+    });
+    
+
+    var template = fs.readFileSync("./Server/backOffice.mustache").toString();
+    var output = mustache.render(template,view);
+    var name = "./Publish/Controllers/backOffice.js";
+
+    fs.writeFile(name, output);
+} */
+
 function generateBackOffice(){
     var view = {
         models: function() {
@@ -88,11 +109,11 @@ function createFolders(){
         
         if (err) console.log("Erro pasta public");
 
-        mkdirp('./Publish/Public/Css');
+        mkdirp('./Publish/Public/css');
 
-        mkdirp('./Publish/Public/Images');
+        mkdirp('./Publish/Public/images');
 
-        mkdirp('./Publish/Public/Js');
+        mkdirp('./Publish/Public/js');
     });
 }
 

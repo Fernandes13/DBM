@@ -2,14 +2,91 @@ var express = require('express');
 var router = express.Router();
 
 {{#models}}
+var {{title}} = require("../Models/{{title}}.js");
+{{/models}}
 
-router.get('/{{title}}',function(req,res){
-       res.send('View: Backoffice {{title}}');
+{{#models}}
+
+router.get('/{{title}}', function (req, res) {
+    {{title}}.all(function (rows) {
+        res.render('list', {
+            title: '{{title}}',
+            rows: rows.map(obj => {
+                return {
+                    properties: Object.keys(obj).map(key => {
+                        return {
+                            name: key,
+                            value: obj[key]
+                        }
+                    }),
+                    actions: [{
+                        label: '',
+                        link: './{{title}}/Detalhe/' + obj.id,
+                        image: {
+                            src: '../images/read.png'
+                        },
+                        tooltip: 'Detalhe'
+                    }, {
+                        label: '',
+                        link: './{{title}}/Editar/' + obj.id,
+                        image: {
+                            src: '../images/edit.png'
+                        },
+                        tooltip: 'Editar'
+                    }, {
+                        label: '',
+                        link: '#',
+                        image: {
+                            src: '../images/delete.png'
+                        },
+                        tooltip: 'Apagar',
+                        events: [{
+                            name: "onclick",
+                            function: "apagar",
+                            args: obj.id
+                        }]
+
+                    }]
+                }
+            }),
+            columns: Object.keys(new {{title}}()).map(key => {
+                return {
+                    name: key
+                };
+            })
+        });
+    });
 });
 
-router.get('/{{title}}/detalhe/:id',function(req,res){
-    res.send('View: Backoffice {{title}} Detalhe');
+router.get('/{{title}}/Detalhe/:id', function (req, res) {
+    {{title}}.get(req.params.id,function(row){
+        if(row){
+
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
+    });
 });
+
+router.get('/{{title}}/Inserir', function (req, res) {
+    var obj = new {{title}}();
+    res.render('form',{
+        properties: Object.getOwnPropertyNames(obj).map(key =>{
+                    return {
+                        name: key,
+                        value: obj[key]
+                    };
+        })
+    });
+});
+
 
 {{/models}}
 
