@@ -65,7 +65,6 @@ router.get('/Categoria', function (req, res) {
 router.get('/Categoria/Detalhe/:id', function (req, res) {
     Categoria.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -88,6 +87,22 @@ router.get('/Categoria/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Categoria/Editar/:id', function (req, res) {
+    Categoria.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
@@ -147,7 +162,6 @@ router.get('/Classificacao', function (req, res) {
 router.get('/Classificacao/Detalhe/:id', function (req, res) {
     Classificacao.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -170,6 +184,22 @@ router.get('/Classificacao/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Classificacao/Editar/:id', function (req, res) {
+    Classificacao.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
@@ -229,7 +259,6 @@ router.get('/Distribuidora', function (req, res) {
 router.get('/Distribuidora/Detalhe/:id', function (req, res) {
     Distribuidora.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -252,6 +281,22 @@ router.get('/Distribuidora/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Distribuidora/Editar/:id', function (req, res) {
+    Distribuidora.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
@@ -311,7 +356,6 @@ router.get('/Fatura', function (req, res) {
 router.get('/Fatura/Detalhe/:id', function (req, res) {
     Fatura.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -334,6 +378,22 @@ router.get('/Fatura/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Fatura/Editar/:id', function (req, res) {
+    Fatura.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
@@ -393,7 +453,6 @@ router.get('/Produto', function (req, res) {
 router.get('/Produto/Detalhe/:id', function (req, res) {
     Produto.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -416,6 +475,22 @@ router.get('/Produto/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Produto/Editar/:id', function (req, res) {
+    Produto.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
@@ -475,7 +550,6 @@ router.get('/Registo', function (req, res) {
 router.get('/Registo/Detalhe/:id', function (req, res) {
     Registo.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -498,6 +572,22 @@ router.get('/Registo/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Registo/Editar/:id', function (req, res) {
+    Registo.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
@@ -557,7 +647,6 @@ router.get('/Utilizador', function (req, res) {
 router.get('/Utilizador/Detalhe/:id', function (req, res) {
     Utilizador.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -580,6 +669,22 @@ router.get('/Utilizador/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Utilizador/Editar/:id', function (req, res) {
+    Utilizador.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
@@ -639,7 +744,6 @@ router.get('/Venda', function (req, res) {
 router.get('/Venda/Detalhe/:id', function (req, res) {
     Venda.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -662,6 +766,22 @@ router.get('/Venda/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/Venda/Editar/:id', function (req, res) {
+    Venda.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 

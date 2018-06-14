@@ -61,7 +61,6 @@ router.get('/{{title}}', function (req, res) {
 router.get('/{{title}}/Detalhe/:id', function (req, res) {
     {{title}}.get(req.params.id,function(row){
         if(row){
-
             res.render('detail',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
@@ -84,6 +83,22 @@ router.get('/{{title}}/Inserir', function (req, res) {
                         value: obj[key]
                     };
         })
+    });
+});
+
+router.get('/{{title}}/Editar/:id', function (req, res) {
+    {{title}}.get(req.params.id,function(row){
+        if(row){
+            res.render('detail',{
+                properties: Object.getOwnPropertyNames(row).map(key =>{
+                    return {
+                        name: key,
+                        value: row[key]
+                    };
+                })
+            });
+
+        }
     });
 });
 
