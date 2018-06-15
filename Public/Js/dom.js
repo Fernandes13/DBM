@@ -116,22 +116,19 @@ function processar() {
     var object = {};
     object.title = document.getElementById("title").value;
     object.description = document.getElementById("description").value;
-    var properties = propertyElements();
+    var propertiesArray = propertyElements();
     object.properties = {};
     object.required = [];
     object.references = [];
-    for (i = 0; i < properties.length; i++) {
-        var propertiesRow = properties[i];
-        object.properties[propertiesRow[0].textContent]["type"] = propertiesRow[1].value;
-        object.properties[propertiesRow[0].textContent]["unique"] = propertiesRow[2].checked;
-        if (propertiesRow[3].checked) {
-            object.required.push(propertiesRow[3]);
+    for (i = 0; i < propertiesArray.length; i++) {
+        if (propertiesArray[i].value !== "") {
+            var property = propertiesArray[i].value;
+            var propertyType = propertiesArray[++i].value;
+            var obj = { "description": property, "type": propertyType };
+            object.properties[property] = obj;
         }
     }
     var references = referenceElements();
-
-    console.log("0: " + references[0].value);
-    console.log("1: " + references[1].value);
     var i;
     for (i = 0; i < references.length; i++) {
         if (references[i].value !== "") {
@@ -144,6 +141,11 @@ function processar() {
 
 function propertyElements() {
     var result = [];
+    result.push(document.getElementById("Property"));
+    result.push(document.getElementById("PropertyType"));
+    result.push(document.getElementById("Unique"));
+    result.push(document.getElementById("Required"));
+    console.log(result.length);
     var i;
     for (i = 1; i < fieldsNumberP; i++) {
         result.push(document.getElementsByClassName("property" + i));
