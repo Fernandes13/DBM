@@ -135,7 +135,6 @@ function processar() {
     object.properties = {};
     object.required = [];
     object.references = [];
-    //console.log(propertiesArray);
     for (i = 0; i < propertiesArray.length; i++) {
         if (propertiesArray[i] !== "") {
             var property = propertiesArray[i].property;
@@ -158,7 +157,6 @@ function processar() {
             object.references.push({ "model": references[i].value, "relation": references[++i].value });
         }
     }
-    console.log(object);
     return object;
 };
 
@@ -181,7 +179,6 @@ function propertyElements() {
         };
         result.push(objI);
     }
-    console.log(result);
     return result;
 };
 
