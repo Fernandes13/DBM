@@ -57,42 +57,57 @@ function addReference() {
 }
 
 function addProperty() {
-    var className = "property" + fieldsNumberP;
+    var idNameProperty = "property" + fieldsNumberP;
+    var idNamePropertyType = "propertyType" + fieldsNumberP;
+    var idNameUnique = "unique" + fieldsNumberP;
+    var idNameRequired = "required" + fieldsNumberP;
 
     var input = document.createElement("input");
     input.setAttribute("type", "text");
     input.setAttribute("placeholder", "Enter property");
+    input.id = idNameProperty;
 
     var selectProperty = document.createElement("select");
     var optionProperty = document.createElement("option");
+    var optionProperty1 = document.createElement("option");
     var optionProperty2 = document.createElement("option");
 
     optionProperty.textContent = "Select a Property Type";
     optionProperty.disabled = true;
     optionProperty.selected = true;
-    optionProperty2.textContent = "Property Type";
+    optionProperty1.textContent = "Property Type1";
+    optionProperty1.value = "Property Type1";
+    optionProperty2.textContent = "Property Type2";
+    optionProperty2.value = "Property Type2";
     selectProperty.appendChild(optionProperty);
+    selectProperty.appendChild(optionProperty1);
     selectProperty.appendChild(optionProperty2);
+
+    selectProperty.id = idNamePropertyType;
 
     var checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
+    checkbox.id = idNameUnique;
+
     var checkbox2 = document.createElement("input");
     checkbox2.setAttribute("type", "checkbox");
+    checkbox2.id = idNameRequired;
+
 
     var label = document.createElement("label");
-    label.classList += "checkbox-inline " + className;
+    label.classList += "checkbox-inline";
     label.appendChild(checkbox);
     label.innerHTML += "Unique";
 
     var label2 = document.createElement("label");
-    label2.classList += "checkbox-inline " + className;
+    label2.classList += "checkbox-inline";
     label2.appendChild(checkbox2);
     label2.innerHTML += "Required";
 
-    input.className += "form-control " + className;
-    selectProperty.className += "form-control marginInput " + className;
+    input.className += "form-control";
+    selectProperty.className += "form-control marginInput";
 
-    var element = document.getElementById("property");
+    var element = document.getElementById("propertyDiv");
     element.appendChild(document.createElement("br"));
     element.appendChild(document.createElement("br"));
     element.appendChild(input);
@@ -120,12 +135,20 @@ function processar() {
     object.properties = {};
     object.required = [];
     object.references = [];
+    //console.log(propertiesArray);
     for (i = 0; i < propertiesArray.length; i++) {
-        if (propertiesArray[i].value !== "") {
-            var property = propertiesArray[i].value;
-            var propertyType = propertiesArray[++i].value;
+        if (propertiesArray[i] !== "") {
+            var property = propertiesArray[i].property;
+            var propertyType = propertiesArray[i].propertyType;
             var obj = { "description": property, "type": propertyType };
             object.properties[property] = obj;
+
+            if (propertiesArray[i].unique === true) {
+                obj["unique"] = propertiesArray[i].unique;
+            }
+        }
+        if (propertiesArray[i].required === true) {
+            object.required.push(propertiesArray[i].property);
         }
     }
     var references = referenceElements();
@@ -141,15 +164,24 @@ function processar() {
 
 function propertyElements() {
     var result = [];
-    result.push(document.getElementById("Property"));
-    result.push(document.getElementById("PropertyType"));
-    result.push(document.getElementById("Unique"));
-    result.push(document.getElementById("Required"));
-    console.log(result.length);
+    var obj = {
+        "property": document.getElementById("property").value,
+        "propertyType": document.getElementById("propertyType").value,
+        "unique": document.getElementById("unique").checked,
+        "required": document.getElementById("required").checked
+    };
+    result.push(obj);
     var i;
-    for (i = 1; i < fieldsNumberP; i++) {
-        result.push(document.getElementsByClassName("property" + i));
+    for (i = 0; i < fieldsNumberP; i++) {
+        var objI = {
+            "property": document.getElementById("property" + i).value,
+            "propertyType": document.getElementById("propertyType" + i).value,
+            "unique": document.getElementById("unique" + i).checked,
+            "required": document.getElementById("required" + i).checked
+        };
+        result.push(objI);
     }
+    console.log(result);
     return result;
 };
 
