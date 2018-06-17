@@ -3,7 +3,6 @@ var app = express();
 var fs = require("fs");
 var serverModule = require("./Server/server");
 
-
 app.use(express.static('public'));
 
 
@@ -26,6 +25,20 @@ app.post("/generate", function (req, res) {
     setTimeout(() => { serverModule.createIndex() }, 6000);
 
     res.sendStatus(200);
+});
+
+app.post("/saveModule", function(req, res){
+    console.log(req.body)
+    var objectJson = JSON.stringify(req.body);
+    console.log(objectJson);
+    var path = "../Model/Schemas/" + object.title + "Schema.json";
+    fs.open(path,"w", function(err){
+        if(err){
+            throw 'could not open file: ' + err;
+        }
+    });
+    fs.writeFile(objectJson);
+    fs.close();
 });
 
 var server = app.listen(8081, function () {
