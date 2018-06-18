@@ -16,7 +16,7 @@
     "references": [
       {
         "model": "Produto",
-        "relation": "1-M"
+        "relation": "M-M"
       },
       {
         "model": "Fatura",

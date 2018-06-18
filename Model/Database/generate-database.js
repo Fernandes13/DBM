@@ -58,7 +58,8 @@ function addForeignKey(nome, schemas) {
     if (schema.references != void(0)) {
       schema.references.forEach(foreignkey => {
         var nameFk = foreignkey.model.charAt(0).toLowerCase() + foreignkey.model.slice(1);
-        if (foreignkey.relation != "M-M" && foreignkey.relation.slice(1) == '-M') {
+        (console.log(foreignkey.isParent));
+        if (foreignkey.relation != "M-M" && foreignkey.relation.slice(1) == '-M' && !foreignkey.isParent) {
           var view = {
             tableName: nameTable,
             columnName: nameFk,
@@ -100,7 +101,7 @@ function addForeignKey(nome, schemas) {
             //console.log(output);
             db.run(output);
           }
-        }else{
+        }else if(foreignkey.relation == "1-1"){
           var view = {
             tableName: nameTable,
             columnName: nameFk,

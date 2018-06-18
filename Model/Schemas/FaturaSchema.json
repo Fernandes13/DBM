@@ -20,7 +20,8 @@
       },
       {
         "model": "Utilizador",
-        "relation": "1-M"
+        "relation": "1-M",
+        "isParent": false
       }
     ]
   }

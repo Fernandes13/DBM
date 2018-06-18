@@ -15,6 +15,18 @@
         "type": "real",
         "minimum": 0.1
       },
+
+      "Categoria": {
+        "description": "Designacao da categoria",
+        "type": "text"
+      },
+
+      "Classificacao": {
+        "description": "Valor da classificação do produto",
+        "type": "real",
+        "minimum": 0.1,
+        "maximum": 5.0
+      },
   
       "DataLancamento": {
         "description": "Data de lançamento do produto",
@@ -28,20 +40,13 @@
   
     "references": [
       {
-        "model": "Categoria",
-        "relation": "1-M"
-      },
-      {
-        "model": "Classificacao",
-        "relation": "1-M"
-      },
-      {
         "model": "Distribuidora",
-        "relation": "1-M"
+        "relation": "1-M",
+        "isParent": true
       },
       {
         "model": "Venda",
-        "relation": "1-M"
+        "relation": "M-M"
       }
     ]
   }

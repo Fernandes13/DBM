@@ -2,13 +2,6 @@
     "port": "8082",
     "dbname": "NetFunlix.db",
     "models": [
-        {   "name": "Categoria",
-            "path": "./Model/Schemas/CategoriaSchema.json"
-        },
-        {   
-            "name": "Classificacao",
-            "path": "./Model/Schemas/ClassificacaoSchema.json"
-        },
         {   
             "name": "Distribuidora",
             "path": "./Model/Schemas/DistribuidoraSchema.json"

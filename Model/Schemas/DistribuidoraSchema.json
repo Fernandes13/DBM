@@ -23,7 +23,8 @@
     "references": [
       {
         "model": "Produto",
-        "relation": "1-M"
+        "relation": "1-M",
+        "isParent": false
       }
       
     ]

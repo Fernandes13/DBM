@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var Categoria = require('../Models/Categoria');
-var Classificacao = require('../Models/Classificacao');
 var Distribuidora = require('../Models/Distribuidora');
 var Fatura = require('../Models/Fatura');
 var Produto = require('../Models/Produto');
@@ -25,84 +23,6 @@ function mapping(object, type) {
     return obj;
 }
 
-router.post('/Categoria', function(req,res){
-    mapping(req.body,Categoria).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Categoria
-        res.json({
-            sucess: !err
-        });
-    }); 
-});
-
-router.get('/Categoria', function(req,res){
-    Categoria.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
-        res.json(rows);
-    });
-});
-
-router.get('/Categoria/:id', function(req,res){
-    Categoria.get(req.params.id, function(rows){
-        res.json(rows);
-    });
-});
-
-router.put('/Categoria/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
-
-    var obj = mapping(req.body,Categoria);
-    obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
-
-    obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
-        res.json({
-            sucess: !err
-        });
-    });
-});
-
-router.delete('/Categoria/:id',function(req,res){
-    Categoria.delete(req.params.id, function(err){
-        res.json({
-            sucess: !err
-        });
-    });
-});
-router.post('/Classificacao', function(req,res){
-    mapping(req.body,Classificacao).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Classificacao
-        res.json({
-            sucess: !err
-        });
-    }); 
-});
-
-router.get('/Classificacao', function(req,res){
-    Classificacao.all(function(rows){//função de callback que quando for retornado os dados na base de dados, os mesmos serão enviados em json
-        res.json(rows);
-    });
-});
-
-router.get('/Classificacao/:id', function(req,res){
-    Classificacao.get(req.params.id, function(rows){
-        res.json(rows);
-    });
-});
-
-router.put('/Classificacao/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
-
-    var obj = mapping(req.body,Classificacao);
-    obj.id = req.params.id; //no caso de ir no corpo da mensagem tem de se fazer a atribuição do id após o mapeamento do objeto
-
-    obj.save(function(err){ //devolve true em caso de ter feito o save sem qualquer erro
-        res.json({
-            sucess: !err
-        });
-    });
-});
-
-router.delete('/Classificacao/:id',function(req,res){
-    Classificacao.delete(req.params.id, function(err){
-        res.json({
-            sucess: !err
-        });
-    });
-});
 router.post('/Distribuidora', function(req,res){
     mapping(req.body,Distribuidora).save(function(err){ //converte o objeto retornado no corpo do pedido num objeto do tipo Distribuidora
         res.json({

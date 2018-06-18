@@ -27,7 +27,8 @@
     "references": [
       {
         "model": "Fatura",
-        "relation": "1-M"
+        "relation": "1-M",
+        "isParent": true
       },
       {
           "model": "Registo",
