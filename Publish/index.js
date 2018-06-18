@@ -20,8 +20,6 @@ app.use("/", frontofficeRoutes);
 app.use("/backoffice", backofficeRoutes);
 
 var server = app.listen(8082, function () {
+
     console.log("Example app listening at port 8082");
 });
-
-
-

@@ -1,13 +1,14 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
+var path = require('path');
 var serverModule = require("./Server/server");
 
 app.use(express.static('public'));
 
 
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/" + "index.html");
+    res.sendFile(path.join(__dirname, "/" , "index.html"));
 });
 
 app.post("/newSchema", function (req, res) {
@@ -30,8 +31,7 @@ app.post("/generate", function (req, res) {
 app.post("/saveModule", function(req, res){
     console.log(req.body)
     var objectJson = JSON.stringify(req.body);
-    console.log(objectJson);
-    var path = "../Model/Schemas/" + object.title + "Schema.json";
+    var path = "../Model/Schemas/Schema.json";
     fs.open(path,"w", function(err){
         if(err){
             throw 'could not open file: ' + err;
