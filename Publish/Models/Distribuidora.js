@@ -4,7 +4,7 @@ function Distribuidora (Nome,Valor) {
         this.Valor = Valor;
                  
         Object.defineProperty(this,'id',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'produtoId',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'produto_id',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/NetFunlix.db');
@@ -30,7 +30,7 @@ Distribuidora.delete = function(id, callback){
 }
 
 Distribuidora.mappingDBtoObject = {
-    nome:'Nome',valor:'Valor',distribuidora_id:'id'
+    Nome:'Nome',Valor:'Valor',distribuidora_id:'id', produto_id: 'produto_id' 
 }
 
 module.exports = Distribuidora;

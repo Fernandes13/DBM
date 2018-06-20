@@ -2,8 +2,8 @@ function Venda (DataVenda) {
         this.DataVenda = DataVenda;
                  
         Object.defineProperty(this,'id',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'produtoId',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'faturaId',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'produto_id',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'fatura_id',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/NetFunlix.db');
@@ -29,7 +29,7 @@ Venda.delete = function(id, callback){
 }
 
 Venda.mappingDBtoObject = {
-    datavenda:'DataVenda',venda_id:'id'
+    DataVenda:'DataVenda',venda_id:'id', produto_id: 'produto_id' , fatura_id: 'fatura_id' 
 }
 
 module.exports = Venda;

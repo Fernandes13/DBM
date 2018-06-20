@@ -6,7 +6,7 @@ function Registo (Email,Username,Password) {
         this.Password = Password;
                  
         Object.defineProperty(this,'id',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'utilizadorId',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'utilizador_id',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/NetFunlix.db');
@@ -32,7 +32,7 @@ Registo.delete = function(id, callback){
 }
 
 Registo.mappingDBtoObject = {
-    email:'Email',username:'Username',password:'Password',registo_id:'id'
+    Email:'Email',Username:'Username',Password:'Password',registo_id:'id', utilizador_id: 'utilizador_id' 
 }
 
 module.exports = Registo;

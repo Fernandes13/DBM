@@ -29,7 +29,6 @@ app.post("/generate", function (req, res) {
 });
 
 app.post("/saveModule", function(req, res){
-    console.log(req.body)
     var objectJson = JSON.stringify(req.body);
     var path = "../Model/Schemas/Schema.json";
     fs.open(path,"w", function(err){

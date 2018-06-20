@@ -58,7 +58,6 @@ function addForeignKey(nome, schemas) {
     if (schema.references != void(0)) {
       schema.references.forEach(foreignkey => {
         var nameFk = foreignkey.model.charAt(0).toLowerCase() + foreignkey.model.slice(1);
-        (console.log(foreignkey.isParent));
         if (foreignkey.relation != "M-M" && foreignkey.relation.slice(1) == '-M' && !foreignkey.isParent) {
           var view = {
             tableName: nameTable,

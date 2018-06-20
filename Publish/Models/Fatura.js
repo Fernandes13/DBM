@@ -2,8 +2,8 @@ function Fatura (Valor) {
         this.Valor = Valor;
                  
         Object.defineProperty(this,'id',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'vendaId',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'utilizadorId',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'venda_id',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'utilizador_id',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/NetFunlix.db');
@@ -29,7 +29,7 @@ Fatura.delete = function(id, callback){
 }
 
 Fatura.mappingDBtoObject = {
-    valor:'Valor',fatura_id:'id'
+    Valor:'Valor',fatura_id:'id', venda_id: 'venda_id' , utilizador_id: 'utilizador_id' 
 }
 
 module.exports = Fatura;

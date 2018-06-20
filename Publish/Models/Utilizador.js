@@ -6,8 +6,8 @@ function Utilizador (Nome,DataNascimento,Saldo) {
         this.Saldo = Saldo;
         Object.defineProperty(this,'Saldo',{ enumerable:false, writable:true});         
         Object.defineProperty(this,'id',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'faturaId',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'registoId',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'fatura_id',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'registo_id',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/NetFunlix.db');
@@ -33,7 +33,7 @@ Utilizador.delete = function(id, callback){
 }
 
 Utilizador.mappingDBtoObject = {
-    nome:'Nome',datanascimento:'DataNascimento',saldo:'Saldo',utilizador_id:'id'
+    Nome:'Nome',DataNascimento:'DataNascimento',Saldo:'Saldo',utilizador_id:'id', fatura_id: 'fatura_id' , registo_id: 'registo_id' 
 }
 
 module.exports = Utilizador;

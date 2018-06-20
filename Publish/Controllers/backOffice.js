@@ -63,7 +63,7 @@ router.get('/Distribuidora', function (req, res) {
 router.get('/Distribuidora/Detalhe/:id', function (req, res) {
     Distribuidora.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('details',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -91,7 +91,7 @@ router.get('/Distribuidora/Inserir', function (req, res) {
 router.get('/Distribuidora/Editar/:id', function (req, res) {
     Distribuidora.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('form',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -160,7 +160,7 @@ router.get('/Fatura', function (req, res) {
 router.get('/Fatura/Detalhe/:id', function (req, res) {
     Fatura.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('details',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -188,7 +188,7 @@ router.get('/Fatura/Inserir', function (req, res) {
 router.get('/Fatura/Editar/:id', function (req, res) {
     Fatura.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('form',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -257,7 +257,7 @@ router.get('/Produto', function (req, res) {
 router.get('/Produto/Detalhe/:id', function (req, res) {
     Produto.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('details',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -285,7 +285,7 @@ router.get('/Produto/Inserir', function (req, res) {
 router.get('/Produto/Editar/:id', function (req, res) {
     Produto.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('form',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -354,7 +354,7 @@ router.get('/Registo', function (req, res) {
 router.get('/Registo/Detalhe/:id', function (req, res) {
     Registo.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('details',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -382,7 +382,7 @@ router.get('/Registo/Inserir', function (req, res) {
 router.get('/Registo/Editar/:id', function (req, res) {
     Registo.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('form',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -451,7 +451,7 @@ router.get('/Utilizador', function (req, res) {
 router.get('/Utilizador/Detalhe/:id', function (req, res) {
     Utilizador.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('details',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -479,7 +479,7 @@ router.get('/Utilizador/Inserir', function (req, res) {
 router.get('/Utilizador/Editar/:id', function (req, res) {
     Utilizador.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('form',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -548,7 +548,7 @@ router.get('/Venda', function (req, res) {
 router.get('/Venda/Detalhe/:id', function (req, res) {
     Venda.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('details',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,
@@ -576,7 +576,7 @@ router.get('/Venda/Inserir', function (req, res) {
 router.get('/Venda/Editar/:id', function (req, res) {
     Venda.get(req.params.id,function(row){
         if(row){
-            res.render('detail',{
+            res.render('form',{
                 properties: Object.getOwnPropertyNames(row).map(key =>{
                     return {
                         name: key,

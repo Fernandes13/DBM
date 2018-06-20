@@ -10,8 +10,8 @@ function Produto (Nome,Duracao,Categoria,Classificacao,DataLancamento) {
         this.DataLancamento = DataLancamento;
                  
         Object.defineProperty(this,'id',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'distribuidoraId',{ enumerable:false, writable:true});
-        Object.defineProperty(this,'vendaId',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'distribuidora_id',{ enumerable:false, writable:true});
+        Object.defineProperty(this,'venda_id',{ enumerable:false, writable:true});
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/NetFunlix.db');
@@ -37,7 +37,7 @@ Produto.delete = function(id, callback){
 }
 
 Produto.mappingDBtoObject = {
-    nome:'Nome',duracao:'Duracao',categoria:'Categoria',classificacao:'Classificacao',datalancamento:'DataLancamento',produto_id:'id'
+    Nome:'Nome',Duracao:'Duracao',Categoria:'Categoria',Classificacao:'Classificacao',DataLancamento:'DataLancamento',produto_id:'id', distribuidora_id: 'distribuidora_id' , venda_id: 'venda_id' 
 }
 
 module.exports = Produto;

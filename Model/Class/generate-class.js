@@ -26,8 +26,16 @@ function createClass(dbname,schemas) {
       references : function (){
         return Object.keys(schema.references).map(elem =>{
 
-          schema.references[elem].name = schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "Id";
+          schema.references[elem].name = schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "_id";
           return schema.references[elem];
+        });
+      },
+      mappingReferences : function (){
+        return Object.keys(schema.references).map(elem =>{
+          //if(schema.references[elem].isParent !== true){
+              schema.references[elem].name = schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "_id";
+              return schema.references[elem];
+          //}
         });
       },
       get propertiesJoin() {
@@ -68,7 +76,7 @@ function createClass(dbname,schemas) {
         props.push(this.primaryKey);
         return props
           .map(obj => {
-            return obj.columnName.toLowerCase() + ":'" + obj.name + "'";
+            return obj.columnName + ":'" + obj.name + "'";
           })
           .join();
       }

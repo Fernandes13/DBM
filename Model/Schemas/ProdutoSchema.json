@@ -46,7 +46,8 @@
       },
       {
         "model": "Venda",
-        "relation": "M-M"
+        "relation": "M-M",
+        "isParent": true
       }
     ]
   }
