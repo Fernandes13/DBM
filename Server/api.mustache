@@ -41,6 +41,12 @@ router.get('/{{title}}/:id', function(req,res){
     });
 });
 
+router.get('{{title}}/:model/:id', function (req, res){
+    {{title}}.many(req.params.model, req.params.id, function (rows){
+        res.json(rows);
+    });
+});
+
 router.put('/{{title}}/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
     var obj = mapping(req.body,{{title}});

@@ -105,7 +105,6 @@ router.get('/Distribuidora/Editar/:id', function (req, res) {
 });
 
 
-
 router.get('/Fatura', function (req, res) {
     Fatura.all(function (rows) {
         res.render('list', {
@@ -200,7 +199,6 @@ router.get('/Fatura/Editar/:id', function (req, res) {
         }
     });
 });
-
 
 
 router.get('/Produto', function (req, res) {
@@ -299,7 +297,6 @@ router.get('/Produto/Editar/:id', function (req, res) {
 });
 
 
-
 router.get('/Registo', function (req, res) {
     Registo.all(function (rows) {
         res.render('list', {
@@ -394,7 +391,6 @@ router.get('/Registo/Editar/:id', function (req, res) {
         }
     });
 });
-
 
 
 router.get('/Utilizador', function (req, res) {
@@ -493,7 +489,6 @@ router.get('/Utilizador/Editar/:id', function (req, res) {
 });
 
 
-
 router.get('/Venda', function (req, res) {
     Venda.all(function (rows) {
         res.render('list', {
@@ -588,7 +583,6 @@ router.get('/Venda/Editar/:id', function (req, res) {
         }
     });
 });
-
 
 
 module.exports = router;

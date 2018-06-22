@@ -43,6 +43,12 @@ router.get('/Distribuidora/:id', function(req,res){
     });
 });
 
+router.get('Distribuidora/:model/:id', function (req, res){
+    Distribuidora.many(req.params.model, req.params.id, function (rows){
+        res.json(rows);
+    });
+});
+
 router.put('/Distribuidora/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
     var obj = mapping(req.body,Distribuidora);
@@ -78,6 +84,12 @@ router.get('/Fatura', function(req,res){
 
 router.get('/Fatura/:id', function(req,res){
     Fatura.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.get('Fatura/:model/:id', function (req, res){
+    Fatura.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
 });
@@ -121,6 +133,12 @@ router.get('/Produto/:id', function(req,res){
     });
 });
 
+router.get('Produto/:model/:id', function (req, res){
+    Produto.many(req.params.model, req.params.id, function (rows){
+        res.json(rows);
+    });
+});
+
 router.put('/Produto/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
     var obj = mapping(req.body,Produto);
@@ -156,6 +174,12 @@ router.get('/Registo', function(req,res){
 
 router.get('/Registo/:id', function(req,res){
     Registo.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.get('Registo/:model/:id', function (req, res){
+    Registo.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
 });
@@ -199,6 +223,12 @@ router.get('/Utilizador/:id', function(req,res){
     });
 });
 
+router.get('Utilizador/:model/:id', function (req, res){
+    Utilizador.many(req.params.model, req.params.id, function (rows){
+        res.json(rows);
+    });
+});
+
 router.put('/Utilizador/:id',function(req,res){ //o id tanto poderia ir no corpo da mensagem como por parâmetro no url
 
     var obj = mapping(req.body,Utilizador);
@@ -234,6 +264,12 @@ router.get('/Venda', function(req,res){
 
 router.get('/Venda/:id', function(req,res){
     Venda.get(req.params.id, function(rows){
+        res.json(rows);
+    });
+});
+
+router.get('Venda/:model/:id', function (req, res){
+    Venda.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
 });

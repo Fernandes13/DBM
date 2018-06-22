@@ -25,6 +25,11 @@ Distribuidora.prototype.save = function (callback) {
     }
 }
 
+Distribuidora.many = function (model,id,callback){
+    database.where('SELECT distribuidoras.* FROM distribuidoras INNER JOIN ${model}_distribuidoras ON ${model}_distribuidoras.distribuidora_id = distribuidoras.distribuidora_id WHERE ${model}_distribuidoras.${model.toLowerCase()}_id = ?', [id], Distribuidora, callback)
+}
+
+
 Distribuidora.delete = function(id, callback){
     database.run("DELETE FROM distribuidoras WHERE distribuidora_id = ?",[id],callback);  
 }

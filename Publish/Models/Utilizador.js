@@ -28,6 +28,11 @@ Utilizador.prototype.save = function (callback) {
     }
 }
 
+Utilizador.many = function (model,id,callback){
+    database.where('SELECT utilizadors.* FROM utilizadors INNER JOIN ${model}_utilizadors ON ${model}_utilizadors.utilizador_id = utilizadors.utilizador_id WHERE ${model}_utilizadors.${model.toLowerCase()}_id = ?', [id], Utilizador, callback)
+}
+
+
 Utilizador.delete = function(id, callback){
     database.run("DELETE FROM utilizadors WHERE utilizador_id = ?",[id],callback);  
 }

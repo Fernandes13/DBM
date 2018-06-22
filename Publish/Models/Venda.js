@@ -24,6 +24,11 @@ Venda.prototype.save = function (callback) {
     }
 }
 
+Venda.many = function (model,id,callback){
+    database.where('SELECT vendas.* FROM vendas INNER JOIN ${model}_vendas ON ${model}_vendas.venda_id = vendas.venda_id WHERE ${model}_vendas.${model.toLowerCase()}_id = ?', [id], Venda, callback)
+}
+
+
 Venda.delete = function(id, callback){
     database.run("DELETE FROM vendas WHERE venda_id = ?",[id],callback);  
 }

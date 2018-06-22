@@ -27,6 +27,11 @@ Registo.prototype.save = function (callback) {
     }
 }
 
+Registo.many = function (model,id,callback){
+    database.where('SELECT registos.* FROM registos INNER JOIN ${model}_registos ON ${model}_registos.registo_id = registos.registo_id WHERE ${model}_registos.${model.toLowerCase()}_id = ?', [id], Registo, callback)
+}
+
+
 Registo.delete = function(id, callback){
     database.run("DELETE FROM registos WHERE registo_id = ?",[id],callback);  
 }

@@ -24,6 +24,11 @@ Fatura.prototype.save = function (callback) {
     }
 }
 
+Fatura.many = function (model,id,callback){
+    database.where('SELECT faturas.* FROM faturas INNER JOIN ${model}_faturas ON ${model}_faturas.fatura_id = faturas.fatura_id WHERE ${model}_faturas.${model.toLowerCase()}_id = ?', [id], Fatura, callback)
+}
+
+
 Fatura.delete = function(id, callback){
     database.run("DELETE FROM faturas WHERE fatura_id = ?",[id],callback);  
 }
