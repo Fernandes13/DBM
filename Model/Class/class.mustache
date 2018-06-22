@@ -27,6 +27,11 @@ var database = require('../Database/sqlite.js')('./Publish/Database/{{{dbname}}}
     }
 }
 
+{{title}}.many = function (model,id,callback){
+    database.where('SELECT {{table}}.* FROM {{table}} INNER JOIN ${model}_{{table}} ON ${model}_{{table}}.{{primaryKey.columnName}} = {{table}}.{{primaryKey.columnName}} WHERE ${model}_{{table}}.${model.toLowerCase()}_id = ?', [id], {{title}}, callback)
+}
+
+
 {{title}}.delete = function(id, callback){
     database.run("DELETE FROM {{table}} WHERE {{primaryKey.columnName}} = ?",[id],callback);  
 }

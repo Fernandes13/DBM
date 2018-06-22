@@ -2,7 +2,7 @@ var sqlite = require('sqlite3').verbose();
 
 /**
  * Método que faz o mapeamento entre um objeto retornado pelo módulo sqlite num objeto de uma classe criada
- * @param {any} object Representa o objeto retornado pela query à base de dados
+ * @param {any} object Representa o objeto retornado pela query à abse de dados
  * @param {any} type Representa o tipo de objeto que se pretende converter
  * @returns Devolve um objeto do tipo "type" com o conteúdo que está no objeto "object"
  */
@@ -43,8 +43,7 @@ module.exports = function (dbpath) {
             var db = new sqlite.Database(dbpath);
             db.get(statement, params, function (err, row) {
                 row = mapping(row, type);
-                if (callback)
-                    callback(row);
+                callback(row);
             });
             db.close();
         },
@@ -52,7 +51,17 @@ module.exports = function (dbpath) {
             var db = new sqlite.Database(dbpath);
             db.run(statement, params, function (err) {
                 if (callback)
-                    callback(err == undefined);
+                    callback(err != undefined);
+            });
+            db.close();
+        },
+        where: function (statement, params, type, callback) {
+            var db = new sqlite.Database(dbpath);
+            db.all(statement, params, function (err, rows) {
+                rows = rows.map(function (object) {
+                    return mapping(object, type);
+                });
+                callback(rows);
             });
             db.close();
         }
