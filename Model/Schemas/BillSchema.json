@@ -1,26 +1,26 @@
 {
-    "title": "Fatura",
-    "description": "Fatura emitida pela NetFunlix",
+    "title": "Bill",
+    "description": "Bill issued by NetFunlix",
     "type": "object",
   
     "properties": {
-      "Valor": {
-        "description": "Valor da fatura",
+      "Value": {
+        "description": "Bill value",
         "type": "real",
         "minimum": 0.0
       }
     },
   
-    "required": ["Valor"],
+    "required": ["Value"],
   
     "references": [
       {
-        "model": "Venda",
+        "model": "Sale",
         "relation": "1-1",
         "isParent": false
       },
       {
-        "model": "Utilizador",
+        "model": "User",
         "relation": "1-M",
         "isParent": false
       }
