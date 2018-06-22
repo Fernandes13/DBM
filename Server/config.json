@@ -3,28 +3,28 @@
     "dbname": "NetFunlix.db",
     "models": [
         {   
-            "name": "Distribuidora",
-            "path": "./Model/Schemas/DistribuidoraSchema.json"
+            "name": "Distributor",
+            "path": "./Model/Schemas/DistributorSchema.json"
         },
         {
-            "name": "Fatura",
-            "path": "./Model/Schemas/FaturaSchema.json"
+            "name": "Bill",
+            "path": "./Model/Schemas/BillSchema.json"
         },
         {
-            "name": "Produto",
-            "path": "./Model/Schemas/ProdutoSchema.json"
+            "name": "Product",
+            "path": "./Model/Schemas/ProductSchema.json"
         },
         {
-            "name": "Registo",
-            "path": "./Model/Schemas/RegistoSchema.json"
+            "name": "Register",
+            "path": "./Model/Schemas/RegisterSchema.json"
         },
         {
-            "name": "Utilizador",
-            "path": "./Model/Schemas/UtilizadorSchema.json"
+            "name": "User",
+            "path": "./Model/Schemas/UserSchema.json"
         },
         {
-            "name": "Venda",
-            "path": "./Model/Schemas/VendaSchema.json"
+            "name": "Sale",
+            "path": "./Model/Schemas/SaleSchema.json"
         }
     ],
     "modules": { "express": "true"},
