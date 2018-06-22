@@ -30,7 +30,7 @@ Distribuidora.delete = function(id, callback){
 }
 
 Distribuidora.mappingDBtoObject = {
-    Nome:'Nome',Valor:'Valor',distribuidora_id:'id', produto_id: 'produto_id' 
+    Nome:'Nome',Valor:'Valor',distribuidora_id:'id'   
 }
 
 module.exports = Distribuidora;

@@ -37,7 +37,7 @@ Produto.delete = function(id, callback){
 }
 
 Produto.mappingDBtoObject = {
-    Nome:'Nome',Duracao:'Duracao',Categoria:'Categoria',Classificacao:'Classificacao',DataLancamento:'DataLancamento',produto_id:'id', distribuidora_id: 'distribuidora_id' , venda_id: 'venda_id' 
+    Nome:'Nome',Duracao:'Duracao',Categoria:'Categoria',Classificacao:'Classificacao',DataLancamento:'DataLancamento',produto_id:'id'
 }
 
 module.exports = Produto;

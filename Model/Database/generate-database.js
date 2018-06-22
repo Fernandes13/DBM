@@ -100,7 +100,7 @@ function addForeignKey(nome, schemas) {
             //console.log(output);
             db.run(output);
           }
-        }else if(foreignkey.relation == "1-1"){
+        }else if(foreignkey.relation == "1-1" && !foreignkey.isParent){
           var view = {
             tableName: nameTable,
             columnName: nameFk,

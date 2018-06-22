@@ -31,11 +31,14 @@ function createClass(dbname,schemas) {
         });
       },
       mappingReferences : function (){
-        return Object.keys(schema.references).map(elem =>{
-          //if(schema.references[elem].isParent !== true){
-              schema.references[elem].name = schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "_id";
-              return schema.references[elem];
-          //}
+        return Object.keys(schema.references).filter(elem =>{
+          if(schema.references[elem].isParent !== true){
+              //schema.references[elem].name = schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "_id";
+              return {
+                name: ", " + schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "_id :",
+                value: "' " + schema.references[elem].model.charAt(0).toLowerCase() + schema.references[elem].model.slice(1) + "_id '"
+              }
+          }
         });
       },
       get propertiesJoin() {

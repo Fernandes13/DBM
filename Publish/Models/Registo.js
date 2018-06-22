@@ -32,7 +32,7 @@ Registo.delete = function(id, callback){
 }
 
 Registo.mappingDBtoObject = {
-    Email:'Email',Username:'Username',Password:'Password',registo_id:'id', utilizador_id: 'utilizador_id' 
+    Email:'Email',Username:'Username',Password:'Password',registo_id:'id'   
 }
 
 module.exports = Registo;

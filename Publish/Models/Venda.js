@@ -29,7 +29,7 @@ Venda.delete = function(id, callback){
 }
 
 Venda.mappingDBtoObject = {
-    DataVenda:'DataVenda',venda_id:'id', produto_id: 'produto_id' , fatura_id: 'fatura_id' 
+    DataVenda:'DataVenda',venda_id:'id'      
 }
 
 module.exports = Venda;

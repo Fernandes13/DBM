@@ -33,7 +33,7 @@ Utilizador.delete = function(id, callback){
 }
 
 Utilizador.mappingDBtoObject = {
-    Nome:'Nome',DataNascimento:'DataNascimento',Saldo:'Saldo',utilizador_id:'id', fatura_id: 'fatura_id' , registo_id: 'registo_id' 
+    Nome:'Nome',DataNascimento:'DataNascimento',Saldo:'Saldo',utilizador_id:'id'   
 }
 
 module.exports = Utilizador;

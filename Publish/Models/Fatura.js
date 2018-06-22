@@ -29,7 +29,7 @@ Fatura.delete = function(id, callback){
 }
 
 Fatura.mappingDBtoObject = {
-    Valor:'Valor',fatura_id:'id', venda_id: 'venda_id' , utilizador_id: 'utilizador_id' 
+    Valor:'Valor',fatura_id:'id'      
 }
 
 module.exports = Fatura;
