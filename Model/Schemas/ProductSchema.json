@@ -1,51 +1,51 @@
 {
-    "title": "Produto",
-    "description": "Produto comercializado pela NetFunlix",
+    "title": "Product",
+    "description": "Product marketed by NetFunlix",
     "type": "object",
   
     "properties": {
-      "Nome": {
-        "description": "Nome do produto",
+      "Name": {
+        "description": "Product name",
         "type": "text",
         "pattern": "^[A-Z][a-z]{2,}$"
       },
   
-      "Duracao": {
-        "description": "Duração do produto em horas",
+      "Duration": {
+        "description": "Product duration in hours",
         "type": "real",
         "minimum": 0.1
       },
 
-      "Categoria": {
-        "description": "Designacao da categoria",
+      "Category": {
+        "description": "Category designation",
         "type": "text"
       },
 
-      "Classificacao": {
-        "description": "Valor da classificação do produto",
+      "Classification": {
+        "description": "Value of the product classification",
         "type": "real",
         "minimum": 0.1,
         "maximum": 5.0
       },
   
-      "DataLancamento": {
-        "description": "Data de lançamento do produto",
+      "ReleaseDate": {
+        "description": "Product Release Date",
         "type": "text",
         "pattern": "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)/d/d$"
       }
   
     },
   
-    "required": ["Nome", "Duracao", "DataLancamento"],
+    "required": ["Name", "Duration", "ReleaseDate"],
   
     "references": [
       {
-        "model": "Distribuidora",
+        "model": "Distributor",
         "relation": "1-M",
         "isParent": true
       },
       {
-        "model": "Venda",
+        "model": "Sale",
         "relation": "M-M",
         "isParent": true
       }

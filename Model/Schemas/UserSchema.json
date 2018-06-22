@@ -1,38 +1,39 @@
 {
-    "title": "Utilizador",
-    "description": "Utilizador da NetFunlix",
+    "title": "User",
+    "description": "NetFunlix User",
     "type": "object",
   
     "properties": {
-      "Nome": {
-        "description": "Nome de utilizador",
+      "Name": {
+        "description": "Username",
         "type": "text",
         "pattern": "^[A-Z][a-z]{2,}$"
       },
-      "DataNascimento": {
-        "description": "Data de nascimento do utilizador",
+      "DateBirth": {
+        "description": "User's date of birth",
         "type": "text",
         "pattern": "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)/d/d$"
 
       },
-      "Saldo": {
-        "description": "Saldo do utilizador",
+      "Balance": {
+        "description": "User balance",
         "type": "real",
         "minimum": 0.0
       }
     },
   
-    "required": ["Nome","DataNascimento"],
+    "required": ["Name","DateBirth"],
   
     "references": [
       {
-        "model": "Fatura",
+        "model": "Bill",
         "relation": "1-M",
         "isParent": true
       },
       {
-          "model": "Registo",
-          "relation": "1-1"
+          "model": "Register",
+          "relation": "1-1",
+          "isParent": true
       }
     ]
   }
