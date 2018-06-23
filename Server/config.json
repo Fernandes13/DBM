@@ -19,12 +19,12 @@
             "path": "./Model/Schemas/RegisterSchema.json"
         },
         {
-            "name": "User",
-            "path": "./Model/Schemas/UserSchema.json"
-        },
-        {
             "name": "Sale",
             "path": "./Model/Schemas/SaleSchema.json"
+        },
+        {
+            "name": "User",
+            "path": "./Model/Schemas/UserSchema.json"
         }
     ],
     "modules": {

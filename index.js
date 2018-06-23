@@ -57,14 +57,32 @@ app.post("/saveModule", function (req, res) {
     });
 });
 
-app.get("/models",function (req, res){
+app.get("/models", function (req, res) {
     var pathConfig = fs.readFileSync("./Server/config.json");
-    pathConfig =  JSON.parse(pathConfig);
+    pathConfig = JSON.parse(pathConfig);
     var schemas = [];
-    pathConfig.models.forEach(model =>{
+    pathConfig.models.forEach(model => {
         schemas.push(model.name);
     });
     res.send(schemas);
+});
+
+app.delete("/delete", function (req, res) {
+    var path = "./Models/Schemas/" + req.body + "Schema.json";
+
+    var pathConfig = fs.readFileSync("./Server/config.json");
+    pathConfig = JSON.parse(pathConfig);
+    var modelDelete = {
+        name: req.body,
+        path: path
+    };
+    pathConfig.models.splice(pathConfig.models.indexOf(modelDelete, 1));
+    fs.writeFileSync("./Server/config.json", JSON.stringify(pathConfig));
+
+    fs.unlink(path, function () {
+        res.sendStatus(200);
+    });
+
 });
 
 var server = app.listen(8081, function () {
