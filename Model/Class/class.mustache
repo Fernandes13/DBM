@@ -10,6 +10,8 @@ function {{title}} ({{propertiesJoin}}) {
 }
 
 var database = require('../Database/sqlite.js')('./Publish/Database/{{{dbname}}}');
+var relationsName = require('../index.js');
+relationsName = relationsName.relationsName;
 
 {{title}}.all = function (callback) {
     database.all("SELECT * FROM {{table}}", {{title}}, callback);
@@ -28,7 +30,17 @@ var database = require('../Database/sqlite.js')('./Publish/Database/{{{dbname}}}
 }
 
 {{title}}.many = function (model,id,callback){
-    database.where('SELECT {{table}}.* FROM {{table}} INNER JOIN ${model}_{{table}} ON ${model}_{{table}}.{{primaryKey.columnName}} = {{table}}.{{primaryKey.columnName}} WHERE ${model}_{{table}}.${model.toLowerCase()}_id = ?', [id], {{title}}, callback)
+    var tableName = "{{table}} + '_' ${model}.toLowerCase() + 's'";
+    var tableName2 = "${model}.toLowerCase() + 's_' + {{table}}";
+
+    if(relationsName.includes(tableName)){
+        database.where('SELECT {{table}}.* FROM {{table}} INNER JOIN ' +  tableName + ' ON ' + 
+        tableName +'.{{primaryKey.columnName}} = {{table}}.{{primaryKey.columnName}} WHERE ' + tableName + '.${model.toLowerCase()}_id = ?', [id], Distributor, callback);
+    }else{
+        database.where('SELECT {{table}}.* FROM {{table}} INNER JOIN ' +  tableName2 + ' ON ' + 
+        tableName2 +'.{{primaryKey.columnName}} = {{table}}.{{primaryKey.columnName}} WHERE ' + tableName2 + '.${model.toLowerCase()}_id = ?', [id], Distributor, callback);
+    }
+
 }
 
 

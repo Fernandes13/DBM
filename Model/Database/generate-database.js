@@ -121,3 +121,4 @@ function addForeignKey(nome, schemas) {
 
 module.exports.generate = generate;
 module.exports.addForeignKey = addForeignKey;
+module.exports.relationsName = relationsName;

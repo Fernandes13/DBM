@@ -24,7 +24,8 @@
       {
         "model": "Product",
         "relation": "1-M",
-        "isParent": false
+        "isParent": false,
+        "label": "Product Name"
       }
       
     ]
