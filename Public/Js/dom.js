@@ -131,6 +131,7 @@ function processar() {
     var object = {};
     object.title = document.getElementById("title").value;
     object.description = document.getElementById("description").value;
+    object.type = document.getElementById("type").value;
     var propertiesArray = propertyElements();
     object.properties = {};
     object.required = [];
