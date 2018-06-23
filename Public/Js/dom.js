@@ -194,7 +194,3 @@ function referenceElements() {
     }
     return result;
 };
-
-function showSchemasTable() {
-    
-}

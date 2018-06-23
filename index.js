@@ -32,16 +32,29 @@ app.post("/generate", function (req, res) {
 });
 
 app.post("/saveModule", function (req, res) {
-    var body = req.body;    
-    var objectJSON = JSON.stringify(body);    
-    path = "./Model/Schemas/"+ body.title + ".json";
+    var body = req.body;
+    var objectJSON = JSON.stringify(body);
+    var path = "./Model/Schemas/" + body.title + ".json";
     fs.writeFile(path, objectJSON, function (err) {
         if (err) {
             throw 'could not open file: ' + err;
         }
         console.log("The file was saved!");
-        res.sendStatus(201);
-    });    
+    });
+    var pathConfig = "./Server/config.json";
+    fs.readFile(pathConfig, function (err, data) {
+        if (err) {
+            throw 'could not read file: ' + err;
+        }
+        var configObj = JSON.parse(data);
+        configObj.models.push({ "name": body.title, "path": path });
+        fs.writeFile(pathConfig, JSON.stringify(configObj), function (err) {
+            if (err) {
+                throw 'could not open file: ' + err;
+            }
+            res.sendStatus(201);
+        })
+    });
 });
 
 var server = app.listen(8081, function () {

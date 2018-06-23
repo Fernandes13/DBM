@@ -2,7 +2,7 @@
     "port": "8082",
     "dbname": "NetFunlix.db",
     "models": [
-        {   
+        {
             "name": "Distributor",
             "path": "./Model/Schemas/DistributorSchema.json"
         },
@@ -27,35 +27,37 @@
             "path": "./Model/Schemas/SaleSchema.json"
         }
     ],
-    "modules": { "express": "true"},
-    "staticFiles":[
-        {   "originalPath": "./StaticFiles/sqlite.js", 
+    "modules": {
+        "express": "true"
+    },
+    "staticFiles": [
+        {
+            "originalPath": "./StaticFiles/sqlite.js",
             "destinationPath": "./Publish/Database/sqlite.js"
         },
         {
-            "originalPath":"./StaticFiles/list.mustache",
+            "originalPath": "./StaticFiles/list.mustache",
             "destinationPath": "./Publish/Views/list.mustache"
         },
         {
-            "originalPath":"./StaticFiles/details.mustache",
+            "originalPath": "./StaticFiles/details.mustache",
             "destinationPath": "./Publish/Views/details.mustache"
         },
         {
-            "originalPath":"./StaticFiles/form.mustache",
+            "originalPath": "./StaticFiles/form.mustache",
             "destinationPath": "./Publish/Views/form.mustache"
         },
         {
-            "originalPath":"./StaticFiles/delete.png",
+            "originalPath": "./StaticFiles/delete.png",
             "destinationPath": "./Publish/Public/images/delete.png"
         },
         {
-            "originalPath":"./StaticFiles/edit.png",
+            "originalPath": "./StaticFiles/edit.png",
             "destinationPath": "./Publish/Public/images/edit.png"
         },
         {
-            "originalPath":"./StaticFiles/read.png",
+            "originalPath": "./StaticFiles/read.png",
             "destinationPath": "./Publish/Public/images/read.png"
         }
-
     ]
 }
