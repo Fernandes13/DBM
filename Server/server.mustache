@@ -5,6 +5,8 @@ var frontofficeRoutes = require("./Controllers/frontOffice.js");
 var backofficeRoutes = require("./Controllers/backOffice.js");
 var routes = require('./Controllers/api');
 var app = express();
+var relationsName = require('../Model/Database/generate-database.js');
+relationsName = relationsName.relationsName;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

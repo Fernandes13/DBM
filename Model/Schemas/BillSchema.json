@@ -22,7 +22,8 @@
       {
         "model": "User",
         "relation": "1-M",
-        "isParent": false
+        "isParent": false,
+        "label": "Username"
       }
     ]
   }
