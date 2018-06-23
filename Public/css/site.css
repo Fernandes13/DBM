@@ -5,8 +5,13 @@
 }
 
 .divTable {
-  margin: 15px 12px !important;
+  margin: 15px 100px !important;
   display: block !important;
+}
+
+.center{
+  position: relative;
+  margin-left: 21%;
 }
 
 .container-fluid {

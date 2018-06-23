@@ -120,6 +120,13 @@ function addProperty() {
 function switchToSchemas() {
     document.getElementById("generate").style.display = "none";
     document.getElementById("schemas").style.display = "block";
+    document.getElementById("newSchema").style.display = "none";
+}
+
+function switchToNewSchema() {
+    document.getElementById("generate").style.display = "none";
+    document.getElementById("schemas").style.display = "none";
+    document.getElementById("newSchema").style.display = "block";
 }
 
 function switchToGenerate() {
@@ -194,3 +201,23 @@ function referenceElements() {
     }
     return result;
 };
+
+window.addEventListener('load' , function() {
+    var schemas = [];
+    var pathConfig = "./Server/config.json";
+    var configObj = JSON.parse(pathConfig);
+    for (i = 0; i < configObj.models.length; i++) {
+        schemas.push(configObj.models[i].name);
+        console.log(configObj.models[i].name);
+    }
+    var line = document.createElement("tr");    
+    var lineDataSelected= document.createElement("td");
+    var lineData = document.createElement("td");
+    for (var i = 0; i < schemas.length; i++) {
+        var lineDataText = document.createTextNode(shemas[i]);
+        lineData.appendChild(lineDataText);
+        line.appendChild(lineData);
+        var bodyTable = document.getElementById("tbody");
+        bodyTable.appendChild(line);
+    }
+});

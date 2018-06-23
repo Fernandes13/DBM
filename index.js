@@ -56,6 +56,12 @@ app.post("/saveModule", function (req, res) {
         })
     });
 });
+/*
+app.post("/deleteModule", function (req, res) {
+    var body = req.body;
+    console.log(body);
+    res.sendStatus(201);
+});*/
 
 var server = app.listen(8081, function () {
     var host = server.address().address
