@@ -201,33 +201,3 @@ function referenceElements() {
     }
     return result;
 };
-
-function poupulateTable(schemas) {
-    var bodyTable = document.getElementById("tbody");
-
-    schemas.forEach(schema =>{
-        var line = document.createElement("tr");    
-        var lineData = document.createElement("td");
-        var lineDataText = document.createTextNode(schema.name);
-        lineData.appendChild(lineDataText);
-        line.appendChild(lineData);
-        
-        console.log(schema.name);
-        bodyTable.appendChild(line);
-    });
-
-    /*for (i = 0; i < configObj.models.length; i++) {
-        schemas.push(configObj.models[i].name);
-        console.log(configObj.models[i].name);
-    }
-    var line = document.createElement("tr");    
-    var lineDataSelected= document.createElement("td");
-    var lineData = document.createElement("td");
-    for (var i = 0; i < schemas.length; i++) {
-        var lineDataText = document.createTextNode(shemas[i]);
-        lineData.appendChild(lineDataText);
-        line.appendChild(lineData);
-        var bodyTable = document.getElementById("tbody");
-        bodyTable.appendChild(line);
-    }*/
-};
