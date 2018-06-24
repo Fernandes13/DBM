@@ -11,8 +11,52 @@ function generateNewSchema() {
         url: "/saveModule",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(processar())
-    })    
+    })
     window.location.reload();
+}
+
+function editSchema() {
+    var xhr = new XMLHttpRequest();
+    var r = document.getElementsByClassName("checkBox");
+    var name;
+    for (i = 0; i < r.length; i++) {
+        if (r[i].checked) {
+            var row = r[i].parentNode.parentNode;
+            name = row.lastChild.innerHTML;
+        }
+    }
+    xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            var schemaObj = JSON.parse(this.response);
+            console.log(schemaObj.title);
+            console.log(schemaObj.description);
+            console.log(schemaObj.type);
+
+            document.getElementById("title").value = schemaObj.title;
+            document.getElementById("description").value = schemaObj.description;
+            document.getElementById("type").value = schemaObj.type;
+
+            console.log(schemaObj.properties);
+            for (let i = 0; i < schemaObj.properties.length; i++) {
+                document.getElementById("property").value = schemaObj.properties[i].description;
+                console.log(schemaObj.properties[i].description);
+                document.getElementById("propertyType").value = schemaObj.properties[i].type;
+                console.log(schemaObj.properties[i].type);
+                if (schemaObj.properties[i].unique === 1) {
+                    document.getElementById("unique").checked = true;
+                }
+                document.getElementById("unique").checked = false;
+                console.log("Unique: ");
+                console.log("Unique: " + document.getElementById("unique").checked);
+                if (schemaObj.requires !== void 0) {
+                    document.getElementById("required").checked = true;
+                }
+                document.getElementById("required").checked = false;
+            }
+        }
+    }
+    xhr.open("GET", "/get/" + name, true);
+    xhr.send();
 }
 
 function poupulateTable(schemas) {

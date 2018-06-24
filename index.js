@@ -69,31 +69,33 @@ app.get("/models", function (req, res) {
 
 app.delete("/delete/:name", function (req, res) {
     var fileName = req.params.name + "Schema.json";
-
     var pathConfig = fs.readFileSync("./Server/config.json");
     pathConfig = JSON.parse(pathConfig);
-
     var modelDelete = {
         name: req.params.name,
         path: "./Model/Schemas/" + fileName
     };
-
-    pathConfig.models.forEach(model =>{
-        if(model.name === modelDelete.name){
-           pathConfig.models.splice(pathConfig.models.indexOf(model),1);
+    pathConfig.models.forEach(model => {
+        if (model.name === modelDelete.name) {
+            pathConfig.models.splice(pathConfig.models.indexOf(model), 1);
         }
     });
-
     fs.writeFileSync("./Server/config.json", JSON.stringify(pathConfig));
     fs.unlink("./Model/Schemas/" + fileName, function (err) {
         if (err) {
             console.log(err);
         } else {
-            console.log("SUCCESS");
+            console.log("Success");
             res.sendStatus(200);
         }
     });
+});
 
+app.get("/get/:name", function (req, res) {
+    var fileName = "./Model/Schemas/" + req.params.name + "Schema.json";
+    var schema = fs.readFileSync(fileName);
+    console.log("Schema: " + schema);
+    res.send(schema);
 });
 
 var server = app.listen(8081, function () {
