@@ -58,12 +58,11 @@ function deleteRowTable() {
 function deleteModels() {
     var xhr = new XMLHttpRequest();
     var r = document.getElementsByClassName("checkBox");
-    var arrName = [];
+    var name;
     for (i = 0; i < r.length; i++) {
         if (r[i].checked) {
             var row = r[i].parentNode.parentNode;
-            var name = row.lastChild.innerHTML;
-            arrName.push(name);
+            name = row.lastChild.innerHTML;
         }
     }
     xhr.onreadystatechange = function () {
@@ -72,6 +71,6 @@ function deleteModels() {
             window.location.reload();
         }
     }
-    xhr.open("DELETE", "/delete", true);
-    xhr.send(arrName);
+    xhr.open("DELETE", "/delete/" + name, true);
+    xhr.send();
 }

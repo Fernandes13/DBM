@@ -67,20 +67,28 @@ app.get("/models", function (req, res) {
     res.send(schemas);
 });
 
-app.delete("/delete", function (req, res) {
-    var path = "./Models/Schemas/" + req.body + "Schema.json";
+app.delete("/delete/:name", function (req, res) {
+    var fileName = req.params.name + "Schema.json";
+    console.log(fileName);
 
     var pathConfig = fs.readFileSync("./Server/config.json");
     pathConfig = JSON.parse(pathConfig);
+
     var modelDelete = {
         name: req.body,
-        path: path
+        path: "./Model/Schemas/" + fileName
     };
-    pathConfig.models.splice(pathConfig.models.indexOf(modelDelete, 1));
-    fs.writeFileSync("./Server/config.json", JSON.stringify(pathConfig));
 
-    fs.unlink(path, function () {
-        res.sendStatus(200);
+    pathConfig.models.splice(pathConfig.models.indexOf(modelDelete, 1));
+
+    fs.writeFileSync("./Server/config.json", JSON.stringify(pathConfig));
+    fs.unlink("./Model/Schemas/" + fileName, function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("SUCCESS");
+            res.sendStatus(200);
+        }
     });
 
 });
