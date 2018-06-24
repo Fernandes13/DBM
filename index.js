@@ -69,17 +69,23 @@ app.get("/models", function (req, res) {
 
 app.delete("/delete/:name", function (req, res) {
     var fileName = req.params.name + "Schema.json";
-    console.log(fileName);
 
     var pathConfig = fs.readFileSync("./Server/config.json");
     pathConfig = JSON.parse(pathConfig);
 
     var modelDelete = {
-        name: req.body,
+        name: req.params.name,
         path: "./Model/Schemas/" + fileName
     };
 
-    pathConfig.models.splice(pathConfig.models.indexOf(modelDelete, 1));
+    pathConfig.models.forEach(model =>{
+        if(model.name === modelDelete.name){
+            //console.log( "index: " + pathConfig.models.indexOf(model));
+           pathConfig.models.splice(pathConfig.models.indexOf(model),1);
+        }
+    });
+    
+    //pathConfig.models.splice(pathConfig.models.indexOf(modelDelete),1);
 
     fs.writeFileSync("./Server/config.json", JSON.stringify(pathConfig));
     fs.unlink("./Model/Schemas/" + fileName, function (err) {

@@ -26,6 +26,11 @@ function copyStaticFiles(){
     });
 }
 
+var schemas = [];
+
+    configs.models.forEach(model =>{
+        schemas.push(model.name);
+    });
 function createDatabase(){
     var schemas = [];
 
