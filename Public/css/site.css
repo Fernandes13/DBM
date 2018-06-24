@@ -1,12 +1,17 @@
 .jumbotron {
-  background-color: #009dba !important;
   color: #fff !important;
-  padding: 50px 25px;
+  background-color: #009dba !important;
+  padding-top: 2% !important; 
+  padding-bottom: 2% !important;
 }
 
 .divTable {
   margin: 15px 100px !important;
   display: block !important;
+}
+
+#newSchema{
+  display: none;
 }
 
 .center{
@@ -190,3 +195,4 @@ label > input[type=checkbox]{
     margin: 25px 0;
   }
 }
+

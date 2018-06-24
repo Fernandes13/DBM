@@ -11,7 +11,8 @@ function generateNewSchema() {
         url: "/saveModule",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(processar())
-    })
+    })    
+    window.location.reload();
 }
 
 function poupulateTable(schemas) {

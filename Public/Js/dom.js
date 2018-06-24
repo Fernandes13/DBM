@@ -165,6 +165,7 @@ function processar() {
             object.references.push({ "model": references[i].value, "relation": references[++i].value });
         }
     }
+    switchToSchemas()
     return object;
 };
 

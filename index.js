@@ -34,7 +34,7 @@ app.post("/generate", function (req, res) {
 app.post("/saveModule", function (req, res) {
     var body = req.body;
     var objectJSON = JSON.stringify(body);
-    var path = "./Model/Schemas/" + body.title + ".json";
+    var path = "./Model/Schemas/" + body.title + "Schema.json";
     fs.writeFile(path, objectJSON, function (err) {
         if (err) {
             throw 'could not open file: ' + err;
@@ -80,12 +80,9 @@ app.delete("/delete/:name", function (req, res) {
 
     pathConfig.models.forEach(model =>{
         if(model.name === modelDelete.name){
-            //console.log( "index: " + pathConfig.models.indexOf(model));
            pathConfig.models.splice(pathConfig.models.indexOf(model),1);
         }
     });
-    
-    //pathConfig.models.splice(pathConfig.models.indexOf(modelDelete),1);
 
     fs.writeFileSync("./Server/config.json", JSON.stringify(pathConfig));
     fs.unlink("./Model/Schemas/" + fileName, function (err) {
