@@ -5,11 +5,6 @@
   padding-bottom: 2% !important;
 }
 
-.checkbox-warning-filled [type="checkbox"][class*='filled-in']:checked+label:after {
-  border-color: #009dba;
-  background-color: #009dba;
-}
-
 .divTable {
   margin: 15px 100px !important;
   display: block !important;
