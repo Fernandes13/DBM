@@ -111,6 +111,16 @@ app.get("/get/:name", function (req, res) {
     res.send(schema);
 });
 
+app.get("/modelOptions", function (req, res) {
+    var pathConfig = fs.readFileSync("./Server/config.json");
+    pathConfig = JSON.parse(pathConfig);
+    var schemas = [];
+    pathConfig.models.forEach(model => {
+        schemas.push(model.name);
+    });
+    res.send(schemas);
+});
+
 var server = app.listen(8081, function () {
     var host = server.address().address
     var port = server.address().port
