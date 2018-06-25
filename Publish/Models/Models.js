@@ -2,32 +2,32 @@ module.exports = {
     "models": [
             {
                 name: "Distributor",
-                href: ""
+                href: "/BackOffice/Distributor"
             },
     
             {
                 name: "Bill",
-                href: ""
+                href: "/BackOffice/Bill"
             },
     
             {
                 name: "Product",
-                href: ""
+                href: "/BackOffice/Product"
             },
     
             {
                 name: "Register",
-                href: ""
+                href: "/BackOffice/Register"
             },
     
             {
                 name: "Sale",
-                href: ""
+                href: "/BackOffice/Sale"
             },
     
             {
                 name: "User",
-                href: ""
+                href: "/BackOffice/User"
             },
     ]
 }

@@ -119,7 +119,7 @@ app.put('/edit/:name', function (req, res) {
 app.get("/get/:name", function (req, res) {
     var fileName = "./Model/Schemas/" + req.params.name + "Schema.js";
     var schema = fs.readFileSync(fileName);
-    console.log("Schema: " + schema);
+
     res.send(schema);
 });
 

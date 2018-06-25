@@ -5,32 +5,32 @@
         {
             "name": "Distributor",
             "path": "../Model/Schemas/DistributorSchema",
-            "href:": "/BackOffice/Distributor"
+            "href": "/BackOffice/Distributor"
         },
         {
             "name": "Bill",
             "path": "../Model/Schemas/BillSchema",
-            "href:": "/BackOffice/Bill"
+            "href": "/BackOffice/Bill"
         },
         {
             "name": "Product",
             "path": "../Model/Schemas/ProductSchema",
-            "href:": "/BackOffice/Product"
+            "href": "/BackOffice/Product"
         },
         {
             "name": "Register",
             "path": "../Model/Schemas/RegisterSchema",
-            "href:": "/BackOffice/Resgister"
+            "href": "/BackOffice/Register"
         },
         {
             "name": "Sale",
             "path": "../Model/Schemas/SaleSchema",
-            "href:": "/BackOffice/Sale"
+            "href": "/BackOffice/Sale"
         },
         {
             "name": "User",
             "path": "../Model/Schemas/UserSchema",
-            "href:": "/BackOffice/User"
+            "href": "/BackOffice/User"
         }
     ],
     "modules": {
