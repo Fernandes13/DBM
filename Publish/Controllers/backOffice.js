@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require("fs");
-
+ 
 var Distributor = require("../Models/Distributor.js");
 //var modelDistributor = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/DistributorSchema.json'));
 var Bill = require("../Models/Bill.js");
