@@ -1,4 +1,4 @@
-{
+module.exports = {
     "title": "Register",
     "description": "Registering a user from the NetFunlix",
     "type": "object",

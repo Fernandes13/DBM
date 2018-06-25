@@ -127,18 +127,6 @@ function deleteModels() {
     xhr.send();
 }
 
-function populateModel(schemas) {
-    var modelSelect = document.getElementById("model");
-    let schemasArr = JSON.parse(schemas.toString());
-    schemasArr.forEach(schema => {
-        var option = document.createElement("option");
-        var optionText = document.createTextNode(schema);
-        option.value = schema;
-        option.appendChild(optionText);
-        modelSelect.appendChild(option);
-    });
-}
-
 function showModelsToOptions() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {

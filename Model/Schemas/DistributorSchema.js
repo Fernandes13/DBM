@@ -1,4 +1,4 @@
-{
+module.exports = {
     "title": "Distributor",
     "description": "NetFunlix Product Distributor",
     "type": "object",

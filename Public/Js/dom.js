@@ -7,15 +7,9 @@ function addReference() {
 
     var selectModel = document.createElement("select");
     var optionModel = document.createElement("option");
-    var optionModel1 = document.createElement("option");
-    var optionModel2 = document.createElement("option");
     optionModel.textContent = "Select a Model";
     optionModel.selected = true;
     optionModel.disabled = true;
-    optionModel1.textContent = "Model1";
-    optionModel1.value = "Model1";
-    optionModel2.textContent = "Model2";
-    optionModel2.value = "Model2";
 
     var selectRelation = document.createElement("select");
     var optionRelation = document.createElement("option");
@@ -41,8 +35,6 @@ function addReference() {
     selectRelation.className += "form-group form-control";
 
     selectModel.appendChild(optionModel);
-    selectModel.appendChild(optionModel1);
-    selectModel.appendChild(optionModel2);
     selectRelation.appendChild(optionRelation);
     selectRelation.appendChild(optionRelation1);
     selectRelation.appendChild(optionRelation2);
@@ -70,18 +62,31 @@ function addProperty() {
     var selectProperty = document.createElement("select");
     var optionProperty = document.createElement("option");
     var optionProperty1 = document.createElement("option");
-    var optionProperty2 = document.createElement("option");
+    var optionProperty2 = document.createElement("option");    
+    var optionProperty3 = document.createElement("option");    
+    var optionProperty4 = document.createElement("option");    
+    var optionProperty5 = document.createElement("option");
 
     optionProperty.textContent = "Select a Property Type";
     optionProperty.disabled = true;
     optionProperty.selected = true;
-    optionProperty1.textContent = "Property Type1";
-    optionProperty1.value = "Property Type1";
-    optionProperty2.textContent = "Property Type2";
-    optionProperty2.value = "Property Type2";
+    optionProperty1.textContent = "Null";
+    optionProperty1.value = "null";
+    optionProperty2.textContent = "Integer";
+    optionProperty2.value = "integer";
+    optionProperty3.textContent = "Text";
+    optionProperty3.value = "text";
+    optionProperty4.textContent = "Real";
+    optionProperty4.value = "real";
+    optionProperty5.textContent = "Bold";
+    optionProperty5.value = "bold";
+
     selectProperty.appendChild(optionProperty);
     selectProperty.appendChild(optionProperty1);
     selectProperty.appendChild(optionProperty2);
+    selectProperty.appendChild(optionProperty3);
+    selectProperty.appendChild(optionProperty4);
+    selectProperty.appendChild(optionProperty5);
 
     selectProperty.id = idNamePropertyType;
 
@@ -211,4 +216,16 @@ function getTheme(){
     object.theme = result;
     
     return object;
+}
+
+function populateModel(schemas) {
+    var modelSelect = document.getElementById("model");
+    let schemasArr = JSON.parse(schemas.toString());
+    schemasArr.forEach(schema => {
+        var option = document.createElement("option");
+        var optionText = document.createTextNode(schema);
+        option.value = schema;
+        option.appendChild(optionText);
+        modelSelect.appendChild(option);
+    });
 }
