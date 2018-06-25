@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Product = require("../Models/Product.js");
+var currentModels = require("../Models/Models.js");
 
 router.get('/', function (req, res) {
     Product.top("Price", "DESC", 3, function (rows) {
@@ -19,7 +20,16 @@ router.get('/', function (req, res) {
                 return {
                     name: key
                 };
-            })
+            }),
+            models: function(){
+
+                return currentModels.models.map(model=>{
+                    return {
+                        name: model.name,
+                        href: model.href
+                    }
+                });
+            }
         });
     });
 });

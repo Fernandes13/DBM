@@ -4,7 +4,7 @@ var fs = require("fs");
 
 {{#models}}
 var {{title}} = require("../Models/{{title}}.js");
-//var model{{title}} = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/{{title}}Schema.json'));
+//var model{{title}} = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/{{title}}Schema.json"));
 {{/models}}
 
 {{#models}}
@@ -69,7 +69,7 @@ router.get('/{{title}}/Detalhe/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
             });
 
         }
