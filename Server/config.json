@@ -4,27 +4,33 @@
     "models": [
         {
             "name": "Distributor",
-            "path": "./Model/Schemas/DistributorSchema.json"
+            "path": "./Model/Schemas/DistributorSchema.json",
+            "href": "./Distributor"
         },
         {
             "name": "Bill",
-            "path": "./Model/Schemas/BillSchema.json"
+            "path": "./Model/Schemas/BillSchema.json",
+            "href": "./Bill"
         },
         {
             "name": "Product",
-            "path": "./Model/Schemas/ProductSchema.json"
+            "path": "./Model/Schemas/ProductSchema.json",
+            "href": "./Product"
         },
         {
             "name": "Register",
-            "path": "./Model/Schemas/RegisterSchema.json"
+            "path": "./Model/Schemas/RegisterSchema.json",
+            "href": "./Register"
         },        
         {
             "name": "Sale",
-            "path": "./Model/Schemas/SaleSchema.json"
+            "path": "./Model/Schemas/SaleSchema.json",
+            "href": "./Sale"
         },
         {
             "name": "User",
-            "path": "./Model/Schemas/UserSchema.json"
+            "path": "./Model/Schemas/UserSchema.json",
+            "href": "./User"
         }
     ],
     "modules": {

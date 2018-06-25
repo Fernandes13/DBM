@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
 var fs = require("fs");
- 
+
 var Distributor = require("../Models/Distributor.js");
-//var modelDistributor = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/DistributorSchema.json'));
+//var modelDistributor = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/DistributorSchema.json"));
 var Bill = require("../Models/Bill.js");
-//var modelBill = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/BillSchema.json'));
+//var modelBill = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/BillSchema.json"));
 var Product = require("../Models/Product.js");
-//var modelProduct = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/ProductSchema.json'));
+//var modelProduct = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/ProductSchema.json"));
 var Register = require("../Models/Register.js");
-//var modelRegister = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/RegisterSchema.json'));
+//var modelRegister = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/RegisterSchema.json"));
 var Sale = require("../Models/Sale.js");
-//var modelSale = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/SaleSchema.json'));
+//var modelSale = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/SaleSchema.json"));
 var User = require("../Models/User.js");
-//var modelUser = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/UserSchema.json'));
+//var modelUser = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/UserSchema.json"));
 
 
 router.get('/Distributor', function (req, res) {
@@ -76,7 +76,7 @@ router.get('/Distributor/Detalhe/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
             });
 
         }
@@ -210,7 +210,7 @@ router.get('/Bill/Detalhe/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
             });
 
         }
@@ -344,7 +344,7 @@ router.get('/Product/Detalhe/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
             });
 
         }
@@ -478,7 +478,7 @@ router.get('/Register/Detalhe/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
             });
 
         }
@@ -612,7 +612,7 @@ router.get('/Sale/Detalhe/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
             });
 
         }
@@ -746,7 +746,7 @@ router.get('/User/Detalhe/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
             });
 
         }

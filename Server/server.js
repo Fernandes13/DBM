@@ -26,11 +26,7 @@ function copyStaticFiles(){
     });
 }
 
-var schemas = [];
 
-    configs.models.forEach(model =>{
-        schemas.push(model.name);
-    });
 function createDatabase(){
     var schemas = [];
 
@@ -58,11 +54,13 @@ function generateApi(){
 }
 
 function generateFrontOffice(){
+    setTimeout(() =>{exportModels()},1000);
     var view = {
         model: configs.frontOffice.model,
         property: configs.frontOffice.property,
         order: configs.frontOffice.order,
-        limit: configs.frontOffice.limit
+        limit: configs.frontOffice.limit,
+        port: configs.port
     }
 
     var template = fs.readFileSync("./Server/frontOffice.mustache").toString();
@@ -71,27 +69,6 @@ function generateFrontOffice(){
 
     fs.writeFile(name, output);
 }
-
-/*function generateBackOffice(){
-    var schemas = [];
-
-    configs.models.forEach(model =>{
-        schemas.push(JSON.parse(fs.readFileSync(model.path)));
-    });
-    
-    schemas.forEach(schema => {
-        var view = {
-
-        };
-    });
-    
-
-    var template = fs.readFileSync("./Server/backOffice.mustache").toString();
-    var output = mustache.render(template,view);
-    var name = "./Publish/Controllers/backOffice.js";
-
-    fs.writeFile(name, output);
-} */
 
 function generateBackOffice(){
     var view = {
@@ -133,6 +110,27 @@ function clearFolders() {
     del(['./Publish/']).then(paths => createFolders());
 }
 
+function exportModels(){
+    var view = {
+        models: function() {
+           return configs.models.map(elem =>{
+                console.log(elem)
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
+
+    }
+
+    var template = fs.readFileSync("./Server/models.mustache").toString();
+    var output = mustache.render(template, view);
+    var name = "./Publish/Models/Models.js";
+
+    fs.writeFile(name, output);
+}
+
 module.exports.clearFolders = clearFolders;
 module.exports.createFolders = createFolders;
 module.exports.createClass = createClass;
@@ -141,3 +139,4 @@ module.exports.createIndex = createIndex;
 module.exports.generateApi = generateApi;
 module.exports.generateFrontOffice = generateFrontOffice;
 module.exports.generateBackOffice = generateBackOffice;
+module.exports.exportModels = exportModels;
