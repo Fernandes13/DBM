@@ -201,7 +201,9 @@ function referenceElements() {
     result.push(document.getElementById("model"));
     result.push(document.getElementById("relation"));
     var i;
-    for (i = 0; i < fieldsNumber; i++) {
+    for (i = 1; i < fieldsNumber; i++) {
+        console.log(document.getElementById("model" + i));
+        console.log(document.getElementById("relation" + i));
         result.push(document.getElementById("model" + i));
         result.push(document.getElementById("relation" + i));
     }
