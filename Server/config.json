@@ -4,27 +4,33 @@
     "models": [
         {
             "name": "Distributor",
-            "path": "./Model/Schemas/DistributorSchema.js"
+            "path": "../Model/Schemas/DistributorSchema",
+            "href:": "/BackOffice/Distributor"
         },
         {
             "name": "Bill",
-            "path": "./Model/Schemas/BillSchema.js"
+            "path": "../Model/Schemas/BillSchema",
+            "href:": "/BackOffice/Bill"
         },
         {
             "name": "Product",
-            "path": "./Model/Schemas/ProductSchema.js"
+            "path": "../Model/Schemas/ProductSchema",
+            "href:": "/BackOffice/Product"
         },
         {
             "name": "Register",
-            "path": "./Model/Schemas/RegisterSchema.js"
+            "path": "../Model/Schemas/RegisterSchema",
+            "href:": "/BackOffice/Resgister"
         },
         {
             "name": "Sale",
-            "path": "./Model/Schemas/SaleSchema.js"
+            "path": "../Model/Schemas/SaleSchema",
+            "href:": "/BackOffice/Sale"
         },
         {
             "name": "User",
-            "path": "./Model/Schemas/UserSchema.js"
+            "path": "../Model/Schemas/UserSchema",
+            "href:": "/BackOffice/User"
         }
     ],
     "modules": {

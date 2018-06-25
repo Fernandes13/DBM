@@ -3,7 +3,6 @@ var fs = require("fs");
 
 function createClass(dbname,schemas) {
   schemas.forEach(schema => {
-
     var view = {
       dbname: dbname,
       title: schema.title,
