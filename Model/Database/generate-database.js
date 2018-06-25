@@ -3,7 +3,7 @@ var mustache = require("mustache");
 var fs = require("fs");
 var relationsName = [];
 
-function generate(nome, schemas) {
+function generateDatabase(nome, schemas) {
   var db = new sqlite3.Database("./Publish/Database/" + nome);
 
   schemas.forEach(schema => {
@@ -119,6 +119,6 @@ function addForeignKey(nome, schemas) {
   db.close();
 }
 
-module.exports.generate = generate;
+module.exports.generateDatabase = generateDatabase;
 module.exports.addForeignKey = addForeignKey;
 module.exports.relationsName = relationsName;

@@ -202,3 +202,13 @@ function referenceElements() {
     }
     return result;
 };
+
+function getTheme(){
+    var object = {};
+    var dropList = document.getElementById("theme");
+    var result = dropList.options[dropList.selectedIndex].value;
+
+    object.theme = result;
+    
+    return object;
+}

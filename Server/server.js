@@ -38,7 +38,7 @@ function createDatabase(){
         schemas.push(JSON.parse(fs.readFileSync(model.path)));
     });
 
-    database_generator.generate(configs.dbname,schemas);
+    database_generator.generateDatabase(configs.dbname,schemas);
     setTimeout(() =>{database_generator.addForeignKey(configs.dbname,schemas)},1000);
     setTimeout(() =>{copyStaticFiles()},1000);
 }
@@ -58,8 +58,15 @@ function generateApi(){
 }
 
 function generateFrontOffice(){
+    var view = {
+        model: configs.frontOffice.model,
+        property: configs.frontOffice.property,
+        order: configs.frontOffice.order,
+        limit: configs.frontOffice.limit
+    }
+
     var template = fs.readFileSync("./Server/frontOffice.mustache").toString();
-    var output = mustache.render(template);
+    var output = mustache.render(template, view);
     var name = "./Publish/Controllers/frontOffice.js";
 
     fs.writeFile(name, output);

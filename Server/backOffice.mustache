@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var fs = require("fs");
 
 {{#models}}
 var {{title}} = require("../Models/{{title}}.js");
+//var model{{title}} = JSON.parse(fs.readFileSync(__dirname + '/Model/Schemas/{{title}}Schema.json'));
 {{/models}}
 
 {{#models}}
@@ -73,6 +75,44 @@ router.get('/{{title}}/Detalhe/:id', function (req, res) {
         }
     });
 });
+
+router.get('/{{title}}/Detalhe/:id', function (req, res) {
+    {{title}}.get(req.params.id, function (row) {
+        res.render('details', {
+            properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (model{{title}}.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+            });
+            return validProps;
+            },
+            references: function () {
+            var allRefs = [];
+                if (model{{title}}.references) {
+                    model{{title}}.references.forEach(function (ref) {
+                        allRefs.push({
+                            label: ref.label,
+                            model: "{{title}}",
+                            values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
+                            row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return allRefs;
+            },
+            get hasReferences() {
+                return this.references().length > 0;
+            }
+        })
+    });
+});
+
 
 router.get('/{{title}}/Inserir', function (req, res) {
     var obj = new {{title}}();
