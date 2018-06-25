@@ -4,39 +4,33 @@
     "models": [
         {
             "name": "Distributor",
-            "path": "./Model/Schemas/DistributorSchema.json",
-            "href": "./Distributor"
+            "path": "./Model/Schemas/DistributorSchema.js"
         },
         {
             "name": "Bill",
-            "path": "./Model/Schemas/BillSchema.json",
-            "href": "./Bill"
+            "path": "./Model/Schemas/BillSchema.js"
         },
         {
             "name": "Product",
-            "path": "./Model/Schemas/ProductSchema.json",
-            "href": "./Product"
+            "path": "./Model/Schemas/ProductSchema.js"
         },
         {
             "name": "Register",
-            "path": "./Model/Schemas/RegisterSchema.json",
-            "href": "./Register"
-        },        
+            "path": "./Model/Schemas/RegisterSchema.js"
+        },
         {
             "name": "Sale",
-            "path": "./Model/Schemas/SaleSchema.json",
-            "href": "./Sale"
+            "path": "./Model/Schemas/SaleSchema.js"
         },
         {
             "name": "User",
-            "path": "./Model/Schemas/UserSchema.json",
-            "href": "./User"
+            "path": "./Model/Schemas/UserSchema.js"
         }
     ],
     "modules": {
         "express": "true"
     },
-    "frontOffice":{
+    "frontOffice": {
         "model": "Product",
         "property": "Price",
         "order": "DESC",

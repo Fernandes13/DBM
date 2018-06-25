@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <span class="logo">
-                        <img src="images/schema.png" width="350" height="350"></img>
+                        <img onload="javascript:showModelsToOptions(0);" src="images/schema.png" width="350" height="350"></img>
                     </span>
                 </div>
                 <div class="col-sm-8">
@@ -97,8 +97,11 @@
                             <input id="property" class="form-control" type="text" placeholder="Enter Property">
                             <select class="form-control" id="propertyType">
                                 <option value="Property Type" hidden>Select a Property Type</option>
-                                <option value="Property Type1">Property Type1</option>
-                                <option value="Property Type2">Property Type2</option>
+                                <option value="null">Null</option>
+                                <option value="integer">Integer</option>
+                                <option value="text">Text</option>
+                                <option value="real">Real</option>
+                                <option value="bold">Bold</option>
                             </select>
                             <label class="checkbox-inline">
                                 <input id="unique" type="checkbox" value="true">Unique</label>
@@ -113,10 +116,8 @@
                     </a>
                     <form class="form-inline">
                         <div class="form-group" id="reference">
-                            <select class="form-control" id="model">
+                            <select class="form-control" id="model" >
                                 <option value="" hidden>Select a Model</option>
-                                <option value="Model1">Model1</option>
-                                <option value="Model2">Model2</option>
                             </select>
                             <select class="form-control" id="relation">
                                 <option value="" hidden>Select a Relation Type</option>

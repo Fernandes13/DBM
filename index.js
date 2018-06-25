@@ -4,6 +4,7 @@ var app = express();
 var fs = require("fs");
 var path = require('path');
 var serverModule = require("./Server/server");
+var mustache = require('mustache');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded());
@@ -27,21 +28,32 @@ app.post("/generate", function (req, res) {
     setTimeout(() => { serverModule.generateFrontOffice() }, 4000);
     setTimeout(() => { serverModule.generateBackOffice() }, 5000);
     setTimeout(() => { serverModule.createIndex() }, 6000);
-    
-    setTimeout(() => { fs.createReadStream(req.body.theme).pipe(fs.createWriteStream("./Publish/Public/css/site.css")) },1000);
+
+    setTimeout(() => { fs.createReadStream(req.body.theme).pipe(fs.createWriteStream("./Publish/Public/css/site.css")) }, 1000);
     res.sendStatus(200);
 });
 
 app.post("/saveModule", function (req, res) {
     var body = req.body;
-    var objectJSON = JSON.stringify(body);
-    var path = "./Model/Schemas/" + body.title + "Schema.json";
-    fs.writeFile(path, objectJSON, function (err) {
+    var path = "./Model/Schemas/" + body.title + "Schema.js";
+    /*fs.writeFile(path, objectJSON, function (err) {
         if (err) {
             throw 'could not open file: ' + err;
         }
         console.log("The file was saved!");
-    });
+    });*/
+    var view = {
+        title: body.title,
+        description: body.description,
+        type: body.type,
+        properties: JSON.stringify(body.properties),
+        required: body.required,
+        references: JSON.stringify(body.references)
+    }
+    var template = fs.readFileSync("./Server/schema.mustache").toString();
+    var output = mustache.render(template, view);
+    fs.writeFile(path, output);
+
     var pathConfig = "./Server/config.json";
     fs.readFile(pathConfig, function (err, data) {
         if (err) {
@@ -69,7 +81,7 @@ app.get("/models", function (req, res) {
 });
 
 app.delete("/delete/:name", function (req, res) {
-    var fileName = req.params.name + "Schema.json";
+    var fileName = req.params.name + "Schema.js";
     var pathConfig = fs.readFileSync("./Server/config.json");
     pathConfig = JSON.parse(pathConfig);
     var modelDelete = {
@@ -92,12 +104,12 @@ app.delete("/delete/:name", function (req, res) {
     });
 });
 
-app.put('/edit/:name',function(req,res){
+app.put('/edit/:name', function (req, res) {
     var pathConfig = fs.readFileSync("./Server/config.json");
     pathConfig = JSON.parse(pathConfig);
 
-    var modelFound = pathConfig.models.find(function(model){
-        if(model.name === req.params.name){
+    var modelFound = pathConfig.models.find(function (model) {
+        if (model.name === req.params.name) {
             return model;
         }
     });
@@ -105,11 +117,22 @@ app.put('/edit/:name',function(req,res){
 });
 
 app.get("/get/:name", function (req, res) {
-    var fileName = "./Model/Schemas/" + req.params.name + "Schema.json";
+    var fileName = "./Model/Schemas/" + req.params.name + "Schema.js";
     var schema = fs.readFileSync(fileName);
     console.log("Schema: " + schema);
     res.send(schema);
 });
+
+app.get("/modelOptions", function (req, res) {
+    var pathConfig = fs.readFileSync("./Server/config.json");
+    pathConfig = JSON.parse(pathConfig);
+    var schemas = [];
+    pathConfig.models.forEach(model => {
+        schemas.push(model.name);
+    });
+    res.send(schemas);
+});
+
 
 var server = app.listen(8081, function () {
     var host = server.address().address

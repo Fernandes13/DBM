@@ -1,4 +1,4 @@
-{
+module.exports = {
     "title": "Bill",
     "description": "Bill issued by NetFunlix",
     "type": "object",

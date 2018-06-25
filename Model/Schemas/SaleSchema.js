@@ -1,4 +1,4 @@
-{
+module.exports = {
     "title": "Sale",
     "description": "NetFunlix sales",
     "type": "object",
