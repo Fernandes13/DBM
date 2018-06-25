@@ -30,12 +30,6 @@
     "modules": {
         "express": "true"
     },
-    "frontOffice":{
-        "model": "Product",
-        "property": "Price",
-        "order": "DESC",
-        "limit": 3
-    },
     "staticFiles": [
         {
             "originalPath": "./StaticFiles/sqlite.js",
@@ -64,14 +58,6 @@
         {
             "originalPath": "./StaticFiles/read.png",
             "destinationPath": "./Publish/Public/images/read.png"
-        },
-        {
-            "originalPath": "./StaticFiles/frontOffice.mustache",
-            "destinationPath": "./Publish/Views/frontOffice.mustache"
-        },
-        {
-            "originalPath": "./StaticFiles/menu.mustache",
-            "destinationPath": "./Publish/Views/menu.mustache"
         }
     ]
 }

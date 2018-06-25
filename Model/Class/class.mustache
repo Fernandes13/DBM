@@ -48,12 +48,6 @@ relationsName = relationsName.relationsName;
     database.run("DELETE FROM {{table}} WHERE {{primaryKey.columnName}} = ?",[id],callback);  
 }
 
-{{title}}.top = function (property,order,limit,callback) {
-    var dbprop = Object.keys({{title}}.mappingDBtoObject).find(key => {{title}}.mappingDBtoObject[key] == property);
-    var tableName = "{{title}}".toLowerCase() + "s";
-    database.where(`SELECT * FROM ${tableName} ORDER BY ${dbprop} ${order} LIMIT ?`, [limit], {{title}}, callback);
-}
-
 {{title}}.mappingDBtoObject = {
     {{{mappingDBtoObject}}}{{#mappingReferences}} {{name}} {{name}} {{/mappingReferences}}
 }

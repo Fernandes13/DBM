@@ -27,8 +27,7 @@ app.post("/generate", function (req, res) {
     setTimeout(() => { serverModule.generateFrontOffice() }, 4000);
     setTimeout(() => { serverModule.generateBackOffice() }, 5000);
     setTimeout(() => { serverModule.createIndex() }, 6000);
-    
-    setTimeout(() => { fs.createReadStream(req.body.theme).pipe(fs.createWriteStream("./Publish/Public/css/site.css")) },1000);
+
     res.sendStatus(200);
 });
 
@@ -90,18 +89,6 @@ app.delete("/delete/:name", function (req, res) {
             res.sendStatus(200);
         }
     });
-});
-
-app.put('/edit/:name',function(req,res){
-    var pathConfig = fs.readFileSync("./Server/config.json");
-    pathConfig = JSON.parse(pathConfig);
-
-    var modelFound = pathConfig.models.find(function(model){
-        if(model.name === req.params.name){
-            return model;
-        }
-    });
-
 });
 
 app.get("/get/:name", function (req, res) {

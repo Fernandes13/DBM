@@ -1,15 +1,8 @@
 
 function generatePublish() {
-    //var xhr = new XMLHttpRequest();
-    //xhr.open("POST", "/generate", true);
-    //xhr.send();
-    $.ajax({
-        type: "POST",
-        url: "/generate",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(getTheme())
-    })
-    window.open("localhost:8082");
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/generate", true);
+    xhr.send();
 }
 
 function generateNewSchema() {
