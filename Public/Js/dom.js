@@ -1,4 +1,4 @@
-var fieldsNumber = 0;
+var fieldsNumber = 1;
 var fieldsNumberP = 0;
 
 function addReference() {
@@ -8,8 +8,9 @@ function addReference() {
     var selectModel = document.createElement("select");
     var optionModel = document.createElement("option");
     optionModel.textContent = "Select a Model";
-    optionModel.selected = true;
-    optionModel.disabled = true;
+    optionModel.hidden = true;
+
+    showModelsToOptions(fieldsNumber);
 
     var selectRelation = document.createElement("select");
     var optionRelation = document.createElement("option");
@@ -18,8 +19,8 @@ function addReference() {
     var optionRelation3 = document.createElement("option");
     var optionRelation4 = document.createElement("option");
     optionRelation.textContent = "Select a Relation Type";
-    optionRelation.disabled = true;
-    optionRelation.selected = true;
+    optionRelation.hidden = true;
+
     optionRelation1.textContent = "Relation 1-1";
     optionRelation1.value = "1-1";
     optionRelation2.textContent = "Relation 1-M";
@@ -62,14 +63,13 @@ function addProperty() {
     var selectProperty = document.createElement("select");
     var optionProperty = document.createElement("option");
     var optionProperty1 = document.createElement("option");
-    var optionProperty2 = document.createElement("option");    
-    var optionProperty3 = document.createElement("option");    
-    var optionProperty4 = document.createElement("option");    
+    var optionProperty2 = document.createElement("option");
+    var optionProperty3 = document.createElement("option");
+    var optionProperty4 = document.createElement("option");
     var optionProperty5 = document.createElement("option");
 
     optionProperty.textContent = "Select a Property Type";
-    optionProperty.disabled = true;
-    optionProperty.selected = true;
+    optionProperty.hidden = true;
     optionProperty1.textContent = "Null";
     optionProperty1.value = "null";
     optionProperty2.textContent = "Integer";
@@ -208,18 +208,22 @@ function referenceElements() {
     return result;
 };
 
-function getTheme(){
+function getTheme() {
     var object = {};
     var dropList = document.getElementById("theme");
     var result = dropList.options[dropList.selectedIndex].value;
 
     object.theme = result;
-    
+
     return object;
 }
 
-function populateModel(schemas) {
-    var modelSelect = document.getElementById("model");
+function populateModel(id, schemas) {
+    if (id === 0) {
+        var modelSelect = document.getElementById('model');
+    } else {
+        var modelSelect = document.getElementById('model' + id);
+    }
     let schemasArr = JSON.parse(schemas.toString());
     schemasArr.forEach(schema => {
         var option = document.createElement("option");
@@ -228,4 +232,14 @@ function populateModel(schemas) {
         option.appendChild(optionText);
         modelSelect.appendChild(option);
     });
+
+    /*var selectBoxes = document.getElementsByClassName('model');
+    let schemasArr = JSON.parse(schemas.toString());
+    schemasArr.forEach(schema => {
+        var option = document.createElement("option");
+        var optionText = document.createTextNode(schema);
+        option.value = schema;
+        option.appendChild(optionText);
+        modelSelect.appendChild(option);
+    });*/
 }
