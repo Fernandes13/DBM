@@ -75,7 +75,7 @@ function poupulateTable(schemas) {
         var lineData = document.createElement("td");
         var lineDataText = document.createTextNode(schema);
         var input = document.createElement("input");
-        input.className = "checkBox";
+        input.className = "filled-in form-check-input";
         input.type = "checkBox";
         lineData.appendChild(lineDataText);
         lineDataSelect.appendChild(input);
