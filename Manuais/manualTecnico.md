@@ -26,7 +26,7 @@ Para o funcionamento da WebApp desenvolvida foram necessárias as entidades segu
 
 ---
 
-### Compenentes do gerador  
+## Compenentes do gerador  
 
 O nosso gerador é constituído por 3 partes:  
 
@@ -51,4 +51,4 @@ A função *addForeignKey* tem como fim adicionar as chaves estrangeiras às ent
   
 #### Generate-controllers  
 
-O módulo generate-controllers é responsável por gerar a API RESTful, este é constituído apenas pela função *generateApi* esta função recebe o objecto config que contêm os modelos a serem utilizados.
+O módulo generate-controllers é responsável por gerar a API RESTful, este é constituído apenas pela função *generateApi* esta função recebe o objecto config que contêm os modelos a serem utilizados.  

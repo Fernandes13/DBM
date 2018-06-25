@@ -58,8 +58,15 @@ function generateApi(){
 }
 
 function generateFrontOffice(){
+    var view = {
+        model: configs.frontOffice.model,
+        property: configs.frontOffice.property,
+        order: configs.frontOffice.order,
+        limit: configs.frontOffice.limit
+    }
+
     var template = fs.readFileSync("./Server/frontOffice.mustache").toString();
-    var output = mustache.render(template);
+    var output = mustache.render(template, view);
     var name = "./Publish/Controllers/frontOffice.js";
 
     fs.writeFile(name, output);

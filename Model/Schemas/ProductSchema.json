@@ -32,11 +32,17 @@
         "description": "Product Release Date",
         "type": "text",
         "pattern": "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)/d/d$"
+      },
+
+      "Price":{
+        "description":"Product's price",
+        "type":"real",
+        "minumum": 4.99
       }
   
     },
   
-    "required": ["Name", "Duration", "ReleaseDate"],
+    "required": ["Name", "Duration", "ReleaseDate", "Price"],
   
     "references": [
       {
