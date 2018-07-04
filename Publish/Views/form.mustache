@@ -6,15 +6,24 @@
     </head>
     <body>
     {{>menu}}
+<<<<<<< HEAD
         <form>
             <div class="form-group" id="propertyDiv">
                 {{#properties}}
                 <div class="form-group col-auto">
                     <label>{{name}}:</label>
                     <input class="form-control" type="text" value="{{value}}" />
+=======
+        <div class="col-sm-4">
+            <form>
+                <div class="form-group">
+                    {{#properties}}
+                        <label>{{name}}:</label>
+                        <input class="form-control" type="text" value="{{value}}" />
+                    {{/properties}}
+>>>>>>> 460b2f6b114a126ab26944bfad9828d3bbb88a4d
                 </div>
-                {{/properties}}
-            </div>
-        </form>
+            </form>
+        </div>
     </body>
 </html>
