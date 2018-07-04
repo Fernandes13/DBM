@@ -11,7 +11,8 @@
 }
 
 #templateDiv{
-  margin-top: 15% !important;
+  margin-top: 50% !important;  
+  background-color: #009dba !important;
 }
 
 #newSchema{

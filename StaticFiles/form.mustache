@@ -6,9 +6,9 @@
     </head>
     <body>
     {{>menu}}
-        <div class="col-sm-4">
+        <div id="templateDiv" class="col-sm-4">
             <form>
-                <div class="form-group" id="templateDiv">
+                <div class="form-group">
                     {{#properties}}
                         <label>{{name}}:</label>
                         <input class="form-control" type="text" value="{{value}}" />
