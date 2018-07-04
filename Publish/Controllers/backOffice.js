@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require("fs");
+var configs = JSON.parse(fs.readFileSync('./Server/config.json'));
 
 var Distributor = require("../Models/Distributor.js");
 //var modelDistributor = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/DistributorSchema.json"));
@@ -62,7 +63,16 @@ router.get('/Distributor', function (req, res) {
                 return {
                     name: key
                 };
+            }),
+            models: function() {
+                return configs.models.map(elem =>{
+
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
             })
+        }
         });
     });
 });
@@ -77,6 +87,14 @@ router.get('/Distributor/Details/:id', function (req, res) {
                         value: row[key]
                     };
                 }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -115,7 +133,15 @@ router.get('/Distributor/Details/:id', function (req, res) {
             },
             get hasReferences() {
                 return this.references().length > 0;
-            }
+            },
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
         })
     });
 });
@@ -129,7 +155,15 @@ router.get('/Distributor/Insert', function (req, res) {
                         name: key,
                         value: obj[key]
                     };
-        })
+        }),
+        models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
     });
 });
 
@@ -142,7 +176,15 @@ router.get('/Distributor/Edit/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -196,7 +238,16 @@ router.get('/Bill', function (req, res) {
                 return {
                     name: key
                 };
+            }),
+            models: function() {
+                return configs.models.map(elem =>{
+
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
             })
+        }
         });
     });
 });
@@ -211,6 +262,14 @@ router.get('/Bill/Details/:id', function (req, res) {
                         value: row[key]
                     };
                 }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -249,7 +308,15 @@ router.get('/Bill/Details/:id', function (req, res) {
             },
             get hasReferences() {
                 return this.references().length > 0;
-            }
+            },
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
         })
     });
 });
@@ -263,7 +330,15 @@ router.get('/Bill/Insert', function (req, res) {
                         name: key,
                         value: obj[key]
                     };
-        })
+        }),
+        models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
     });
 });
 
@@ -276,7 +351,15 @@ router.get('/Bill/Edit/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -330,7 +413,16 @@ router.get('/Product', function (req, res) {
                 return {
                     name: key
                 };
+            }),
+            models: function() {
+                return configs.models.map(elem =>{
+
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
             })
+        }
         });
     });
 });
@@ -345,6 +437,14 @@ router.get('/Product/Details/:id', function (req, res) {
                         value: row[key]
                     };
                 }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -383,7 +483,15 @@ router.get('/Product/Details/:id', function (req, res) {
             },
             get hasReferences() {
                 return this.references().length > 0;
-            }
+            },
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
         })
     });
 });
@@ -397,7 +505,15 @@ router.get('/Product/Insert', function (req, res) {
                         name: key,
                         value: obj[key]
                     };
-        })
+        }),
+        models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
     });
 });
 
@@ -410,7 +526,15 @@ router.get('/Product/Edit/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -464,7 +588,16 @@ router.get('/Register', function (req, res) {
                 return {
                     name: key
                 };
+            }),
+            models: function() {
+                return configs.models.map(elem =>{
+
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
             })
+        }
         });
     });
 });
@@ -479,6 +612,14 @@ router.get('/Register/Details/:id', function (req, res) {
                         value: row[key]
                     };
                 }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -517,7 +658,15 @@ router.get('/Register/Details/:id', function (req, res) {
             },
             get hasReferences() {
                 return this.references().length > 0;
-            }
+            },
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
         })
     });
 });
@@ -531,7 +680,15 @@ router.get('/Register/Insert', function (req, res) {
                         name: key,
                         value: obj[key]
                     };
-        })
+        }),
+        models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
     });
 });
 
@@ -544,7 +701,15 @@ router.get('/Register/Edit/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -598,7 +763,16 @@ router.get('/Sale', function (req, res) {
                 return {
                     name: key
                 };
+            }),
+            models: function() {
+                return configs.models.map(elem =>{
+
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
             })
+        }
         });
     });
 });
@@ -613,6 +787,14 @@ router.get('/Sale/Details/:id', function (req, res) {
                         value: row[key]
                     };
                 }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -651,7 +833,15 @@ router.get('/Sale/Details/:id', function (req, res) {
             },
             get hasReferences() {
                 return this.references().length > 0;
-            }
+            },
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
         })
     });
 });
@@ -665,7 +855,15 @@ router.get('/Sale/Insert', function (req, res) {
                         name: key,
                         value: obj[key]
                     };
-        })
+        }),
+        models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
     });
 });
 
@@ -678,7 +876,15 @@ router.get('/Sale/Edit/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -732,7 +938,16 @@ router.get('/User', function (req, res) {
                 return {
                     name: key
                 };
+            }),
+            models: function() {
+                return configs.models.map(elem =>{
+
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
             })
+        }
         });
     });
 });
@@ -747,6 +962,14 @@ router.get('/User/Details/:id', function (req, res) {
                         value: row[key]
                     };
                 }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
@@ -785,7 +1008,15 @@ router.get('/User/Details/:id', function (req, res) {
             },
             get hasReferences() {
                 return this.references().length > 0;
-            }
+            },
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
         })
     });
 });
@@ -799,7 +1030,15 @@ router.get('/User/Insert', function (req, res) {
                         name: key,
                         value: obj[key]
                     };
-        })
+        }),
+        models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
     });
 });
 
@@ -812,7 +1051,15 @@ router.get('/User/Edit/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
+                models: function() {
+                return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }
