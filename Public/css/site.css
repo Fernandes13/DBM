@@ -10,11 +10,6 @@
   display: block !important;
 }
 
-#templateDiv{
-  margin-top: 50% !important;  
-  background-color: #009dba !important;
-}
-
 #newSchema{
   display: none;
 }
