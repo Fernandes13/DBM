@@ -6,13 +6,15 @@
     </head>
     <body>
     {{>menu}}
-        <form class="form-inline">
-            <div class="form-group" id="propertyDiv">
-                {{#properties}}
-                    <label>{{name}}:</label>
-                    <input class="form-control" type="text" value="{{value}}" />
-                {{/properties}}
-            </div>
-        </form>
+        <div class="col-sm-8">
+            <form>
+                <div class="form-group" id="propertyDiv">
+                    {{#properties}}
+                        <label>{{name}}:</label>
+                        <input class="form-control" type="text" value="{{value}}" />
+                    {{/properties}}
+                </div>
+            </form>
+        </div>
     </body>
 </html>
