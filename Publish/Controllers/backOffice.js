@@ -30,18 +30,18 @@ router.get('/Distributor', function (req, res) {
                     }),
                     actions: [{
                         label: '',
-                        link: './Distributor/Detalhe/' + obj.id,
+                        link: './Distributor/Details/' + obj.id,
                         image: {
                             src: '../images/read.png'
                         },
-                        tooltip: 'Detalhe'
+                        tooltip: 'Details'
                     }, {
                         label: '',
-                        link: './Distributor/Editar/' + obj.id,
+                        link: './Distributor/Edit/' + obj.id,
                         image: {
                             src: '../images/edit.png'
                         },
-                        tooltip: 'Editar'
+                        tooltip: 'Edit'
                     }, {
                         label: '',
                         link: '#',
@@ -67,7 +67,7 @@ router.get('/Distributor', function (req, res) {
     });
 });
 
-router.get('/Distributor/Detalhe/:id', function (req, res) {
+router.get('/Distributor/Details/:id', function (req, res) {
     Distributor.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -83,7 +83,7 @@ router.get('/Distributor/Detalhe/:id', function (req, res) {
     });
 });
 
-router.get('/Distributor/Detalhe/:id', function (req, res) {
+router.get('/Distributor/Details/:id', function (req, res) {
     Distributor.get(req.params.id, function (row) {
         res.render('details', {
             properties: function () {
@@ -121,7 +121,7 @@ router.get('/Distributor/Detalhe/:id', function (req, res) {
 });
 
 
-router.get('/Distributor/Inserir', function (req, res) {
+router.get('/Distributor/Insert', function (req, res) {
     var obj = new Distributor();
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
@@ -133,7 +133,7 @@ router.get('/Distributor/Inserir', function (req, res) {
     });
 });
 
-router.get('/Distributor/Editar/:id', function (req, res) {
+router.get('/Distributor/Edit/:id', function (req, res) {
     Distributor.get(req.params.id,function(row){
         if(row){
             res.render('form',{
@@ -164,18 +164,18 @@ router.get('/Bill', function (req, res) {
                     }),
                     actions: [{
                         label: '',
-                        link: './Bill/Detalhe/' + obj.id,
+                        link: './Bill/Details/' + obj.id,
                         image: {
                             src: '../images/read.png'
                         },
-                        tooltip: 'Detalhe'
+                        tooltip: 'Details'
                     }, {
                         label: '',
-                        link: './Bill/Editar/' + obj.id,
+                        link: './Bill/Edit/' + obj.id,
                         image: {
                             src: '../images/edit.png'
                         },
-                        tooltip: 'Editar'
+                        tooltip: 'Edit'
                     }, {
                         label: '',
                         link: '#',
@@ -201,7 +201,7 @@ router.get('/Bill', function (req, res) {
     });
 });
 
-router.get('/Bill/Detalhe/:id', function (req, res) {
+router.get('/Bill/Details/:id', function (req, res) {
     Bill.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -217,7 +217,7 @@ router.get('/Bill/Detalhe/:id', function (req, res) {
     });
 });
 
-router.get('/Bill/Detalhe/:id', function (req, res) {
+router.get('/Bill/Details/:id', function (req, res) {
     Bill.get(req.params.id, function (row) {
         res.render('details', {
             properties: function () {
@@ -255,7 +255,7 @@ router.get('/Bill/Detalhe/:id', function (req, res) {
 });
 
 
-router.get('/Bill/Inserir', function (req, res) {
+router.get('/Bill/Insert', function (req, res) {
     var obj = new Bill();
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
@@ -267,7 +267,7 @@ router.get('/Bill/Inserir', function (req, res) {
     });
 });
 
-router.get('/Bill/Editar/:id', function (req, res) {
+router.get('/Bill/Edit/:id', function (req, res) {
     Bill.get(req.params.id,function(row){
         if(row){
             res.render('form',{
@@ -298,18 +298,18 @@ router.get('/Product', function (req, res) {
                     }),
                     actions: [{
                         label: '',
-                        link: './Product/Detalhe/' + obj.id,
+                        link: './Product/Details/' + obj.id,
                         image: {
                             src: '../images/read.png'
                         },
-                        tooltip: 'Detalhe'
+                        tooltip: 'Details'
                     }, {
                         label: '',
-                        link: './Product/Editar/' + obj.id,
+                        link: './Product/Edit/' + obj.id,
                         image: {
                             src: '../images/edit.png'
                         },
-                        tooltip: 'Editar'
+                        tooltip: 'Edit'
                     }, {
                         label: '',
                         link: '#',
@@ -335,7 +335,7 @@ router.get('/Product', function (req, res) {
     });
 });
 
-router.get('/Product/Detalhe/:id', function (req, res) {
+router.get('/Product/Details/:id', function (req, res) {
     Product.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -351,7 +351,7 @@ router.get('/Product/Detalhe/:id', function (req, res) {
     });
 });
 
-router.get('/Product/Detalhe/:id', function (req, res) {
+router.get('/Product/Details/:id', function (req, res) {
     Product.get(req.params.id, function (row) {
         res.render('details', {
             properties: function () {
@@ -389,7 +389,7 @@ router.get('/Product/Detalhe/:id', function (req, res) {
 });
 
 
-router.get('/Product/Inserir', function (req, res) {
+router.get('/Product/Insert', function (req, res) {
     var obj = new Product();
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
@@ -401,7 +401,7 @@ router.get('/Product/Inserir', function (req, res) {
     });
 });
 
-router.get('/Product/Editar/:id', function (req, res) {
+router.get('/Product/Edit/:id', function (req, res) {
     Product.get(req.params.id,function(row){
         if(row){
             res.render('form',{
@@ -432,18 +432,18 @@ router.get('/Register', function (req, res) {
                     }),
                     actions: [{
                         label: '',
-                        link: './Register/Detalhe/' + obj.id,
+                        link: './Register/Details/' + obj.id,
                         image: {
                             src: '../images/read.png'
                         },
-                        tooltip: 'Detalhe'
+                        tooltip: 'Details'
                     }, {
                         label: '',
-                        link: './Register/Editar/' + obj.id,
+                        link: './Register/Edit/' + obj.id,
                         image: {
                             src: '../images/edit.png'
                         },
-                        tooltip: 'Editar'
+                        tooltip: 'Edit'
                     }, {
                         label: '',
                         link: '#',
@@ -469,7 +469,7 @@ router.get('/Register', function (req, res) {
     });
 });
 
-router.get('/Register/Detalhe/:id', function (req, res) {
+router.get('/Register/Details/:id', function (req, res) {
     Register.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -485,7 +485,7 @@ router.get('/Register/Detalhe/:id', function (req, res) {
     });
 });
 
-router.get('/Register/Detalhe/:id', function (req, res) {
+router.get('/Register/Details/:id', function (req, res) {
     Register.get(req.params.id, function (row) {
         res.render('details', {
             properties: function () {
@@ -523,7 +523,7 @@ router.get('/Register/Detalhe/:id', function (req, res) {
 });
 
 
-router.get('/Register/Inserir', function (req, res) {
+router.get('/Register/Insert', function (req, res) {
     var obj = new Register();
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
@@ -535,7 +535,7 @@ router.get('/Register/Inserir', function (req, res) {
     });
 });
 
-router.get('/Register/Editar/:id', function (req, res) {
+router.get('/Register/Edit/:id', function (req, res) {
     Register.get(req.params.id,function(row){
         if(row){
             res.render('form',{
@@ -566,18 +566,18 @@ router.get('/Sale', function (req, res) {
                     }),
                     actions: [{
                         label: '',
-                        link: './Sale/Detalhe/' + obj.id,
+                        link: './Sale/Details/' + obj.id,
                         image: {
                             src: '../images/read.png'
                         },
-                        tooltip: 'Detalhe'
+                        tooltip: 'Details'
                     }, {
                         label: '',
-                        link: './Sale/Editar/' + obj.id,
+                        link: './Sale/Edit/' + obj.id,
                         image: {
                             src: '../images/edit.png'
                         },
-                        tooltip: 'Editar'
+                        tooltip: 'Edit'
                     }, {
                         label: '',
                         link: '#',
@@ -603,7 +603,7 @@ router.get('/Sale', function (req, res) {
     });
 });
 
-router.get('/Sale/Detalhe/:id', function (req, res) {
+router.get('/Sale/Details/:id', function (req, res) {
     Sale.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -619,7 +619,7 @@ router.get('/Sale/Detalhe/:id', function (req, res) {
     });
 });
 
-router.get('/Sale/Detalhe/:id', function (req, res) {
+router.get('/Sale/Details/:id', function (req, res) {
     Sale.get(req.params.id, function (row) {
         res.render('details', {
             properties: function () {
@@ -657,7 +657,7 @@ router.get('/Sale/Detalhe/:id', function (req, res) {
 });
 
 
-router.get('/Sale/Inserir', function (req, res) {
+router.get('/Sale/Insert', function (req, res) {
     var obj = new Sale();
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
@@ -669,7 +669,7 @@ router.get('/Sale/Inserir', function (req, res) {
     });
 });
 
-router.get('/Sale/Editar/:id', function (req, res) {
+router.get('/Sale/Edit/:id', function (req, res) {
     Sale.get(req.params.id,function(row){
         if(row){
             res.render('form',{
@@ -700,18 +700,18 @@ router.get('/User', function (req, res) {
                     }),
                     actions: [{
                         label: '',
-                        link: './User/Detalhe/' + obj.id,
+                        link: './User/Details/' + obj.id,
                         image: {
                             src: '../images/read.png'
                         },
-                        tooltip: 'Detalhe'
+                        tooltip: 'Details'
                     }, {
                         label: '',
-                        link: './User/Editar/' + obj.id,
+                        link: './User/Edit/' + obj.id,
                         image: {
                             src: '../images/edit.png'
                         },
-                        tooltip: 'Editar'
+                        tooltip: 'Edit'
                     }, {
                         label: '',
                         link: '#',
@@ -737,7 +737,7 @@ router.get('/User', function (req, res) {
     });
 });
 
-router.get('/User/Detalhe/:id', function (req, res) {
+router.get('/User/Details/:id', function (req, res) {
     User.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -753,7 +753,7 @@ router.get('/User/Detalhe/:id', function (req, res) {
     });
 });
 
-router.get('/User/Detalhe/:id', function (req, res) {
+router.get('/User/Details/:id', function (req, res) {
     User.get(req.params.id, function (row) {
         res.render('details', {
             properties: function () {
@@ -791,7 +791,7 @@ router.get('/User/Detalhe/:id', function (req, res) {
 });
 
 
-router.get('/User/Inserir', function (req, res) {
+router.get('/User/Insert', function (req, res) {
     var obj = new User();
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
@@ -803,7 +803,7 @@ router.get('/User/Inserir', function (req, res) {
     });
 });
 
-router.get('/User/Editar/:id', function (req, res) {
+router.get('/User/Edit/:id', function (req, res) {
     User.get(req.params.id,function(row){
         if(row){
             res.render('form',{

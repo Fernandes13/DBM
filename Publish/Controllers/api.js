@@ -43,7 +43,7 @@ router.get('/Distributor/:id', function(req,res){
     });
 });
 
-router.get('Distributor/:model/:id', function (req, res){
+router.get('/Distributor/:model/:id', function (req, res){
     Distributor.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
@@ -88,7 +88,7 @@ router.get('/Bill/:id', function(req,res){
     });
 });
 
-router.get('Bill/:model/:id', function (req, res){
+router.get('/Bill/:model/:id', function (req, res){
     Bill.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
@@ -133,7 +133,7 @@ router.get('/Product/:id', function(req,res){
     });
 });
 
-router.get('Product/:model/:id', function (req, res){
+router.get('/Product/:model/:id', function (req, res){
     Product.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
@@ -178,7 +178,7 @@ router.get('/Register/:id', function(req,res){
     });
 });
 
-router.get('Register/:model/:id', function (req, res){
+router.get('/Register/:model/:id', function (req, res){
     Register.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
@@ -223,7 +223,7 @@ router.get('/Sale/:id', function(req,res){
     });
 });
 
-router.get('Sale/:model/:id', function (req, res){
+router.get('/Sale/:model/:id', function (req, res){
     Sale.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });
@@ -268,7 +268,7 @@ router.get('/User/:id', function(req,res){
     });
 });
 
-router.get('User/:model/:id', function (req, res){
+router.get('/User/:model/:id', function (req, res){
     User.many(req.params.model, req.params.id, function (rows){
         res.json(rows);
     });

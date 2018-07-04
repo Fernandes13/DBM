@@ -31,7 +31,9 @@ function createDatabase(){
     var schemas = [];
 
     configs.models.forEach(model =>{
-        schemas.push(JSON.parse(fs.readFileSync(model.path)));
+        //schemas.push(JSON.parse(fs.readFileSync(model.path)));
+        var modelRequired = require(model.path);
+        schemas.push(modelRequired);
     });
 
     database_generator.generateDatabase(configs.dbname,schemas);
@@ -43,7 +45,8 @@ function createClass(){
     var schemas = [];
 
     configs.models.forEach(model =>{
-        schemas.push(JSON.parse(fs.readFileSync(model.path)));
+        var modelRequired = require(model.path);
+        schemas.push(modelRequired);
     });
 
     class_generator.createClass(configs.dbname,schemas);

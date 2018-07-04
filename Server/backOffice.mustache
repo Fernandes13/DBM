@@ -23,18 +23,18 @@ router.get('/{{title}}', function (req, res) {
                     }),
                     actions: [{
                         label: '',
-                        link: './{{title}}/Detalhe/' + obj.id,
+                        link: './{{title}}/Details/' + obj.id,
                         image: {
                             src: '../images/read.png'
                         },
-                        tooltip: 'Detalhe'
+                        tooltip: 'Details'
                     }, {
                         label: '',
-                        link: './{{title}}/Editar/' + obj.id,
+                        link: './{{title}}/Edit/' + obj.id,
                         image: {
                             src: '../images/edit.png'
                         },
-                        tooltip: 'Editar'
+                        tooltip: 'Edit'
                     }, {
                         label: '',
                         link: '#',
@@ -60,7 +60,7 @@ router.get('/{{title}}', function (req, res) {
     });
 });
 
-router.get('/{{title}}/Detalhe/:id', function (req, res) {
+router.get('/{{title}}/Details/:id', function (req, res) {
     {{title}}.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -76,7 +76,7 @@ router.get('/{{title}}/Detalhe/:id', function (req, res) {
     });
 });
 
-router.get('/{{title}}/Detalhe/:id', function (req, res) {
+router.get('/{{title}}/Details/:id', function (req, res) {
     {{title}}.get(req.params.id, function (row) {
         res.render('details', {
             properties: function () {
@@ -114,7 +114,7 @@ router.get('/{{title}}/Detalhe/:id', function (req, res) {
 });
 
 
-router.get('/{{title}}/Inserir', function (req, res) {
+router.get('/{{title}}/Insert', function (req, res) {
     var obj = new {{title}}();
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
@@ -126,7 +126,7 @@ router.get('/{{title}}/Inserir', function (req, res) {
     });
 });
 
-router.get('/{{title}}/Editar/:id', function (req, res) {
+router.get('/{{title}}/Edit/:id', function (req, res) {
     {{title}}.get(req.params.id,function(row){
         if(row){
             res.render('form',{
