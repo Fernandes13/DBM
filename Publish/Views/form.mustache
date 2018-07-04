@@ -2,14 +2,14 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/site.css">
+        <link rel="stylesheet" href="../css/site.css">
     </head>
     <body>
     {{>menu}}
-        <form class="form-inline">
+        <form>
             <div class="form-group" id="propertyDiv">
                 {{#properties}}
-                <div class="form-group">
+                <div class="form-group col-auto">
                     <label>{{name}}:</label>
                     <input class="form-control" type="text" value="{{value}}" />
                 </div>
