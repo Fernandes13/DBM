@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    <table>
+    {{>menu}}
+    <table class="table table-striped">
         <tr>
             {{#columns}}
             <th>{{name}}</th>
@@ -49,7 +50,7 @@
         </tr>
         {{/rows}}
     </table>
-    <input type="button" value="Inserir" onclick="javascript:window.location.replace('./{{title}}/Inserir')" />
+    <input class="btn btn-primary" type="button" value="Inserir" onclick="javascript:window.location.replace('./{{title}}/Inserir')" />
 </body>
 
 </html>
