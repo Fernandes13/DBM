@@ -10,6 +10,10 @@
   display: block !important;
 }
 
+#templateDiv{
+  margin-top: 15% !important;
+}
+
 #newSchema{
   display: none;
 }
