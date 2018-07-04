@@ -117,7 +117,6 @@ function exportModels(){
     var view = {
         models: function() {
            return configs.models.map(elem =>{
-                console.log(elem)
                 return {
                     name: elem.name,
                     href: elem.href

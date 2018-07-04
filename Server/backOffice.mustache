@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require("fs");
+var configs = JSON.parse(fs.readFileSync('./Server/config.json'));
 
 {{#models}}
 var {{title}} = require("../Models/{{title}}.js");
@@ -55,7 +56,15 @@ router.get('/{{title}}', function (req, res) {
                 return {
                     name: key
                 };
+            }),
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
             })
+        }
         });
     });
 });
@@ -70,6 +79,14 @@ router.get('/{{title}}/Details/:id', function (req, res) {
                         value: row[key]
                     };
                 }),
+                models: function() {
+                    return configs.models.map(elem =>{
+                     return {
+                        name: elem.name,
+                        href: elem.href
+                        }
+                    })
+                }
             });
 
         }
@@ -108,7 +125,15 @@ router.get('/{{title}}/Details/:id', function (req, res) {
             },
             get hasReferences() {
                 return this.references().length > 0;
-            }
+            },
+            models: function() {
+            return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
         })
     });
 });
@@ -122,7 +147,15 @@ router.get('/{{title}}/Insert', function (req, res) {
                         name: key,
                         value: obj[key]
                     };
-        })
+        }),
+        models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
     });
 });
 
@@ -135,7 +168,15 @@ router.get('/{{title}}/Edit/:id', function (req, res) {
                         name: key,
                         value: row[key]
                     };
-                })
+                }),
+                models: function() {
+           return configs.models.map(elem =>{
+                return {
+                    name: elem.name,
+                    href: elem.href
+                }
+            })
+        }
             });
 
         }

@@ -5,11 +5,16 @@
         <link rel="stylesheet" href="css/site.css">
     </head>
     <body>
-        {{#properties}}
-        <div>
-            <label>{{name}}:</label>
-            <input type="text" value="{{value}}" />
-        </div>
-        {{/properties}}
+    {{>menu}}
+        <form class="form-inline">
+            <div class="form-group" id="propertyDiv">
+                {{#properties}}
+                <div class="form-group">
+                    <label>{{name}}:</label>
+                    <input class="form-control" type="text" value="{{value}}" />
+                </div>
+                {{/properties}}
+            </div>
+        </form>
     </body>
 </html>
