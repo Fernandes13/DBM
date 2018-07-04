@@ -5,6 +5,10 @@
   padding-bottom: 2% !important;
 }
 
+#propertyDiv{
+  margin: 15px 100px !important;
+}
+
 .divTable {
   margin: 15px 100px !important;
   display: block !important;
