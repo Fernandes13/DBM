@@ -122,7 +122,7 @@ router.get('/Distributor/Details/:id', function (req, res) {
                     modelDistributor.references.forEach(function (ref) {
                         allRefs.push({
                             label: ref.label,
-                            model: "Distributor",
+                            model: ref.model,
                             values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
                             row[(ref.model + "_id").toLowerCase()]
                         });
@@ -296,7 +296,7 @@ router.get('/Bill/Details/:id', function (req, res) {
                     modelBill.references.forEach(function (ref) {
                         allRefs.push({
                             label: ref.label,
-                            model: "Bill",
+                            model: ref.model,
                             values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
                             row[(ref.model + "_id").toLowerCase()]
                         });
@@ -470,7 +470,7 @@ router.get('/Product/Details/:id', function (req, res) {
                     modelProduct.references.forEach(function (ref) {
                         allRefs.push({
                             label: ref.label,
-                            model: "Product",
+                            model: ref.model,
                             values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
                             row[(ref.model + "_id").toLowerCase()]
                         });
@@ -644,7 +644,7 @@ router.get('/Register/Details/:id', function (req, res) {
                     modelRegister.references.forEach(function (ref) {
                         allRefs.push({
                             label: ref.label,
-                            model: "Register",
+                            model: ref.model,
                             values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
                             row[(ref.model + "_id").toLowerCase()]
                         });
@@ -818,7 +818,7 @@ router.get('/Sale/Details/:id', function (req, res) {
                     modelSale.references.forEach(function (ref) {
                         allRefs.push({
                             label: ref.label,
-                            model: "Sale",
+                            model: ref.model,
                             values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
                             row[(ref.model + "_id").toLowerCase()]
                         });
@@ -992,7 +992,7 @@ router.get('/User/Details/:id', function (req, res) {
                     modelUser.references.forEach(function (ref) {
                         allRefs.push({
                             label: ref.label,
-                            model: "User",
+                            model: ref.model,
                             values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
                             row[(ref.model + "_id").toLowerCase()]
                         });

@@ -16,12 +16,14 @@ module.exports = {
     "references": [
       {
         "model": "Product",
-        "relation": "M-M"
+        "relation": "M-M",
+        "label": "product_id"
       },
       {
         "model": "Bill",
         "relation": "1-1",
-        "isParent": true
+        "isParent": true,
+        "label": "bill_id"
       }
     ]
   }

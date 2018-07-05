@@ -28,12 +28,14 @@ module.exports = {
       {
         "model": "Bill",
         "relation": "1-M",
-        "isParent": true
+        "isParent": true,
+        "label": "bill_id"
       },
       {
           "model": "Register",
           "relation": "1-1",
-          "isParent": true
+          "isParent": true,
+          "label": "register_id"
       }
     ]
   }

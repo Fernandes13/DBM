@@ -53,7 +53,7 @@ Distributor.top = function (property,order,limit,callback) {
 }
 
 Distributor.mappingDBtoObject = {
-    Name:'Name',Value:'Value',distributor_id:'id'   
+    Name:'Name',Value:'Value',distributor_id:'id' , product_id : 'product_id' 
 }
 
 module.exports = Distributor;

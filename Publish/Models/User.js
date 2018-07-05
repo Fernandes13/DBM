@@ -56,7 +56,7 @@ User.top = function (property,order,limit,callback) {
 }
 
 User.mappingDBtoObject = {
-    Name:'Name',DateBirth:'DateBirth',Balance:'Balance',user_id:'id'
+    Name:'Name',DateBirth:'DateBirth',Balance:'Balance',user_id:'id' , bill_id : 'bill_id'  , register_id : 'register_id' 
 }
 
 module.exports = User;

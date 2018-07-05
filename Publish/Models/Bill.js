@@ -52,7 +52,7 @@ Bill.top = function (property,order,limit,callback) {
 }
 
 Bill.mappingDBtoObject = {
-    Value:'Value',bill_id:'id'      
+    Value:'Value',bill_id:'id' , sale_id : 'sale_id'  , user_id : 'user_id' 
 }
 
 module.exports = Bill;

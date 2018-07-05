@@ -115,7 +115,7 @@ router.get('/{{title}}/Details/:id', function (req, res) {
                     model{{title}}.references.forEach(function (ref) {
                         allRefs.push({
                             label: ref.label,
-                            model: "{{title}}",
+                            model: ref.model,
                             values: ref.relation == "M-M" ? req.params.id + '/' + ref.model :
                             row[(ref.model + "_id").toLowerCase()]
                         });
