@@ -96,6 +96,7 @@ function createFolders(){
     mkdirp('./Publish/Models');
     mkdirp('./Publish/Views');
     mkdirp('./Publish/Database');
+    mkdirp('./Publish/Schemas');
 
     mkdirp('./Publish/Public', function (err) {
         

@@ -5,7 +5,7 @@ var configs = JSON.parse(fs.readFileSync('./Server/config.json'));
 
 {{#models}}
 var {{title}} = require("../Models/{{title}}.js");
-//var model{{title}} = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/{{title}}Schema.json"));
+var model{{title}} = require("../Schemas/{{title}}Schema.js");
 {{/models}}
 
 {{#models}}
@@ -69,7 +69,7 @@ router.get('/{{title}}', function (req, res) {
     });
 });
 
-router.get('/{{title}}/Details/:id', function (req, res) {
+/*router.get('/{{title}}/Details/:id', function (req, res) {
     {{title}}.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -91,7 +91,7 @@ router.get('/{{title}}/Details/:id', function (req, res) {
 
         }
     });
-});
+});*/
 
 router.get('/{{title}}/Details/:id', function (req, res) {
     {{title}}.get(req.params.id, function (row) {

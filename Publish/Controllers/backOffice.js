@@ -4,17 +4,17 @@ var fs = require("fs");
 var configs = JSON.parse(fs.readFileSync('./Server/config.json'));
 
 var Distributor = require("../Models/Distributor.js");
-//var modelDistributor = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/DistributorSchema.json"));
+var modelDistributor = require("../Schemas/DistributorSchema.js");
 var Bill = require("../Models/Bill.js");
-//var modelBill = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/BillSchema.json"));
+var modelBill = require("../Schemas/BillSchema.js");
 var Product = require("../Models/Product.js");
-//var modelProduct = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/ProductSchema.json"));
+var modelProduct = require("../Schemas/ProductSchema.js");
 var Register = require("../Models/Register.js");
-//var modelRegister = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/RegisterSchema.json"));
+var modelRegister = require("../Schemas/RegisterSchema.js");
 var Sale = require("../Models/Sale.js");
-//var modelSale = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/SaleSchema.json"));
+var modelSale = require("../Schemas/SaleSchema.js");
 var User = require("../Models/User.js");
-//var modelUser = JSON.parse(fs.readFileSync("../DBM/Publish/Schemas/UserSchema.json"));
+var modelUser = require("../Schemas/UserSchema.js");
 
 
 router.get('/Distributor', function (req, res) {
@@ -76,7 +76,7 @@ router.get('/Distributor', function (req, res) {
     });
 });
 
-router.get('/Distributor/Details/:id', function (req, res) {
+/*router.get('/Distributor/Details/:id', function (req, res) {
     Distributor.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -98,7 +98,7 @@ router.get('/Distributor/Details/:id', function (req, res) {
 
         }
     });
-});
+});*/
 
 router.get('/Distributor/Details/:id', function (req, res) {
     Distributor.get(req.params.id, function (row) {
@@ -250,7 +250,7 @@ router.get('/Bill', function (req, res) {
     });
 });
 
-router.get('/Bill/Details/:id', function (req, res) {
+/*router.get('/Bill/Details/:id', function (req, res) {
     Bill.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -272,7 +272,7 @@ router.get('/Bill/Details/:id', function (req, res) {
 
         }
     });
-});
+});*/
 
 router.get('/Bill/Details/:id', function (req, res) {
     Bill.get(req.params.id, function (row) {
@@ -424,7 +424,7 @@ router.get('/Product', function (req, res) {
     });
 });
 
-router.get('/Product/Details/:id', function (req, res) {
+/*router.get('/Product/Details/:id', function (req, res) {
     Product.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -446,7 +446,7 @@ router.get('/Product/Details/:id', function (req, res) {
 
         }
     });
-});
+});*/
 
 router.get('/Product/Details/:id', function (req, res) {
     Product.get(req.params.id, function (row) {
@@ -598,7 +598,7 @@ router.get('/Register', function (req, res) {
     });
 });
 
-router.get('/Register/Details/:id', function (req, res) {
+/*router.get('/Register/Details/:id', function (req, res) {
     Register.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -620,7 +620,7 @@ router.get('/Register/Details/:id', function (req, res) {
 
         }
     });
-});
+});*/
 
 router.get('/Register/Details/:id', function (req, res) {
     Register.get(req.params.id, function (row) {
@@ -772,7 +772,7 @@ router.get('/Sale', function (req, res) {
     });
 });
 
-router.get('/Sale/Details/:id', function (req, res) {
+/*router.get('/Sale/Details/:id', function (req, res) {
     Sale.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -794,7 +794,7 @@ router.get('/Sale/Details/:id', function (req, res) {
 
         }
     });
-});
+});*/
 
 router.get('/Sale/Details/:id', function (req, res) {
     Sale.get(req.params.id, function (row) {
@@ -946,7 +946,7 @@ router.get('/User', function (req, res) {
     });
 });
 
-router.get('/User/Details/:id', function (req, res) {
+/*router.get('/User/Details/:id', function (req, res) {
     User.get(req.params.id,function(row){
         if(row){
             res.render('details',{
@@ -968,7 +968,7 @@ router.get('/User/Details/:id', function (req, res) {
 
         }
     });
-});
+});*/
 
 router.get('/User/Details/:id', function (req, res) {
     User.get(req.params.id, function (row) {

@@ -78,6 +78,30 @@
         {
             "originalPath": "./StaticFiles/menu.mustache",
             "destinationPath": "./Publish/Views/menu.mustache"
+        },
+        {
+            "originalPath": "./Model/Schemas/BillSchema.js",
+            "destinationPath": "./Publish/Schemas/BillSchema.js"
+        },
+        {
+            "originalPath": "./Model/Schemas/DistributorSchema.js",
+            "destinationPath": "./Publish/Schemas/DistributorSchema.js"
+        },
+        {
+            "originalPath": "./Model/Schemas/ProductSchema.js",
+            "destinationPath": "./Publish/Schemas/ProductSchema.js"
+        },
+        {
+            "originalPath": "./Model/Schemas/RegisterSchema.js",
+            "destinationPath": "./Publish/Schemas/RegisterSchema.js"
+        },
+        {
+            "originalPath": "./Model/Schemas/SaleSchema.js",
+            "destinationPath": "./Publish/Schemas/SaleSchema.js"
+        },
+        {
+            "originalPath": "./Model/Schemas/UserSchema.js",
+            "destinationPath": "./Publish/Schemas/UserSchema.js"
         }
     ]
 }
