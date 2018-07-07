@@ -49,13 +49,12 @@ module.exports = {
         "model": "Distributor",
         "relation": "1-M",
         "isParent": true,
-        "label": "distributor_id"
+        "label": "Name"
       },
       {
         "model": "Sale",
         "relation": "M-M",
-        "isParent": true,
-        "label": "distributor_id"
+        "isParent": true
       }
     ]
   }

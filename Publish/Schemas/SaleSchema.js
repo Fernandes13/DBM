@@ -17,13 +17,13 @@ module.exports = {
       {
         "model": "Product",
         "relation": "M-M",
-        "label": "product_id"
+        "label": "Name"
       },
       {
         "model": "Bill",
         "relation": "1-1",
         "isParent": true,
-        "label": "bill_id"
+        "label": "Value"
       }
     ]
   }

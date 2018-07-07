@@ -18,13 +18,13 @@ module.exports = {
         "model": "Sale",
         "relation": "1-1",
         "isParent": false,
-        "label": "sale_id"
+        "label": "DateSale"
       },
       {
         "model": "User",
         "relation": "1-M",
         "isParent": false,
-        "label": "user_id"
+        "label": "Name"
       }
     ]
   }

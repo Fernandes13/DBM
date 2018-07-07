@@ -30,7 +30,7 @@ module.exports = {
         "model": "User",
         "relation": "1-1",
         "isParent": false,
-        "label": "user_id"
+        "label": "Name"
       }
     ]
   }

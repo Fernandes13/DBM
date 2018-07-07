@@ -58,7 +58,7 @@ function addForeignKey(nome, schemas) {
     if (schema.references != void(0)) {
       schema.references.forEach(foreignkey => {
         var nameFk = foreignkey.model.charAt(0).toLowerCase() + foreignkey.model.slice(1);
-        if (foreignkey.relation != "M-M" && foreignkey.relation.slice(1) == '-M' && !foreignkey.isParent) {
+        if (foreignkey.relation != "M-M" && foreignkey.relation.slice(1) == '-M' && foreignkey.isParent === false) {
           var view = {
             tableName: nameTable,
             columnName: nameFk,
@@ -74,7 +74,7 @@ function addForeignKey(nome, schemas) {
 
           var template = fs.readFileSync("./Model/Database/add-foreign-key.mustache").toString();
           var output = mustache.render(template, view);
-          //console.log(output);
+          console.log(output);
           db.run(output);
 
         } else if (foreignkey.relation == "M-M") {
@@ -97,10 +97,10 @@ function addForeignKey(nome, schemas) {
 
             var template = fs.readFileSync("./Model/Database/create-table.mustache").toString();
             var output = mustache.render(template, view);
-            //console.log(output);
+            console.log(output);
             db.run(output);
           }
-        }else if(foreignkey.relation == "1-1" && !foreignkey.isParent){
+        }else if(foreignkey.relation == "1-1" && foreignkey.isParent === false){
           var view = {
             tableName: nameTable,
             columnName: nameFk,
@@ -110,7 +110,7 @@ function addForeignKey(nome, schemas) {
 
           var template = fs.readFileSync("./Model/Database/unique-foreign-key.mustache").toString();
           var output = mustache.render(template, view);
-          //console.log(output);
+          console.log(output);
           db.run(output);
         }
       });
