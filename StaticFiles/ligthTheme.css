@@ -6,11 +6,13 @@
   }
 
   .btn-color{
-    color: #009dba !important;
+    color: #fff !important;
+    background-color: #009dba !important;
   }
 
   .div{
     margin-top: 5% !important;
+    margin-left: 2% !important;
   }
   
   .divTable {

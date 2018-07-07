@@ -6,11 +6,13 @@
   }
     
   .color{
-    background-color:#3c494b !important
+    background-color:#3c494b !important;    
+    color: #fff !important;
   }
 
   .div{
     margin-top: 5% !important;
+    margin-left: 2% !important;
   }
 
   .divTable {
