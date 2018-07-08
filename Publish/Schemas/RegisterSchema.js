@@ -28,7 +28,9 @@ module.exports = {
     "references": [
       {
         "model": "User",
-        "relation": "1-1"
+        "relation": "1-1",
+        "isParent": false,
+        "label": "Name"
       }
     ]
   }

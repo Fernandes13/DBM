@@ -55,7 +55,7 @@ Register.top = function (property,order,limit,callback) {
 }
 
 Register.mappingDBtoObject = {
-    Email:'Email',Username:'Username',Password:'Password',register_id:'id'   
+    Email:'Email',Username:'Username',Password:'Password',register_id:'id' , user_id : 'user_id' 
 }
 
 module.exports = Register;

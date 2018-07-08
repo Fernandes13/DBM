@@ -52,7 +52,7 @@ Sale.top = function (property,order,limit,callback) {
 }
 
 Sale.mappingDBtoObject = {
-    DateSale:'DateSale',sale_id:'id'   
+    DateSale:'DateSale',sale_id:'id' , product_id : 'product_id'  , bill_id : 'bill_id' 
 }
 
 module.exports = Sale;

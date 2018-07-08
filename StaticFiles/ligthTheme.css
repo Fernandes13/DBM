@@ -4,6 +4,16 @@
     padding-top: 2% !important; 
     padding-bottom: 2% !important;
   }
+
+  .color{
+    color: #fff !important;
+    background-color: #009dba !important;
+  }
+
+  .div{
+    margin-top: 5% !important;
+    margin-left: 40% !important;
+  }
   
   .divTable {
     margin: 15px 100px !important;

@@ -48,7 +48,8 @@ module.exports = {
       {
         "model": "Distributor",
         "relation": "1-M",
-        "isParent": true
+        "isParent": true,
+        "label": "Name"
       },
       {
         "model": "Sale",

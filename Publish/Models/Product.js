@@ -62,7 +62,7 @@ Product.top = function (property,order,limit,callback) {
 }
 
 Product.mappingDBtoObject = {
-    Name:'Name',Duration:'Duration',Category:'Category',Classification:'Classification',ReleaseDate:'ReleaseDate',Price:'Price',product_id:'id'
+    Name:'Name',Duration:'Duration',Category:'Category',Classification:'Classification',ReleaseDate:'ReleaseDate',Price:'Price',product_id:'id' , distributor_id : 'distributor_id'  , sale_id : 'sale_id' 
 }
 
 module.exports = Product;

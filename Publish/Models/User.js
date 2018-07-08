@@ -1,7 +1,7 @@
-function User (Name,DateBirth,Balance) {
+function User (Name,BirthDate,Balance) {
         this.Name = Name;
                  
-        this.DateBirth = DateBirth;
+        this.BirthDate = BirthDate;
                  
         this.Balance = Balance;
         Object.defineProperty(this,'Balance',{ enumerable:false, writable:true});         
@@ -24,9 +24,9 @@ User.get = function (id, callback) {
 
 User.prototype.save = function (callback) {
     if(this.id) { //Se existir valor no id será para UPDATE
-       database.run("UPDATE users SET Name = ?,DateBirth = ?,Balance = ? WHERE user_id = ?",[this.Name,this.DateBirth,this.Balance,this.id],callback);
+       database.run("UPDATE users SET Name = ?,BirthDate = ?,Balance = ? WHERE user_id = ?",[this.Name,this.BirthDate,this.Balance,this.id],callback);
     } else { //caso contrário para insert
-        database.run("INSERT INTO users (Name,DateBirth,Balance) VALUES (?,?,?)", [this.Name,this.DateBirth,this.Balance],callback);
+        database.run("INSERT INTO users (Name,BirthDate,Balance) VALUES (?,?,?)", [this.Name,this.BirthDate,this.Balance],callback);
     }
 }
 
@@ -56,7 +56,7 @@ User.top = function (property,order,limit,callback) {
 }
 
 User.mappingDBtoObject = {
-    Name:'Name',DateBirth:'DateBirth',Balance:'Balance',user_id:'id'
+    Name:'Name',BirthDate:'BirthDate',Balance:'Balance',user_id:'id' , bill_id : 'bill_id'  , register_id : 'register_id' 
 }
 
 module.exports = User;

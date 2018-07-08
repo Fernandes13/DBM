@@ -25,7 +25,7 @@ module.exports = {
         "model": "Product",
         "relation": "1-M",
         "isParent": false,
-        "label": "Product Name"
+        "label": "Name"
       }
       
     ]
