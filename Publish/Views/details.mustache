@@ -12,9 +12,12 @@
                     if(xhr.readyState === 4 && xhr.status === 200) {
                         var control = document.getElementById(controlId);
                         var response = JSON.parse(this.responseText);
+                        console.log(response)
                         if(response.constructor === Array)
                             control.innerHTML = response.map(row => { return row[label] }).join();
+                            //control.innerHTML = response.map();
                         else
+                            //controle.innerHTML = value;
                             control.innerHTML = response[label];
                     }
                 }
