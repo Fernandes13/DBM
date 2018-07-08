@@ -3,9 +3,46 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../../css/site.css">
+
+        <script>
+            {{#hasReferences}}
+            function loadValues(model,values,label,controlId,relatedModel){  
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", `../../../api/${model}/${values}`, true);
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState === 4 && xhr.status === 200) {
+                        var control = document.getElementById(controlId);
+                        var response = JSON.parse(this.responseText);
+
+                        if(response.constructor === Array){
+                            response.map(row => { function(row){
+                                let opt = document.createElement("option");
+                                opt.value = row[id];
+                                opt.innerHTML = row[label];
+                                controlId.appendChild(opt);
+                            } });
+                        }else{
+                            let opt = document.createElement("option");
+                            opt.value = row[id];
+                            opt.innerHTML = response[label];
+                            controlId.appendChild(opt);
+                        }
+                    }
+                }
+                xhr.send();
+            }
+
+            window.onload = function() {
+                {{#references}}
+                loadValues('{{model}}','{{values}}','{{label}}','label{{model}}value');
+                {{/references}}
+            }
+            {{/hasReferences}}
+        </script>
     </head>
     <body>
     {{>menu}}
+
         <div class="div">
             <form>
                 <div class="form-group">
