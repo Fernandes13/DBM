@@ -76,30 +76,6 @@ router.get('/Distributor', function (req, res) {
     });
 });
 
-/*router.get('/Distributor/Details/:id', function (req, res) {
-    Distributor.get(req.params.id,function(row){
-        if(row){
-            res.render('details',{
-                properties: Object.getOwnPropertyNames(row).map(key =>{
-                    return {
-                        name: key,
-                        value: row[key]
-                    };
-                }),
-                models: function() {
-                    return configs.models.map(elem =>{
-                     return {
-                        name: elem.name,
-                        href: elem.href
-                        }
-                    })
-                }
-            });
-
-        }
-    });
-});*/
-
 router.get('/Distributor/Details/:id', function (req, res) {
     Distributor.get(req.params.id, function (row) {
         res.render('details', {
@@ -151,8 +127,7 @@ router.get('/Distributor/Insert', function (req, res) {
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
                     return {
-                        name: key,
-                        value: obj[key]
+                        name: key
                     };
         }),
         models: function() {
@@ -165,6 +140,68 @@ router.get('/Distributor/Insert', function (req, res) {
         }
     });
 });
+
+/*router.get('/Distributor/Insert', function (req, res) {
+	var obj = new Distributor();
+    Distributor.all(function (row) {
+		res.render('form', {
+            title: "Distributor",
+			properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (modelDistributor.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+                });
+                return validProps;
+            },
+            references1M: function () {
+            var MRefs = [];
+                if (modelDistributor.references) {
+                    modelDistributor.references.filter(mod => mod.relation == "1-M").forEach(function (ref) {
+                        console.log("referencia: " + ref);
+                        MRefs.push({
+                            label: ref.label,
+                            model: ref.model,
+                            values: row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return MRefs;
+            },
+			referencesMM: function() {
+				var MMRefs = [];
+				if(modelDistributor.references) {
+					modelDistributor.references.filter(mod => mod.relation == "M-M").forEach(function (ref) {
+						MMRefs.push({
+							label: ref.label,
+							model: ref.model,
+							values: ref.model + '/' + ref.params.id
+						});
+					});
+				}
+				return MMRefs;
+			},
+			get hasReferences() {
+                return this.references1M().length > 0 || this.referencesMM().length > 0;
+            },
+            models: function() {
+                return configs.models.map(elem =>{
+                    return {
+                        name: elem.name,
+                        href: elem.href
+                    }
+                })
+            }
+		});
+    });
+});
+*/
+
 
 router.get('/Distributor/Edit/:id', function (req, res) {
     Distributor.get(req.params.id,function(row){
@@ -250,30 +287,6 @@ router.get('/Bill', function (req, res) {
     });
 });
 
-/*router.get('/Bill/Details/:id', function (req, res) {
-    Bill.get(req.params.id,function(row){
-        if(row){
-            res.render('details',{
-                properties: Object.getOwnPropertyNames(row).map(key =>{
-                    return {
-                        name: key,
-                        value: row[key]
-                    };
-                }),
-                models: function() {
-                    return configs.models.map(elem =>{
-                     return {
-                        name: elem.name,
-                        href: elem.href
-                        }
-                    })
-                }
-            });
-
-        }
-    });
-});*/
-
 router.get('/Bill/Details/:id', function (req, res) {
     Bill.get(req.params.id, function (row) {
         res.render('details', {
@@ -325,8 +338,7 @@ router.get('/Bill/Insert', function (req, res) {
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
                     return {
-                        name: key,
-                        value: obj[key]
+                        name: key
                     };
         }),
         models: function() {
@@ -339,6 +351,68 @@ router.get('/Bill/Insert', function (req, res) {
         }
     });
 });
+
+/*router.get('/Bill/Insert', function (req, res) {
+	var obj = new Bill();
+    Bill.all(function (row) {
+		res.render('form', {
+            title: "Bill",
+			properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (modelBill.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+                });
+                return validProps;
+            },
+            references1M: function () {
+            var MRefs = [];
+                if (modelBill.references) {
+                    modelBill.references.filter(mod => mod.relation == "1-M").forEach(function (ref) {
+                        console.log("referencia: " + ref);
+                        MRefs.push({
+                            label: ref.label,
+                            model: ref.model,
+                            values: row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return MRefs;
+            },
+			referencesMM: function() {
+				var MMRefs = [];
+				if(modelBill.references) {
+					modelBill.references.filter(mod => mod.relation == "M-M").forEach(function (ref) {
+						MMRefs.push({
+							label: ref.label,
+							model: ref.model,
+							values: ref.model + '/' + ref.params.id
+						});
+					});
+				}
+				return MMRefs;
+			},
+			get hasReferences() {
+                return this.references1M().length > 0 || this.referencesMM().length > 0;
+            },
+            models: function() {
+                return configs.models.map(elem =>{
+                    return {
+                        name: elem.name,
+                        href: elem.href
+                    }
+                })
+            }
+		});
+    });
+});
+*/
+
 
 router.get('/Bill/Edit/:id', function (req, res) {
     Bill.get(req.params.id,function(row){
@@ -424,30 +498,6 @@ router.get('/Product', function (req, res) {
     });
 });
 
-/*router.get('/Product/Details/:id', function (req, res) {
-    Product.get(req.params.id,function(row){
-        if(row){
-            res.render('details',{
-                properties: Object.getOwnPropertyNames(row).map(key =>{
-                    return {
-                        name: key,
-                        value: row[key]
-                    };
-                }),
-                models: function() {
-                    return configs.models.map(elem =>{
-                     return {
-                        name: elem.name,
-                        href: elem.href
-                        }
-                    })
-                }
-            });
-
-        }
-    });
-});*/
-
 router.get('/Product/Details/:id', function (req, res) {
     Product.get(req.params.id, function (row) {
         res.render('details', {
@@ -499,8 +549,7 @@ router.get('/Product/Insert', function (req, res) {
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
                     return {
-                        name: key,
-                        value: obj[key]
+                        name: key
                     };
         }),
         models: function() {
@@ -513,6 +562,68 @@ router.get('/Product/Insert', function (req, res) {
         }
     });
 });
+
+/*router.get('/Product/Insert', function (req, res) {
+	var obj = new Product();
+    Product.all(function (row) {
+		res.render('form', {
+            title: "Product",
+			properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (modelProduct.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+                });
+                return validProps;
+            },
+            references1M: function () {
+            var MRefs = [];
+                if (modelProduct.references) {
+                    modelProduct.references.filter(mod => mod.relation == "1-M").forEach(function (ref) {
+                        console.log("referencia: " + ref);
+                        MRefs.push({
+                            label: ref.label,
+                            model: ref.model,
+                            values: row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return MRefs;
+            },
+			referencesMM: function() {
+				var MMRefs = [];
+				if(modelProduct.references) {
+					modelProduct.references.filter(mod => mod.relation == "M-M").forEach(function (ref) {
+						MMRefs.push({
+							label: ref.label,
+							model: ref.model,
+							values: ref.model + '/' + ref.params.id
+						});
+					});
+				}
+				return MMRefs;
+			},
+			get hasReferences() {
+                return this.references1M().length > 0 || this.referencesMM().length > 0;
+            },
+            models: function() {
+                return configs.models.map(elem =>{
+                    return {
+                        name: elem.name,
+                        href: elem.href
+                    }
+                })
+            }
+		});
+    });
+});
+*/
+
 
 router.get('/Product/Edit/:id', function (req, res) {
     Product.get(req.params.id,function(row){
@@ -598,30 +709,6 @@ router.get('/Register', function (req, res) {
     });
 });
 
-/*router.get('/Register/Details/:id', function (req, res) {
-    Register.get(req.params.id,function(row){
-        if(row){
-            res.render('details',{
-                properties: Object.getOwnPropertyNames(row).map(key =>{
-                    return {
-                        name: key,
-                        value: row[key]
-                    };
-                }),
-                models: function() {
-                    return configs.models.map(elem =>{
-                     return {
-                        name: elem.name,
-                        href: elem.href
-                        }
-                    })
-                }
-            });
-
-        }
-    });
-});*/
-
 router.get('/Register/Details/:id', function (req, res) {
     Register.get(req.params.id, function (row) {
         res.render('details', {
@@ -673,8 +760,7 @@ router.get('/Register/Insert', function (req, res) {
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
                     return {
-                        name: key,
-                        value: obj[key]
+                        name: key
                     };
         }),
         models: function() {
@@ -687,6 +773,68 @@ router.get('/Register/Insert', function (req, res) {
         }
     });
 });
+
+/*router.get('/Register/Insert', function (req, res) {
+	var obj = new Register();
+    Register.all(function (row) {
+		res.render('form', {
+            title: "Register",
+			properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (modelRegister.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+                });
+                return validProps;
+            },
+            references1M: function () {
+            var MRefs = [];
+                if (modelRegister.references) {
+                    modelRegister.references.filter(mod => mod.relation == "1-M").forEach(function (ref) {
+                        console.log("referencia: " + ref);
+                        MRefs.push({
+                            label: ref.label,
+                            model: ref.model,
+                            values: row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return MRefs;
+            },
+			referencesMM: function() {
+				var MMRefs = [];
+				if(modelRegister.references) {
+					modelRegister.references.filter(mod => mod.relation == "M-M").forEach(function (ref) {
+						MMRefs.push({
+							label: ref.label,
+							model: ref.model,
+							values: ref.model + '/' + ref.params.id
+						});
+					});
+				}
+				return MMRefs;
+			},
+			get hasReferences() {
+                return this.references1M().length > 0 || this.referencesMM().length > 0;
+            },
+            models: function() {
+                return configs.models.map(elem =>{
+                    return {
+                        name: elem.name,
+                        href: elem.href
+                    }
+                })
+            }
+		});
+    });
+});
+*/
+
 
 router.get('/Register/Edit/:id', function (req, res) {
     Register.get(req.params.id,function(row){
@@ -772,30 +920,6 @@ router.get('/Sale', function (req, res) {
     });
 });
 
-/*router.get('/Sale/Details/:id', function (req, res) {
-    Sale.get(req.params.id,function(row){
-        if(row){
-            res.render('details',{
-                properties: Object.getOwnPropertyNames(row).map(key =>{
-                    return {
-                        name: key,
-                        value: row[key]
-                    };
-                }),
-                models: function() {
-                    return configs.models.map(elem =>{
-                     return {
-                        name: elem.name,
-                        href: elem.href
-                        }
-                    })
-                }
-            });
-
-        }
-    });
-});*/
-
 router.get('/Sale/Details/:id', function (req, res) {
     Sale.get(req.params.id, function (row) {
         res.render('details', {
@@ -847,8 +971,7 @@ router.get('/Sale/Insert', function (req, res) {
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
                     return {
-                        name: key,
-                        value: obj[key]
+                        name: key
                     };
         }),
         models: function() {
@@ -861,6 +984,68 @@ router.get('/Sale/Insert', function (req, res) {
         }
     });
 });
+
+/*router.get('/Sale/Insert', function (req, res) {
+	var obj = new Sale();
+    Sale.all(function (row) {
+		res.render('form', {
+            title: "Sale",
+			properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (modelSale.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+                });
+                return validProps;
+            },
+            references1M: function () {
+            var MRefs = [];
+                if (modelSale.references) {
+                    modelSale.references.filter(mod => mod.relation == "1-M").forEach(function (ref) {
+                        console.log("referencia: " + ref);
+                        MRefs.push({
+                            label: ref.label,
+                            model: ref.model,
+                            values: row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return MRefs;
+            },
+			referencesMM: function() {
+				var MMRefs = [];
+				if(modelSale.references) {
+					modelSale.references.filter(mod => mod.relation == "M-M").forEach(function (ref) {
+						MMRefs.push({
+							label: ref.label,
+							model: ref.model,
+							values: ref.model + '/' + ref.params.id
+						});
+					});
+				}
+				return MMRefs;
+			},
+			get hasReferences() {
+                return this.references1M().length > 0 || this.referencesMM().length > 0;
+            },
+            models: function() {
+                return configs.models.map(elem =>{
+                    return {
+                        name: elem.name,
+                        href: elem.href
+                    }
+                })
+            }
+		});
+    });
+});
+*/
+
 
 router.get('/Sale/Edit/:id', function (req, res) {
     Sale.get(req.params.id,function(row){
@@ -946,30 +1131,6 @@ router.get('/User', function (req, res) {
     });
 });
 
-/*router.get('/User/Details/:id', function (req, res) {
-    User.get(req.params.id,function(row){
-        if(row){
-            res.render('details',{
-                properties: Object.getOwnPropertyNames(row).map(key =>{
-                    return {
-                        name: key,
-                        value: row[key]
-                    };
-                }),
-                models: function() {
-                    return configs.models.map(elem =>{
-                     return {
-                        name: elem.name,
-                        href: elem.href
-                        }
-                    })
-                }
-            });
-
-        }
-    });
-});*/
-
 router.get('/User/Details/:id', function (req, res) {
     User.get(req.params.id, function (row) {
         res.render('details', {
@@ -1021,8 +1182,7 @@ router.get('/User/Insert', function (req, res) {
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
                     return {
-                        name: key,
-                        value: obj[key]
+                        name: key
                     };
         }),
         models: function() {
@@ -1035,6 +1195,68 @@ router.get('/User/Insert', function (req, res) {
         }
     });
 });
+
+/*router.get('/User/Insert', function (req, res) {
+	var obj = new User();
+    User.all(function (row) {
+		res.render('form', {
+            title: "User",
+			properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (modelUser.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+                });
+                return validProps;
+            },
+            references1M: function () {
+            var MRefs = [];
+                if (modelUser.references) {
+                    modelUser.references.filter(mod => mod.relation == "1-M").forEach(function (ref) {
+                        console.log("referencia: " + ref);
+                        MRefs.push({
+                            label: ref.label,
+                            model: ref.model,
+                            values: row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return MRefs;
+            },
+			referencesMM: function() {
+				var MMRefs = [];
+				if(modelUser.references) {
+					modelUser.references.filter(mod => mod.relation == "M-M").forEach(function (ref) {
+						MMRefs.push({
+							label: ref.label,
+							model: ref.model,
+							values: ref.model + '/' + ref.params.id
+						});
+					});
+				}
+				return MMRefs;
+			},
+			get hasReferences() {
+                return this.references1M().length > 0 || this.referencesMM().length > 0;
+            },
+            models: function() {
+                return configs.models.map(elem =>{
+                    return {
+                        name: elem.name,
+                        href: elem.href
+                    }
+                })
+            }
+		});
+    });
+});
+*/
+
 
 router.get('/User/Edit/:id', function (req, res) {
     User.get(req.params.id,function(row){

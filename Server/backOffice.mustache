@@ -69,30 +69,6 @@ router.get('/{{title}}', function (req, res) {
     });
 });
 
-/*router.get('/{{title}}/Details/:id', function (req, res) {
-    {{title}}.get(req.params.id,function(row){
-        if(row){
-            res.render('details',{
-                properties: Object.getOwnPropertyNames(row).map(key =>{
-                    return {
-                        name: key,
-                        value: row[key]
-                    };
-                }),
-                models: function() {
-                    return configs.models.map(elem =>{
-                     return {
-                        name: elem.name,
-                        href: elem.href
-                        }
-                    })
-                }
-            });
-
-        }
-    });
-});*/
-
 router.get('/{{title}}/Details/:id', function (req, res) {
     {{title}}.get(req.params.id, function (row) {
         res.render('details', {
@@ -144,8 +120,7 @@ router.get('/{{title}}/Insert', function (req, res) {
     res.render('form',{
         properties: Object.getOwnPropertyNames(obj).map(key =>{
                     return {
-                        name: key,
-                        value: obj[key]
+                        name: key
                     };
         }),
         models: function() {
@@ -158,6 +133,68 @@ router.get('/{{title}}/Insert', function (req, res) {
         }
     });
 });
+
+/*router.get('/{{title}}/Insert', function (req, res) {
+	var obj = new {{title}}();
+    {{title}}.all(function (row) {
+		res.render('form', {
+            title: "{{title}}",
+			properties: function () {
+                var allProps = Object.getOwnPropertyNames(row);
+                var validProps = [];
+                allProps.forEach(function (prop) {
+                    if (model{{title}}.properties.hasOwnProperty(prop)) {
+                        validProps.push({
+                            name: prop,
+                            value: row[prop]
+                        });
+                    }
+                });
+                return validProps;
+            },
+            references1M: function () {
+            var MRefs = [];
+                if (model{{title}}.references) {
+                    model{{title}}.references.filter(mod => mod.relation == "1-M").forEach(function (ref) {
+                        console.log("referencia: " + ref);
+                        MRefs.push({
+                            label: ref.label,
+                            model: ref.model,
+                            values: row[(ref.model + "_id").toLowerCase()]
+                        });
+                    });
+                }
+                return MRefs;
+            },
+			referencesMM: function() {
+				var MMRefs = [];
+				if(model{{title}}.references) {
+					model{{title}}.references.filter(mod => mod.relation == "M-M").forEach(function (ref) {
+						MMRefs.push({
+							label: ref.label,
+							model: ref.model,
+							values: ref.model + '/' + ref.params.id
+						});
+					});
+				}
+				return MMRefs;
+			},
+			get hasReferences() {
+                return this.references1M().length > 0 || this.referencesMM().length > 0;
+            },
+            models: function() {
+                return configs.models.map(elem =>{
+                    return {
+                        name: elem.name,
+                        href: elem.href
+                    }
+                })
+            }
+		});
+    });
+});
+*/
+
 
 router.get('/{{title}}/Edit/:id', function (req, res) {
     {{title}}.get(req.params.id,function(row){
