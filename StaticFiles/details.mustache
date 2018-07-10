@@ -33,6 +33,8 @@
     <body>
     {{>menu}}
     {{#properties}}
+    <div class="position">
+    {{#properties}}
     <div class="form-group">
         <label>{{name}}:</label>
         <label>{{value}}</label>
@@ -42,5 +44,6 @@
         <label>{{model}}:</label>
         <label id="label{{model}}value"></label>
     {{/references}}
+    </div>
     </body>
 </html>

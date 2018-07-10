@@ -1,13 +1,13 @@
 .jumbotron {
     color: #fff !important;
-    background-color: #009dba !important;
+    background-color: #3c494b !important;
     padding-top: 2% !important; 
     padding-bottom: 2% !important;
   }
-
+    
   .color{
+    background-color:#3c494b !important;    
     color: #fff !important;
-    background-color: #009dba !important;
   }
 
   .position{
@@ -18,7 +18,7 @@
     margin-top: 5% !important;
     margin-left: 40% !important;
   }
-  
+
   .divTable {
     margin: 15px 100px !important;
     display: block !important;
@@ -38,12 +38,12 @@
   }
   
   .logo-small {
-    color: #009dba;
+    color: #3c494b;
     font-size: 50px;
   }
   
   .logo {
-    color: #009dba;
+    color: #3c494b;
     font-size: 200px;
   }
   
@@ -62,15 +62,15 @@
   .carousel-control.right,
   .carousel-control.left {
     background-image: none;
-    color: #009dba;
+    color: #3c494b;
   }
   
   .carousel-indicators li {
-    border-color: #009dba;
+    border-color: #3c494b;
   }
   
   .carousel-indicators li.active {
-    background-color: #009dba;
+    background-color: #3c494b;
   }
   
   .item h4 {
@@ -86,7 +86,7 @@
   }
   
   .panel {
-    border: 1px solid #009dba;
+    border: 1px solid #3c494b;
     border-radius: 0 !important;
     transition: box-shadow 0.5s;
   }
@@ -96,14 +96,14 @@
   }
   
   .panel-footer .btn:hover {
-    border: 1px solid #009dba;
+    border: 1px solid #3c494b;
     background-color: #fff !important;
-    color: #009dba;
+    color: #3c494b;
   }
   
   .panel-heading {
     color: #fff !important;
-    background-color: #009dba !important;
+    background-color: #3c494b !important;
     padding: 25px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 0px;
@@ -127,13 +127,13 @@
   
   .panel-footer .btn {
     margin: 15px 0;
-    background-color: #009dba;
+    background-color: #3c494b;
     color: #fff;
   }
   
   .navbar {
     margin-bottom: 0 !important;
-    background-color: #009dba !important;
+    background-color: #3c494b !important;
     z-index: 999 !important;
     border: 0 !important;
     font-size: 15px !important;
@@ -154,7 +154,7 @@
   .navbar-nav li a:hover,
   .navbar-nav li.active a,
   .navbar-brand:hover {
-    color: #009dba !important;
+    color: #3c494b !important;
     background-color: #fff !important;
     cursor: pointer !important;
   }
@@ -173,7 +173,7 @@
   }
   
   button {
-    background-color: #009dba !important;
+    background-color: #3c494b !important;
     color: white !important;
     margin-right: 5% !important;
     padding: 2%;
@@ -186,7 +186,7 @@
   
   button:hover {
     background-color: white !important;
-    color: #009dba !important;
+    color: #3c494b !important;
   }
   
   input[type="text"],
