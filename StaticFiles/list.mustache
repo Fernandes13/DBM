@@ -21,10 +21,11 @@
 </head>
 <body>
 {{>menu}}
+<div class="position">
     <table class="table table-striped">
         <tr>
             {{#columns}}
-            <th>{{name}}</th>
+            <th class="color">{{name}}</th>
             {{/columns}}
         </tr>
         {{#rows}}
@@ -51,6 +52,7 @@
         {{/rows}}
     </table>
     <input class="color btn" type="button" value="Insert" onclick="javascript:window.location.replace('./{{title}}/Insert')" />
+</div>
 </body>
 
 </html>
