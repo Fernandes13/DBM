@@ -63,7 +63,7 @@ function generateFrontOffice(){
         property: configs.frontOffice.property,
         order: configs.frontOffice.order,
         limit: configs.frontOffice.limit,
-        port: configs.port
+        title: configs.frontOffice.title
     }
 
     var template = fs.readFileSync("./Server/frontOffice.mustache").toString();

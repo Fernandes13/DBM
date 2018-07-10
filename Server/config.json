@@ -40,7 +40,8 @@
         "model": "Product",
         "property": "Price",
         "order": "DESC",
-        "limit": 3
+        "limit": 3,
+        "title": "Top 3 Products" 
     },
     "staticFiles": [
         {
